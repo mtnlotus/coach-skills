@@ -7,7 +7,7 @@ Person-Centered Outcomes (PCO) Implementation Guide.
 
 When the user invokes this skill:
 
-1. Confirm that `php-data.json` exists. If not, tell the user to run
+1. Confirm that `output/php-data.json` exists. If not, tell the user to run
    `/parse-notes` first.
 
 2. Ask for (or infer from context) the session date in YYYY-MM-DD format.
@@ -15,8 +15,9 @@ When the user invokes this skill:
 
 3. Run the generator:
    ```
-   python3 src/generate_fhir.py php-data.json --date <YYYY-MM-DD> -o fhir-bundle-output.json
+   python3 src/generate_fhir.py output/php-data.json --date <YYYY-MM-DD> -o output/fhir-bundle-output.json
    ```
+   The `output/` directory is created automatically.
 
 4. Read the output file and summarise the bundle:
    - Resources included (list by resourceType and fullUrl)

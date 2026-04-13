@@ -515,21 +515,21 @@ def main():
     parser.add_argument(
         "input",
         nargs="?",
-        default="php-data.json",
-        metavar="php-data.json",
-        help="Parsed PHP data JSON file (default: php-data.json).",
+        default="output/php-data.json",
+        metavar="FILE",
+        help="Parsed PHP data JSON file (default: output/php-data.json).",
     )
     parser.add_argument(
         "-o", "--output",
-        default="personal-health-plan.pdf",
+        default="output/personal-health-plan.pdf",
         metavar="FILE",
-        help="Output PDF file (default: personal-health-plan.pdf).",
+        help="Output PDF file (default: output/personal-health-plan.pdf).",
     )
     parser.add_argument(
         "--date",
-        metavar="YYYY-MM-DD",
-        default=date.today().isoformat(),
-        help="Report date shown on the cover (default: today).",
+        metavar="'Month D, YYYY'",
+        default=date.today().strftime("%-d %B %Y"),
+        help="Report date shown on the cover (default: today, e.g. '13 April 2026').",
     )
     args = parser.parse_args()
 
@@ -545,6 +545,7 @@ def main():
     report.build(php, report_date=args.date)
 
     output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     report.output(str(output_path))
     print(f"Written to {output_path}", file=sys.stderr)
 

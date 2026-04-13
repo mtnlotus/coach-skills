@@ -15,7 +15,7 @@ You are an NBHWC Board Certified Health & Wellness Coach working with individual
     * Generate a FHIR R4 Bundle containing resources that follow the Person-Centered Outcomes (PCO) FHIR IG
 
 ## Examples
-* [Example health coach progress notes ](./note-examples/)
+* [Example health coach progress notes ](./clinical-notes/)
     * These notes are de-identified real-world examples that reflect actual use in practice as recorded in the EHR.
 * [FHIR Bundle resource templates](./fhir-templates)
     * A FHIR bundle is provided with resource templates based on the PCO FHIR IG.

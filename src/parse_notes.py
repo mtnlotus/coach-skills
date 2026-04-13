@@ -4,7 +4,7 @@ Parse health coaching progress notes (DOCX) into a PHP data JSON file.
 
 Usage:
     python3 parse_notes.py <note1.docx> [note2.docx ...] [-o php-data.json]
-    python3 parse_notes.py note-examples/ [-o php-data.json]
+    python3 parse_notes.py clinical-notes/ [-o php-data.json]
 """
 
 import argparse
@@ -558,9 +558,9 @@ def main() -> None:
     parser.add_argument(
         "-o",
         "--output",
-        default="php-data.json",
+        default="output/php-data.json",
         metavar="FILE",
-        help="Output JSON file (default: php-data.json).",
+        help="Output JSON file (default: output/php-data.json).",
     )
     args = parser.parse_args()
 
@@ -598,6 +598,7 @@ def main() -> None:
     # Merge and emit
     php = merge_notes(parsed)
     output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(php.model_dump_json(indent=2, exclude_none=True))
     print(f"Written to {output}", file=sys.stderr)
 

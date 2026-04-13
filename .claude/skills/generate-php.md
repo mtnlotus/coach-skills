@@ -7,7 +7,7 @@ using VA Whole Health visual branding.
 
 When the user invokes this skill:
 
-1. Confirm that `php-data.json` exists. If not, tell the user to run
+1. Confirm that `output/php-data.json` exists. If not, tell the user to run
    `/parse-notes` first.
 
 2. Ask for (or infer from context):
@@ -17,8 +17,9 @@ When the user invokes this skill:
 
 3. Run the generator:
    ```
-   python3 src/generate_pdf.py php-data.json --date "<date>" -o <output.pdf>
+   python3 src/generate_pdf.py output/php-data.json --date "<date>" -o output/personal-health-plan.pdf
    ```
+   The `output/` directory is created automatically.
 
 4. Confirm the file was written and report its size.
 

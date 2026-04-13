@@ -53,7 +53,7 @@ built-in Helvetica.
 Open Claude Code in this repository and invoke the skills as slash commands:
 
 ```
-/parse-notes                        # parse note-examples/ → php-data.json
+/parse-notes                        # parse clinical-notes/ → php-data.json
 /parse-notes path/to/notes/         # parse a custom directory
 /generate-fhir                      # generate FHIR bundle from php-data.json
 /generate-php                       # generate patient PDF from php-data.json
@@ -62,15 +62,18 @@ Open Claude Code in this repository and invoke the skills as slash commands:
 ### Via command line
 
 ```bash
-# 1. Parse progress notes
-python3 src/parse_notes.py note-examples/ -o php-data.json
+# 1. Parse progress notes  →  output/php-data.json
+python3 src/parse_notes.py clinical-notes/
 
-# 2a. Generate FHIR R4 Bundle
-python3 src/generate_fhir.py php-data.json --date 2026-03-27 -o fhir-bundle-output.json
+# 2a. Generate FHIR R4 Bundle  →  output/fhir-bundle-output.json
+python3 src/generate_fhir.py --date 2026-03-27
 
-# 2b. Generate patient-facing PDF
-python3 src/generate_pdf.py php-data.json --date "March 27, 2026" -o personal-health-plan.pdf
+# 2b. Generate patient-facing PDF  →  output/personal-health-plan.pdf
+python3 src/generate_pdf.py --date "27 March 2026"
 ```
+
+All scripts write to `output/` by default and create the directory automatically.
+Override any output path with `-o <file>`.
 
 ---
 
@@ -175,7 +178,7 @@ coach-skills/
 │       ├── parse-notes.md      # /parse-notes skill definition
 │       ├── generate-fhir.md    # /generate-fhir skill definition
 │       └── generate-php.md     # /generate-php skill definition
-├── note-examples/              # De-identified example DOCX progress notes
+├── clinical-notes/             # De-identified example DOCX progress notes
 │   ├── Health and Wellness Coaching Initial Visit.docx
 │   ├── Health and Wellness Coaching Middle Visit.docx
 │   └── Health and Wellness Coaching Final Visit.docx

@@ -8,14 +8,14 @@ structured `php-data.json` file for use by the FHIR and PDF generators.
 When the user invokes this skill:
 
 1. Identify the input: the user may supply a path to a directory of DOCX files,
-   one or more individual DOCX file paths, or nothing (default: `note-examples/`).
+   one or more individual DOCX file paths, or nothing (default: `clinical-notes/`).
 
-2. Run the parser from the `src/` directory context:
+2. Run the parser:
    ```
-   python3 src/parse_notes.py <input> -o php-data.json
+   python3 src/parse_notes.py <input> -o output/php-data.json
    ```
-   Replace `<input>` with the path(s) the user provided, or `note-examples/` if
-   none were given.
+   Replace `<input>` with the path(s) the user provided, or `clinical-notes/` if
+   none were given. The `output/` directory is created automatically.
 
 3. After the script completes, read `php-data.json` and summarise what was
    extracted:
@@ -34,7 +34,7 @@ When the user invokes this skill:
   and Wellness Coaching visit template but may vary in wording.
 - The parser applies a most-recent-wins merge: WBS scores and goal ruler values
   from later sessions override earlier ones.
-- Output is written to `php-data.json` in the current working directory unless
-  `-o` specifies otherwise.
+- Output is written to `output/php-data.json` by default; the `output/`
+  directory is created automatically. Override with `-o <path>`.
 - The intermediate JSON is the contract between all three skills; do not edit it
   manually unless correcting a clear parsing error.

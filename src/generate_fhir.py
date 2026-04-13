@@ -312,16 +312,16 @@ def main() -> None:
     parser.add_argument(
         "input",
         nargs="?",
-        default="php-data.json",
-        metavar="php-data.json",
-        help="Parsed PHP data JSON file (default: php-data.json).",
+        default="output/php-data.json",
+        metavar="FILE",
+        help="Parsed PHP data JSON file (default: output/php-data.json).",
     )
     parser.add_argument(
         "-o",
         "--output",
-        default="fhir-bundle-output.json",
+        default="output/fhir-bundle-output.json",
         metavar="FILE",
-        help="Output FHIR bundle JSON file (default: fhir-bundle-output.json).",
+        help="Output FHIR bundle JSON file (default: output/fhir-bundle-output.json).",
     )
     parser.add_argument(
         "--date",
@@ -343,6 +343,7 @@ def main() -> None:
     bundle = build_bundle(php, session_date=session_date)
 
     output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(bundle, indent="\t"))
     print(f"Written to {output_path}", file=sys.stderr)
 
