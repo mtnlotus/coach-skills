@@ -1,0 +1,192 @@
+{
+	"resourceType": "Bundle",
+	"type": "collection",
+	"entry": [
+		{
+			"fullUrl": "resource:0",
+			"resource": {
+				"resourceType": "Patient",
+				"name": [
+					{
+						"family": "Anywoman",
+						"given": [
+							"Sandra"
+						]
+					}
+				],
+				"birthDate": "1989-10-07"
+			}
+		},
+		{
+			"fullUrl": "resource:1",
+			"resource": {
+				"resourceType": "Observation",
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "247751003"
+						}
+					]
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"effectiveDateTime": "2025-09-15T10:35:00Z",
+				"valueString": "Veteran continues to describe how what matters most to them is to be able to stay active and enjoy hobbies and life. Wants to try new things and travel and have energy when with family and friends."
+			}
+		},
+		{
+			"fullUrl": "resource:2",
+			"resource": {
+				"resourceType": "Observation",
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+							"code": "well-being-signs"
+						}
+					]
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"effectiveDateTime": "2026-03-27T11:35:00Z",
+				"component": [
+					{
+						"code": {
+							"coding": [
+								{
+									"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+									"code": "satisfied"
+								}
+							]
+						},
+						"valueInteger": 6
+					},
+					{
+						"code": {
+							"coding": [
+								{
+									"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+									"code": "involved"
+								}
+							]
+						},
+						"valueInteger": 7
+					},
+					{
+						"code": {
+							"coding": [
+								{
+									"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+									"code": "functioning"
+								}
+							]
+						},
+						"valueInteger": 6
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "resource:3",
+			"resource": {
+				"resourceType": "Goal",
+				"meta": {
+					"profile": [
+						"http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile"
+					]
+				},
+				"lifecycleStatus": "active",
+				"description": {
+					"text": "In 6 months, Veteran will like to have an established mindfulness practice where they practice mindfulness daily for 3-5 minutes starting in the morning or right before bed, using their app: Inside Timer"
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"startDate": "2025-10-17"
+			}
+		},
+		{
+			"fullUrl": "resource:4",
+			"resource": {
+				"resourceType": "Observation",
+				"meta": {
+					"profile": [
+						"http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+					]
+				},
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"code": "readiness-assessment",
+							"display": "Readiness assessment",
+							"system": "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+						}
+					]
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"effectiveDateTime": "2025-10-17T11:35:00Z",
+				"component": [
+					{
+						"code": {
+							"coding": [
+								{
+									"code": "importance",
+									"display": "Importance of change",
+									"system": "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+								}
+							]
+						},
+						"valueInteger": 8
+					},
+					{
+						"code": {
+							"coding": [
+								{
+									"code": "confidence",
+									"display": "Confidence to change",
+									"system": "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+								}
+							]
+						},
+						"valueInteger": 8
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "resource:5",
+			"resource": {
+				"authoredOn": "2026-02-15T00:00:00-04:00",
+				"code": {
+					"text": "Veteran is going to start small at first by the next time we meet,they are going to complete two days of mindfulness exercises, Friday and Sunday morning during first cup of coffee. Those are the two days that don't have a lot going on. They will set an alarm to help them remember and start with 1 minute exercises"
+				},
+				"intent": "order",
+				"occurrencePeriod": {
+					"start": "2026-02-15T00:00:00-04:00",
+					"end": "2026-03-15T01:30:00-04:00"
+				},
+				"resourceType": "ServiceRequest",
+				"status": "active",
+				"subject": {
+					"reference": "resource:0"
+				},
+				"extension": [
+					{
+						"url": "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+						"valueReference": {
+							"reference": "resource:3"
+						}
+					}
+				]
+			}
+		}
+	]
+}

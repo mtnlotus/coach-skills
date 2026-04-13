@@ -1,0 +1,17 @@
+# Miscellaneous development notes related to use of Claude
+dev-notes/
+
+# Generated artifacts
+php-data.json
+fhir-bundle-output.json
+personal-health-plan.pdf
+
+# Python
+src/__pycache__/
+*.pyc
+
+# Unused template directory
+templates/
+
+# Word lock files
+note-examples/~$*
