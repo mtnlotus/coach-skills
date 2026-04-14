@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+/**
+ * Parse health coaching DOCX progress notes into PHP data JSON.
+ *
+ * Usage:
+ *   pnpm parse-notes <note1.docx> [note2.docx ...] [-o output/php-data.json]
+ *   pnpm parse-notes clinical-notes/ [-o output/php-data.json]
+ */
+
+import fs from "node:fs";
+import path from "node:path";
+import { program } from "commander";
+import { collectDocxFiles, loadParagraphs } from "./lib/docx-reader.js";
+import { NoteParser } from "./lib/note-parser.js";
+import { mergeNotes } from "./lib/note-merger.js";
+import { PhpDataSchema } from "./models.js";
+
+program
+  .name("parse-notes")
+  .description("Parse health coaching DOCX progress notes into PHP data JSON.")
+  .argument("<paths...>", "DOCX files or directory containing them")
+  .option("-o, --output <file>", "output JSON file", "output/php-data.json")
+  .action((paths: string[], opts: { output: string }) => {
+    const docxFiles = collectDocxFiles(paths);
+
+    if (docxFiles.length === 0) {
+      console.error("Error: no DOCX files found.");
+      process.exit(1);
+    }
+
+    const parsed = [];
+    for (const f of docxFiles) {
+      const name = path.basename(f);
+      process.stderr.write(`Parsing ${name}…\n`);
+      try {
+        const paras = loadParagraphs(f);
+        const parser = new NoteParser(paras, name);
+        parsed.push(parser.parse());
+      } catch (err) {
+        console.error(`  Warning: failed to parse ${name}: ${err}`);
+      }
+    }
+
+    if (parsed.length === 0) {
+      console.error("Error: no notes could be parsed.");
+      process.exit(1);
+    }
+
+    const php = mergeNotes(parsed);
+    // Validate against schema (strips undefined fields, applies defaults)
+    const validated = PhpDataSchema.parse(php);
+
+    const outPath = opts.output;
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, JSON.stringify(validated, null, 2));
+    process.stderr.write(`Written to ${outPath}\n`);
+  });
+
+program.parse();

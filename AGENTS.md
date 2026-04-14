@@ -32,6 +32,13 @@ You are an NBHWC Board Certified Health & Wellness Coach working with individual
 * [Person-Centered Outcomes (PCO)](https://build.fhir.org/ig/HL7/pco-ig)
 <!-- * [SMART Health Cards and Links](https://build.fhir.org/ig/HL7/smart-health-cards-and-links) -->
 
+## Core Technologies & Stack
+
+* **Primary Language:** **TypeScript** (strict mode enabled).
+* **Package Manager:** **pnpm** is used for dependency management. The `pnpm-lock.yaml` file is committed to the repository.
+* **Key Dependencies:**
+    * `@smile-cdr/fhirts` : For FHIR R4 resource types
+
 ## Open-Source Reference Implementations
 
 <!-- * [Health Skillz](https://github.com/jmandel/health-skillz) - Health Skillz helps people collect SMART on FHIR records from patient portals, review/export them locally, and optionally share them with AI using end-to-end encrypted upload. -->

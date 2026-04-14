@@ -15,7 +15,7 @@ When the user invokes this skill:
 
 3. Run the generator:
    ```
-   python3 src/generate_fhir.py output/php-data.json --date <YYYY-MM-DD> -o output/fhir-bundle-output.json
+   pnpm generate-fhir output/php-data.json --date <YYYY-MM-DD> -o output/fhir-bundle-output.json
    ```
    The `output/` directory is created automatically.
 

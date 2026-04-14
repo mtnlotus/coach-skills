@@ -1,0 +1,27 @@
+{
+  "name": "coach-skills",
+  "version": "1.0.0",
+  "description": "AI-assisted skills for Health & Wellness Coaches to generate a Personal Health Plan",
+  "type": "module",
+  "scripts": {
+    "parse-notes": "tsx src/parse-notes.ts",
+    "generate-fhir": "tsx src/generate-fhir.ts",
+    "generate-pdf": "tsx src/generate-pdf.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@smile-cdr/fhirts": "^2.3.0",
+    "commander": "^14.0.0",
+    "fast-xml-parser": "^5.0.0",
+    "pdfkit": "^0.15.2",
+    "pizzip": "^3.2.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pdfkit": "^0.13.9",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.0"
+  }
+}

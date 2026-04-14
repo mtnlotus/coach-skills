@@ -12,7 +12,7 @@ When the user invokes this skill:
 
 2. Run the parser:
    ```
-   python3 src/parse_notes.py <input> -o output/php-data.json
+   pnpm parse-notes <input> -o output/php-data.json
    ```
    Replace `<input>` with the path(s) the user provided, or `clinical-notes/` if
    none were given. The `output/` directory is created automatically.

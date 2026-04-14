@@ -8,6 +8,10 @@ output/
 src/__pycache__/
 *.pyc
 
+# Node.js / TypeScript
+node_modules/
+dist/
+
 # Unused template directory
 templates/
 
