@@ -8,7 +8,7 @@ from clinical progress notes recorded in the EHR.
 
 ## Overview
 
-The pipeline has three steps, each implemented as a standalone Python script
+The pipeline has three steps, each implemented as a standalone TypeScript script
 and as an invocable Claude Code skill:
 
 ```
@@ -26,23 +26,23 @@ DOCX progress notes
 
 ## Prerequisites
 
-**Python 3.10+** with the following packages:
+**Node.js 20+** and **pnpm**:
 
 ```bash
-pip install -r requirements.txt
+pnpm install
 ```
 
 | Package | Purpose |
 |---|---|
-| `python-docx` | Parse DOCX progress notes |
-| `pydantic` | Validate intermediate JSON schema |
-| `fpdf2` | Generate PDF |
-| `jinja2` | Templating (future use) |
+| `pizzip` + `fast-xml-parser` | Parse DOCX progress notes |
+| `zod` | Validate intermediate JSON schema |
+| `pdfkit` | Generate PDF |
+| `@smile-cdr/fhirts` | FHIR R4 types |
+| `commander` | CLI argument parsing |
 
 **macOS font note:** The PDF generator uses Arial from
-`/System/Library/Fonts/Supplemental/`. On other platforms, update the
-`FONTS` paths in `src/generate_pdf.py`, or the generator falls back to
-built-in Helvetica.
+`/System/Library/Fonts/Supplemental/`. On other platforms the generator
+falls back to built-in Helvetica automatically.
 
 ---
 
@@ -63,13 +63,13 @@ Open Claude Code in this repository and invoke the skills as slash commands:
 
 ```bash
 # 1. Parse progress notes  →  output/php-data.json
-python3 src/parse_notes.py clinical-notes/
+pnpm parse-notes clinical-notes/
 
 # 2a. Generate FHIR R4 Bundle  →  output/fhir-bundle-output.json
-python3 src/generate_fhir.py --date 2026-03-27
+pnpm generate-fhir --date 2026-03-27
 
 # 2b. Generate patient-facing PDF  →  output/personal-health-plan.pdf
-python3 src/generate_pdf.py --date "27 March 2026"
+pnpm generate-pdf --date "27 March 2026"
 ```
 
 All scripts write to `output/` by default and create the directory automatically.
@@ -167,12 +167,20 @@ in VA Whole Health visual style.
 coach-skills/
 ├── AGENTS.md                   # AI model instructions
 ├── SKILLS.md                   # This file
-├── requirements.txt
+├── package.json
+├── pnpm-lock.yaml
+├── tsconfig.json
 ├── src/
-│   ├── models.py               # Pydantic v2 intermediate schema
-│   ├── parse_notes.py          # DOCX → php-data.json
-│   ├── generate_fhir.py        # php-data.json → FHIR R4 Bundle
-│   └── generate_pdf.py         # php-data.json → patient PDF
+│   ├── models.ts               # Zod schemas + TypeScript types
+│   ├── parse-notes.ts          # CLI: DOCX → php-data.json
+│   ├── generate-fhir.ts        # CLI: php-data.json → FHIR R4 Bundle
+│   ├── generate-pdf.ts         # CLI: php-data.json → patient PDF
+│   └── lib/
+│       ├── docx-reader.ts      # DOCX ZIP → paragraph text[]
+│       ├── note-parser.ts      # NoteParser class
+│       ├── note-merger.ts      # mergeNotes() — most-recent-wins merge
+│       ├── fhir-builder.ts     # buildBundle() and resource builders
+│       └── pdf-report.ts       # PHPReport class (VA Whole Health style)
 ├── .claude/
 │   └── skills/
 │       ├── parse-notes.md      # /parse-notes skill definition

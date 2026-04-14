@@ -17,7 +17,7 @@ When the user invokes this skill:
 
 3. Run the generator:
    ```
-   python3 src/generate_pdf.py output/php-data.json --date "<date>" -o output/personal-health-plan.pdf
+   pnpm generate-pdf output/php-data.json --date "<date>" -o output/personal-health-plan.pdf
    ```
    The `output/` directory is created automatically.
 
