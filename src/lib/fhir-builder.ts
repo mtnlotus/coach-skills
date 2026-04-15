@@ -132,11 +132,14 @@ function buildWhatMattersObs(
   patientIdx: number,
   obsDate: string | undefined,
 ): IObservation {
-  let text = php.what_matters_most;
-  if (!text && php.map) {
-    const parts = [php.map.mission, php.map.aspiration, php.map.purpose].filter(Boolean);
-    text = parts.join(" ").trim() || undefined;
+  const parts: string[] = [];
+  if (php.map) {
+    if (php.map.mission) parts.push(`Mission: ${php.map.mission}`);
+    if (php.map.aspiration) parts.push(`Aspiration: ${php.map.aspiration}`);
+    if (php.map.purpose) parts.push(`Purpose: ${php.map.purpose}`);
   }
+  if (php.what_matters_most) parts.push(php.what_matters_most);
+  const text = parts.join(" ").trim() || undefined;
 
   const resource: IObservation = {
     resourceType: "Observation",

@@ -109,8 +109,7 @@ export class PHPReport {
 
     this.doc.addPage();
     this._renderPageHeader(php, reportDate);
-    this._renderWhy(php);
-    this._renderWhatMatters(php);
+    this._renderMap(php);
     this._renderWbs(php);
     this._renderGoals(php);
     this._renderStrengthsValues(php);
@@ -397,50 +396,51 @@ export class PHPReport {
     this.setY(barH + mm(4));
   }
 
-  private _renderWhy(php: PhpData): void {
-    if (!php.map) return;
-    const { mission, aspiration, purpose } = php.map;
-    if (!mission && !aspiration && !purpose) return;
+  private _renderMap(php: PhpData): void {
+    const hasMap = php.map && (php.map.mission || php.map.aspiration || php.map.purpose);
+    const hasNarrative = !!php.what_matters_most;
+    if (!hasMap && !hasNarrative) return;
 
-    this._sectionHeader("My Why  —  Mission · Aspiration · Purpose", VA_NAVY);
+    this._sectionHeader("Mission, Aspiration, Purpose (MAP)", VA_NAVY);
 
-    if (purpose) {
-      const y = this.getY();
-      const quoteText = `"${purpose}"`;
-      const quoteW = CONTENT_W - INDENT - mm(7);
+    if (hasMap) {
+      const { mission, aspiration, purpose } = php.map!;
 
-      this._font("italic", 11);
-      const nLines = Math.max(1, Math.ceil(this.doc.heightOfString(quoteText, { width: quoteW }) / mm(6)));
-      const barH = nLines * mm(6) + mm(3);
+      if (purpose) {
+        const y = this.getY();
+        const quoteText = `"${purpose}"`;
+        const quoteW = CONTENT_W - INDENT - mm(7);
 
-      this._fillStroke(VA_BLUE);
-      this.doc.rect(L_MARGIN + INDENT, y, mm(2.5), barH).fill();
+        this._font("italic", 11);
+        const nLines = Math.max(1, Math.ceil(this.doc.heightOfString(quoteText, { width: quoteW }) / mm(6)));
+        const barH = nLines * mm(6) + mm(3);
 
-      this._fill(VA_NAVY)._font("italic", 11);
-      this.doc.fillColor(VA_NAVY).text(quoteText, L_MARGIN + INDENT + mm(5), y + mm(1.5), {
-        width: quoteW,
-        lineGap: 0,
-      });
-      // Ensure cursor clears the bar bottom (text may be shorter than barH) + 3mm gap
-      this.setY(y + barH + mm(3));
+        this._fillStroke(VA_BLUE);
+        this.doc.rect(L_MARGIN + INDENT, y, mm(2.5), barH).fill();
+
+        this._fill(VA_NAVY)._font("italic", 11);
+        this.doc.fillColor(VA_NAVY).text(quoteText, L_MARGIN + INDENT + mm(5), y + mm(1.5), {
+          width: quoteW,
+          lineGap: 0,
+        });
+        this.setY(y + barH + mm(3));
+      }
+
+      if (mission) {
+        this._labelValue("Mission", mission);
+        this.ln(mm(1));
+      }
+      if (aspiration) {
+        this._labelValue("Aspiration", aspiration);
+        this.ln(mm(1));
+      }
     }
 
-    if (mission) {
-      this._labelValue("Mission", mission);
-      this.ln(mm(1));
+    if (hasNarrative) {
+      if (hasMap) this.ln(mm(1));
+      this._body(php.what_matters_most!, "regular", 10, INDENT, DARK_TEXT);
+      this.ln(mm(2));
     }
-    if (aspiration) {
-      this._labelValue("Aspiration", aspiration);
-      this.ln(mm(1));
-    }
-  }
-
-  private _renderWhatMatters(php: PhpData): void {
-    if (!php.what_matters_most) return;
-    this._sectionHeader("What Matters Most to Me");
-    this.ln(mm(1));
-    this._body(php.what_matters_most, "regular", 10, INDENT, DARK_TEXT);
-    this.ln(mm(2));
   }
 
   private _renderWbs(php: PhpData): void {
