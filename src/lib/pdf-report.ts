@@ -206,16 +206,16 @@ export class PHPReport {
   private _scoreBar(label: string, score: number | undefined, maxScore = 10,
                     indent = INDENT, barW = mm(70)): void {
     if (score === undefined) return;
-    const y = this.getY();
     const x = L_MARGIN + indent;
-    const labelW = CONTENT_W - indent - barW - mm(14);
 
-    // Label
+    // Label on its own line (may wrap)
     this._fill(DARK_TEXT)._font("regular", 9.5);
-    this.doc.fillColor(DARK_TEXT).text(label, x, y, { width: labelW, lineBreak: false });
+    this.doc.fillColor(DARK_TEXT).text(label, x, this.getY(), { width: CONTENT_W - indent });
+    this.setY(this.doc.y + mm(1));
 
-    // Bar track
-    const barX = x + labelW;
+    // Bar row
+    const y = this.getY();
+    const barX = x;
     const trackY = y + (LINE_H - BAR_H) / 2;
     this._fillStroke(BAR_BG);
     this.doc.rect(barX, trackY, barW, BAR_H).fill();
@@ -232,7 +232,7 @@ export class PHPReport {
       lineBreak: false,
     });
 
-    this.setY(y + LINE_H + mm(1.5));
+    this.setY(y + LINE_H + mm(3));
   }
 
   private _twoScoreBars(label1: string, score1: number | undefined,
@@ -447,11 +447,19 @@ export class PHPReport {
     if (!php.wbs) return;
     this._sectionHeader("My Well-Being Signs");
     this.ln(mm(2));
-    const wbs = php.wbs;
 
-    this._scoreBar("Fully Satisfied", wbs.satisfied);
-    this._scoreBar("Regularly Involved", wbs.involved);
-    this._scoreBar("Functioning at My Best", wbs.functioning);
+    // Intro text
+    this._fill(DARK_TEXT)._font("regular", 9);
+    this.doc.fillColor(DARK_TEXT).text(
+      "Over the past month (0 = none of the time/10 = all of the time), on average how often have you been:",
+      L_MARGIN + INDENT, this.getY(), { width: CONTENT_W - INDENT },
+    );
+    this.setY(this.doc.y + mm(3));
+
+    const wbs = php.wbs;
+    this._scoreBar("Fully satisfied with how these things are going?", wbs.satisfied);
+    this._scoreBar("Regularly involved in activities that feel worthwhile to you?", wbs.involved);
+    this._scoreBar("Functioning your best in daily life?", wbs.functioning);
 
     this._hRule();
     if (wbs.average !== undefined) {

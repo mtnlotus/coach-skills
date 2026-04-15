@@ -3,7 +3,7 @@
  * Generate a FHIR R4 Bundle (PCO IG) from a PHP data JSON file.
  *
  * Usage:
- *   pnpm generate-fhir [php-data.json] [-o output/fhir-bundle-output.json] [--date YYYY-MM-DD]
+ *   pnpm generate-fhir [php-data.json] [-o output/fhir-bundle.json] [--date YYYY-MM-DD]
  */
 
 import fs from "node:fs";
@@ -16,7 +16,7 @@ program
   .name("generate-fhir")
   .description("Generate a FHIR R4 PCO Bundle from PHP data JSON.")
   .argument("[input]", "parsed PHP data JSON file", "output/php-data.json")
-  .option("-o, --output <file>", "output FHIR bundle JSON file", "output/fhir-bundle-output.json")
+  .option("-o, --output <file>", "output FHIR bundle JSON file", "output/fhir-bundle.json")
   .option("--date <YYYY-MM-DD>", "date of the most recent session")
   .action((input: string, opts: { output: string; date?: string }) => {
     if (!fs.existsSync(input)) {
