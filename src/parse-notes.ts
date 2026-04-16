@@ -12,7 +12,7 @@ import path from "node:path";
 import { program } from "commander";
 import { collectDocxFiles, loadParagraphs } from "./lib/docx-reader.js";
 import { NoteParser } from "./lib/note-parser.js";
-import { mergeNotes } from "./lib/note-merger.js";
+import { mergeNotes, rawNoteToPhpData } from "./lib/note-merger.js";
 import { PhpDataSchema } from "./models.js";
 
 program
@@ -54,6 +54,13 @@ program
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, JSON.stringify(validated, null, 2));
     process.stderr.write(`Written to ${outPath}\n`);
+
+    // Also write per-note array (sorted by session number) for FHIR history
+    const sorted = [...parsed].sort((a, b) => (a.session_number ?? 0) - (b.session_number ?? 0));
+    const perNote = sorted.map((note) => PhpDataSchema.parse(rawNoteToPhpData(note)));
+    const notesPath = path.join(path.dirname(outPath), "php-notes.json");
+    fs.writeFileSync(notesPath, JSON.stringify(perNote, null, 2));
+    process.stderr.write(`Written to ${notesPath}\n`);
   });
 
 program.parse();

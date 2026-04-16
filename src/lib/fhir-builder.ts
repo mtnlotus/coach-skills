@@ -127,11 +127,22 @@ function buildPatient(php: PhpData): IPatient {
   return resource;
 }
 
+function mapText(php: PhpData): string | null {
+  const parts: string[] = [];
+  if (php.map) {
+    if (php.map.mission) parts.push(php.map.mission);
+    if (php.map.aspiration) parts.push(php.map.aspiration);
+    if (php.map.purpose) parts.push(php.map.purpose);
+  }
+  if (php.what_matters_most) parts.push(php.what_matters_most);
+  return parts.join(" ").trim() || null;
+}
+
 function buildWhatMattersObs(
   php: PhpData,
   patientIdx: number,
   obsDate: string | undefined,
-): IObservation {
+): IObservation | null {
   const parts: string[] = [];
   if (php.map) {
     if (php.map.mission) parts.push(`Mission: ${php.map.mission}`);
@@ -140,6 +151,7 @@ function buildWhatMattersObs(
   }
   if (php.what_matters_most) parts.push(php.what_matters_most);
   const text = parts.join(" ").trim() || undefined;
+  if (!text) return null;
 
   const resource: IObservation = {
     resourceType: "Observation",
@@ -148,7 +160,7 @@ function buildWhatMattersObs(
     subject: ref(patientIdx),
   };
   if (obsDate) resource.effectiveDateTime = toDatetime(obsDate);
-  if (text) resource.valueString = text;
+  resource.valueString = text;
   return resource;
 }
 
@@ -259,16 +271,20 @@ function buildServiceRequest(
 // Bundle assembler
 // ---------------------------------------------------------------------------
 
-export function buildBundle(php: PhpData, sessionDate?: string): IBundle {
-  const entries: IBundle_Entry[] = [];
-
-  function add(resource: IResource | null): number {
+function makeAdder(entries: IBundle_Entry[]) {
+  return function add(resource: IResource | null): number {
     const idx = entries.length;
     if (resource !== null) {
       entries.push({ fullUrl: `resource:${idx}`, resource });
     }
     return idx;
-  }
+  };
+}
+
+/** Build a bundle from a single merged PhpData (legacy / single-note path). */
+export function buildBundle(php: PhpData, sessionDate?: string): IBundle {
+  const entries: IBundle_Entry[] = [];
+  const add = makeAdder(entries);
 
   const patientIdx = add(buildPatient(php));
   add(buildWhatMattersObs(php, patientIdx, sessionDate));
@@ -285,9 +301,64 @@ export function buildBundle(php: PhpData, sessionDate?: string): IBundle {
     }
   }
 
-  return {
-    resourceType: "Bundle",
-    type: "collection",
-    entry: entries,
-  };
+  return { resourceType: "Bundle", type: "collection", entry: entries };
+}
+
+/**
+ * Build a bundle from an array of per-note PhpData objects (sorted by session order).
+ * Includes full history: one WBS Observation per note (if present), MAP/goal resources
+ * deduplicated — only the first occurrence of each unique MAP statement or goal is included.
+ */
+export function buildBundleFromNotes(notes: PhpData[], sessionDate?: string): IBundle {
+  const entries: IBundle_Entry[] = [];
+  const add = makeAdder(entries);
+
+  // Single Patient from the first note that carries patient data
+  const patientPhp = notes.find((n) => n.patient) ?? notes[0];
+  const patientIdx = add(buildPatient(patientPhp));
+
+  let seenMapKey: string | null = null;
+  // Maps goal text fingerprint → the index of its Goal resource in the bundle
+  const seenGoalKeys = new Map<string, number>();
+
+  for (const note of notes) {
+    const obsDate = note.wbs?.session_date ?? sessionDate;
+
+    // MAP / Sense of Purpose — include only when content changes across notes
+    const key = mapText(note);
+    if (key && key !== seenMapKey) {
+      seenMapKey = key;
+      add(buildWhatMattersObs(note, patientIdx, obsDate));
+    }
+
+    // WBS — include every session that has scores
+    const wbsResource = buildWbsObs(note, patientIdx, obsDate);
+    if (wbsResource) add(wbsResource);
+
+    // Goals — Goal resource and readiness only on first occurrence;
+    // action steps are added for every note that carries them so that
+    // updated short-term goals for an existing long-term goal appear in history.
+    for (const goal of note.goals) {
+      const goalKey = goal.text.slice(0, 60);
+      const existingGoalIdx = seenGoalKeys.get(goalKey);
+
+      if (existingGoalIdx === undefined) {
+        // New goal: emit Goal + readiness + action steps
+        const goalIdx = add(buildGoal(goal, patientIdx));
+        seenGoalKeys.set(goalKey, goalIdx);
+        const readiness = buildReadinessObs(goal, patientIdx, goalIdx, obsDate);
+        if (readiness) add(readiness);
+        for (const step of goal.action_steps) {
+          add(buildServiceRequest(step, patientIdx, goalIdx));
+        }
+      } else {
+        // Existing goal: emit only new action steps, referencing the original Goal
+        for (const step of goal.action_steps) {
+          add(buildServiceRequest(step, patientIdx, existingGoalIdx));
+        }
+      }
+    }
+  }
+
+  return { resourceType: "Bundle", type: "collection", entry: entries };
 }

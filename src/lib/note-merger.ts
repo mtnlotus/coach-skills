@@ -6,6 +6,54 @@
 import type { PhpData, Patient, WbsAssessment, ActionStep, Goal } from "../models.js";
 import type { RawNote } from "./note-parser.js";
 
+/**
+ * Convert a single RawNote to a PhpData object without merging.
+ * Used to preserve per-note history for FHIR bundle generation.
+ */
+export function rawNoteToPhpData(note: RawNote): PhpData {
+  const patient = note.patient_name ? parsePatientName(note.patient_name) : undefined;
+
+  const actionSteps: ActionStep[] = note.short_term_goals
+    .filter((s) => s.text)
+    .map((s) => ({
+      text: s.text!,
+      importance: s.importance,
+      confidence: s.confidence,
+      status: s.status,
+      start_date: s.start_date,
+      end_date: s.end_date,
+    }));
+
+  const goals: Goal[] = [];
+  for (let i = 0; i < note.long_term_goals.length; i++) {
+    const g = note.long_term_goals[i];
+    if (!g.text) continue;
+    goals.push({
+      text: g.text,
+      importance: g.importance,
+      confidence: g.confidence,
+      lifecycle_status: (g.lifecycle_status as string | undefined) ?? "active",
+      start_date: g.start_date,
+      action_steps: i === 0 ? actionSteps : [],
+    });
+  }
+
+  return {
+    patient,
+    what_matters_most: note.what_matters_most ?? undefined,
+    map: note.map
+      ? { mission: note.map.mission, aspiration: note.map.aspiration, purpose: note.map.purpose }
+      : undefined,
+    values: note.values,
+    vision: note.vision ?? undefined,
+    strengths: note.strengths,
+    wbs: (note.wbs ?? undefined) as WbsAssessment | undefined,
+    goals,
+    is_final_session: note.is_final_session,
+    discharge_plan: note.discharge_plan ?? undefined,
+  };
+}
+
 function parsePatientName(nameStr: string): Patient {
   const parts = nameStr.trim().split(/\s+/);
   if (parts.length >= 2) {
