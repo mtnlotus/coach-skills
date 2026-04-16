@@ -222,9 +222,25 @@ export class NoteParser {
       } else if (p.includes("Utilized Importance Ruler:")) {
         const val = this.findIntInWindow(i);
         if (val !== null) current.importance = val;
+        // Collect rationale note after "…important…because:" label (include label line)
+        for (let j = i + 1; j < Math.min(i + 15, sectionEnd); j++) {
+          if (/important.*because|because.*important/i.test(this.paras[j])) {
+            const body = this.collectUntil(j + 1, /Utilized (Importance|Confidence) Ruler:/i, 10);
+            current.importance_note = body ? `${this.paras[j]} ${body}` : this.paras[j];
+            break;
+          }
+        }
       } else if (p.includes("Utilized Confidence Ruler:")) {
         const val = this.findIntInWindow(i);
         if (val !== null) current.confidence = val;
+        // Collect rationale note after "…confident…because:" label (include label line)
+        for (let j = i + 1; j < Math.min(i + 15, sectionEnd); j++) {
+          if (/confident.*because|because.*confident/i.test(this.paras[j])) {
+            const body = this.collectUntil(j + 1, /Utilized (Importance|Confidence) Ruler:|Collaboratively identified/i, 10);
+            current.confidence_note = body ? `${this.paras[j]} ${body}` : this.paras[j];
+            break;
+          }
+        }
       }
 
       i++;

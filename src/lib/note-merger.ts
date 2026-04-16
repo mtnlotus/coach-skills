@@ -32,6 +32,8 @@ export function rawNoteToPhpData(note: RawNote): PhpData {
       text: g.text,
       importance: g.importance,
       confidence: g.confidence,
+      importance_note: g.importance_note,
+      confidence_note: g.confidence_note,
       lifecycle_status: (g.lifecycle_status as string | undefined) ?? "active",
       start_date: g.start_date,
       action_steps: i === 0 ? actionSteps : [],
@@ -114,7 +116,7 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
       if (!text) continue;
       const key = text.slice(0, 60);
       const existing = ltGoals.get(key) ?? {};
-      for (const field of ["text", "importance", "confidence", "lifecycle_status", "start_date"] as const) {
+      for (const field of ["text", "importance", "confidence", "importance_note", "confidence_note", "lifecycle_status", "start_date"] as const) {
         const v = (goal as Record<string, unknown>)[field];
         if (v != null) (existing as Record<string, unknown>)[field] = v;
       }
@@ -157,6 +159,8 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
       text: g.text,
       importance: g.importance,
       confidence: g.confidence,
+      importance_note: g.importance_note,
+      confidence_note: g.confidence_note,
       lifecycle_status: g.lifecycle_status ?? "active",
       start_date: g.start_date,
       action_steps: goalIdx === 0 ? actionSteps : [],

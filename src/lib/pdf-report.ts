@@ -75,7 +75,6 @@ const DOC_B_MARGIN  = mm(3);   // pdfkit internal margin — only fires well bel
 export class PHPReport {
   private doc: InstanceType<typeof PDFDocument>;
   private useArial: boolean;
-  private curY = T_MARGIN;
 
   constructor() {
     this.useArial = fontsAvailable();
@@ -92,10 +91,11 @@ export class PHPReport {
       this.doc.registerFont("Arial-BI",  FONTS.boldItalic);
     }
 
-    // Footer on every new page
+    // Footer on every new page; reset doc.y afterward so pdfkit resumes
+    // content from the top of the new page, not from the footer position.
     this.doc.on("pageAdded", () => {
-      this.curY = T_MARGIN;
       this._renderFooter();
+      this.doc.y = T_MARGIN;
     });
   }
 
@@ -504,6 +504,14 @@ export class PHPReport {
       this.setY(y + boxH + mm(1));
 
       this._twoScoreBars("Importance", goal.importance, "Confidence", goal.confidence);
+
+      if (goal.importance_note) {
+        this._body(goal.importance_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
+      }
+      if (goal.confidence_note) {
+        this._body(goal.confidence_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
+      }
+      if (goal.importance_note || goal.confidence_note) this.ln(mm(1));
 
       if (goal.action_steps.length > 0) {
         this._fill(VA_BLUE)._font("bold", 9);

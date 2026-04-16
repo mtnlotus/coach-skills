@@ -21,6 +21,10 @@ interface IObservation_Component {
   valueInteger?: number;
 }
 
+interface IAnnotation {
+  text: string;
+}
+
 interface IPatient {
   resourceType: "Patient";
   name?: IHumanName[];
@@ -37,6 +41,7 @@ interface IObservation {
   effectiveDateTime?: string;
   valueString?: string;
   component?: IObservation_Component[];
+  note?: IAnnotation[];
 }
 
 interface IGoal {
@@ -242,6 +247,10 @@ function buildReadinessObs(
   };
   if (obsDate) resource.effectiveDateTime = toDatetime(obsDate);
   if (components.length) resource.component = components;
+  const annotations: IAnnotation[] = [];
+  if (goal.importance_note) annotations.push({ text: goal.importance_note });
+  if (goal.confidence_note) annotations.push({ text: goal.confidence_note });
+  if (annotations.length) resource.note = annotations;
   return resource;
 }
 

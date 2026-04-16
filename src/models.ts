@@ -40,6 +40,8 @@ export const GoalSchema = z.object({
   text: z.string(),
   importance: z.number().int().optional(), // most recent readiness ruler value
   confidence: z.number().int().optional(), // most recent readiness ruler value
+  importance_note: z.string().optional(),  // readiness ruler importance rationale
+  confidence_note: z.string().optional(),  // readiness ruler confidence rationale
   lifecycle_status: z.string().default("active"), // "active" | "completed" | "cancelled"
   start_date: z.string().optional(),       // YYYY-MM-DD
   action_steps: z.array(ActionStepSchema).default([]),
