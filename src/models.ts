@@ -47,6 +47,7 @@ export const GoalSchema = z.object({
 
 export const PhpDataSchema = z.object({
   patient: PatientSchema.optional(),
+  session_date: z.string().optional(),      // YYYY-MM-DD date of this note
   what_matters_most: z.string().optional(), // MAP narrative (middle/final visits)
   map: MapSchema.optional(),                // structured M/A/P (initial visit)
   values: z.array(z.string()).default([]),

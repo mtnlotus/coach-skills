@@ -49,7 +49,8 @@ const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: "@_",
   textNodeName: "#text",
-  trimValues: false,  // preserve leading/trailing spaces inside <w:t> nodes
+  trimValues: false,     // preserve leading/trailing spaces inside <w:t> nodes
+  parseTagValue: false,  // keep all text content as strings; prevents digits like "0","8","5" being coerced to numbers
   isArray: (_name, _jpath, _isLeafNode, isAttribute) => !isAttribute,
 });
 

@@ -40,6 +40,7 @@ export function rawNoteToPhpData(note: RawNote): PhpData {
 
   return {
     patient,
+    session_date: note.session_date ?? undefined,
     what_matters_most: note.what_matters_most ?? undefined,
     map: note.map
       ? { mission: note.map.mission, aspiration: note.map.aspiration, purpose: note.map.purpose }
@@ -62,10 +63,19 @@ function parsePatientName(nameStr: string): Patient {
   return { given: [nameStr], family: "" };
 }
 
+/** Sort RawNotes by session_date (when available) then session_number. */
+export function sortNotes(notes: RawNote[]): RawNote[] {
+  return [...notes].sort((a, b) => {
+    if (a.session_date && b.session_date) return a.session_date.localeCompare(b.session_date);
+    return (a.session_number ?? 0) - (b.session_number ?? 0);
+  });
+}
+
 export function mergeNotes(parsed: RawNote[]): PhpData {
-  const sorted = [...parsed].sort((a, b) => (a.session_number ?? 0) - (b.session_number ?? 0));
+  const sorted = sortNotes(parsed);
 
   let patient: Patient | undefined;
+  let sessionDate: string | undefined;
   let values: string[] = [];
   let vision: string | undefined;
   let strengths: string[] = [];
@@ -84,6 +94,7 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
     if (note.patient_name && !patient) {
       patient = parsePatientName(note.patient_name);
     }
+    if (note.session_date) sessionDate = note.session_date;
     if (note.values.length > 0) values = note.values;
     if (note.vision) vision = note.vision;
     if (note.strengths.length > 0) strengths = note.strengths;
@@ -155,6 +166,7 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
 
   return {
     patient,
+    session_date: sessionDate,
     what_matters_most: whatMattersMost,
     map: Object.keys(mapData).length > 0
       ? { mission: mapData.mission, aspiration: mapData.aspiration, purpose: mapData.purpose }

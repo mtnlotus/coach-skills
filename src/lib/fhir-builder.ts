@@ -198,7 +198,7 @@ function buildWbsObs(
   return resource;
 }
 
-function buildGoal(goal: Goal, patientIdx: number): IGoal {
+function buildGoal(goal: Goal, patientIdx: number, noteDate?: string): IGoal {
   const resource: IGoal = {
     resourceType: "Goal",
     meta: { profile: [PCO_GAS_GOAL_PROFILE] },
@@ -206,7 +206,7 @@ function buildGoal(goal: Goal, patientIdx: number): IGoal {
     description: { text: goal.text },
     subject: ref(patientIdx),
   };
-  if (goal.start_date) resource.startDate = goal.start_date;
+  resource.startDate = goal.start_date ?? noteDate;
   return resource;
 }
 
@@ -249,6 +249,7 @@ function buildServiceRequest(
   step: ActionStep,
   patientIdx: number,
   goalIdx: number,
+  noteDate?: string,
 ): IServiceRequest {
   const resource: IServiceRequest = {
     resourceType: "ServiceRequest",
@@ -258,9 +259,10 @@ function buildServiceRequest(
     subject: ref(patientIdx),
     extension: [{ url: PERTAINSTOGOAL_URL, valueReference: ref(goalIdx) }],
   };
-  if (step.start_date || step.end_date) {
+  const periodStart = step.start_date ?? noteDate;
+  if (periodStart || step.end_date) {
     const period: IPeriod = {};
-    if (step.start_date) period.start = toDatetime(step.start_date);
+    if (periodStart) period.start = toDatetime(periodStart);
     if (step.end_date) period.end = toDatetime(step.end_date);
     resource.occurrencePeriod = period;
   }
@@ -293,11 +295,11 @@ export function buildBundle(php: PhpData, sessionDate?: string): IBundle {
   if (wbsResource) add(wbsResource);
 
   for (const goal of php.goals) {
-    const goalIdx = add(buildGoal(goal, patientIdx));
+    const goalIdx = add(buildGoal(goal, patientIdx, sessionDate));
     const readiness = buildReadinessObs(goal, patientIdx, goalIdx, sessionDate);
     if (readiness) add(readiness);
     for (const step of goal.action_steps) {
-      add(buildServiceRequest(step, patientIdx, goalIdx));
+      add(buildServiceRequest(step, patientIdx, goalIdx, sessionDate));
     }
   }
 
@@ -322,17 +324,18 @@ export function buildBundleFromNotes(notes: PhpData[], sessionDate?: string): IB
   const seenGoalKeys = new Map<string, number>();
 
   for (const note of notes) {
-    const obsDate = note.wbs?.session_date ?? sessionDate;
+    // Prefer session_date parsed from the note, then WBS session_date, then CLI date
+    const noteDate = note.session_date ?? note.wbs?.session_date ?? sessionDate;
 
     // MAP / Sense of Purpose — include only when content changes across notes
     const key = mapText(note);
     if (key && key !== seenMapKey) {
       seenMapKey = key;
-      add(buildWhatMattersObs(note, patientIdx, obsDate));
+      add(buildWhatMattersObs(note, patientIdx, noteDate));
     }
 
     // WBS — include every session that has scores
-    const wbsResource = buildWbsObs(note, patientIdx, obsDate);
+    const wbsResource = buildWbsObs(note, patientIdx, noteDate);
     if (wbsResource) add(wbsResource);
 
     // Goals — Goal resource and readiness only on first occurrence;
@@ -344,17 +347,17 @@ export function buildBundleFromNotes(notes: PhpData[], sessionDate?: string): IB
 
       if (existingGoalIdx === undefined) {
         // New goal: emit Goal + readiness + action steps
-        const goalIdx = add(buildGoal(goal, patientIdx));
+        const goalIdx = add(buildGoal(goal, patientIdx, noteDate));
         seenGoalKeys.set(goalKey, goalIdx);
-        const readiness = buildReadinessObs(goal, patientIdx, goalIdx, obsDate);
+        const readiness = buildReadinessObs(goal, patientIdx, goalIdx, noteDate);
         if (readiness) add(readiness);
         for (const step of goal.action_steps) {
-          add(buildServiceRequest(step, patientIdx, goalIdx));
+          add(buildServiceRequest(step, patientIdx, goalIdx, noteDate));
         }
       } else {
         // Existing goal: emit only new action steps, referencing the original Goal
         for (const step of goal.action_steps) {
-          add(buildServiceRequest(step, patientIdx, existingGoalIdx));
+          add(buildServiceRequest(step, patientIdx, existingGoalIdx, noteDate));
         }
       }
     }

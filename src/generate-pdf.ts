@@ -12,12 +12,18 @@ import { program } from "commander";
 import { PhpDataSchema } from "./models.js";
 import { PHPReport } from "./lib/pdf-report.js";
 
-function todayFormatted(): string {
-  return new Date().toLocaleDateString("en-US", {
+function formatDate(isoDate: string): string {
+  // Parse YYYY-MM-DD as local date to avoid UTC-offset day shifts
+  const [year, month, day] = isoDate.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
+}
+
+function todayFormatted(): string {
+  return formatDate(new Date().toISOString().slice(0, 10));
 }
 
 program
@@ -25,8 +31,8 @@ program
   .description("Generate a patient-facing Personal Health Plan PDF.")
   .argument("[input]", "parsed PHP data JSON file", "output/php-data.json")
   .option("-o, --output <file>", "output PDF file", "output/personal-health-plan.pdf")
-  .option("--date <string>", "report date shown on cover (e.g. '14 April 2026')", todayFormatted())
-  .action((input: string, opts: { output: string; date: string }) => {
+  .option("--date <string>", "report date shown on cover (e.g. '14 April 2026')")
+  .action((input: string, opts: { output: string; date?: string }) => {
     if (!fs.existsSync(input)) {
       console.error(`Error: ${input} not found.`);
       process.exit(1);
@@ -35,11 +41,14 @@ program
     const raw = JSON.parse(fs.readFileSync(input, "utf-8")) as unknown;
     const php = PhpDataSchema.parse(raw);
 
+    // Use --date flag, then most recent note date, then today
+    const reportDate = opts.date ?? (php.session_date ? formatDate(php.session_date) : todayFormatted());
+
     const outPath = opts.output;
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
     const report = new PHPReport();
-    report.build(php, opts.date, outPath);
+    report.build(php, reportDate, outPath);
     process.stderr.write(`Written to ${outPath}\n`);
   });
 

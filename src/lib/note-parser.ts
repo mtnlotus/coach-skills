@@ -5,9 +5,54 @@
 
 import type { WbsAssessment, ActionStep, Goal } from "../models.js";
 
+const MONTH_MAP: Record<string, string> = {
+  january: "01", february: "02", march: "03", april: "04",
+  may: "05", june: "06", july: "07", august: "08",
+  september: "09", october: "10", november: "11", december: "12",
+  jan: "01", feb: "02", mar: "03", apr: "04",
+  jun: "06", jul: "07", aug: "08", sep: "09", oct: "10", nov: "11", dec: "12",
+};
+
+/** Parse a date string in various formats to YYYY-MM-DD, or return null. */
+function parseNoteDate(raw: string): string | null {
+  const s = raw.trim();
+  if (!s) return null;
+
+  // Already YYYY-MM-DD
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+
+  // MM/DD/YYYY or M/D/YYYY
+  const mdy = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (mdy) {
+    return `${mdy[3]}-${mdy[1].padStart(2, "0")}-${mdy[2].padStart(2, "0")}`;
+  }
+
+  // Month DD, YYYY or Month DD YYYY
+  const named = s.match(/^([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})$/);
+  if (named) {
+    const mon = MONTH_MAP[named[1].toLowerCase()];
+    if (mon) return `${named[3]}-${mon}-${named[2].padStart(2, "0")}`;
+  }
+
+  // VA CPRS format: "MMM DD,YYYY@HH:MM" or "MMM ,YYYY@HH:MM" (day de-identified)
+  // Runs may concatenate without spaces, e.g. "DEC08, 2025@11:00"
+  // Year may be truncated in de-identified notes (e.g. "202") — require 4 digits.
+  const cprs = s.match(/([A-Za-z]{3})\s*(\d*),?\s*(\d{3,4})@/);
+  if (cprs) {
+    const mon = MONTH_MAP[cprs[1].toLowerCase()];
+    if (mon && cprs[3].length === 4) {
+      const day = cprs[2] ? cprs[2].padStart(2, "0") : "01";
+      return `${cprs[3]}-${mon}-${day}`;
+    }
+  }
+
+  return null;
+}
+
 interface RawNote {
   source: string;
   session_number: number | null;
+  session_date: string | null;       // YYYY-MM-DD parsed from note heading
   visit_type: string | null;
   patient_name: string | null;
   values: string[];
@@ -256,6 +301,7 @@ export class NoteParser {
     const result: RawNote = {
       source: this.source,
       session_number: null,
+      session_date: null,
       visit_type: null,
       patient_name: null,
       values: [],
@@ -298,6 +344,13 @@ export class NoteParser {
         const n = parseInt(val, 10);
         if (!isNaN(n)) result.session_number = n;
 
+      } else if (/^\*?Date of Note:/i.test(p)) {
+        // Value may be on the same line ("Date of Note: 01/15/2024") or next paragraph
+        const inline = p.match(/^\*?Date of Note:\s*(.+)/i);
+        const raw = inline ? inline[1] : this.nextNonempty(i)[1];
+        const d = parseNoteDate(raw);
+        if (d) result.session_date = d;
+
       } else if (/^\*Type of Visit:/.test(p)) {
         const [, val] = this.nextNonempty(i);
         result.visit_type = val ? val.toLowerCase() : null;
@@ -334,8 +387,9 @@ export class NoteParser {
 
       } else if (p.includes("WBS Average Score:")) {
         result.wbs = this.parseWbs(i);
-        if (result.session_number !== null && result.wbs) {
-          result.wbs.session_number = result.session_number;
+        if (result.wbs) {
+          if (result.session_number !== null) result.wbs.session_number = result.session_number;
+          if (result.session_date !== null) result.wbs.session_date = result.session_date;
         }
 
       } else if (p.includes("Mission, Aspiration, Purpose (MAP)")) {
