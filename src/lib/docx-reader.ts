@@ -55,6 +55,17 @@ const parser = new XMLParser({
 });
 
 /**
+ * Load all paragraphs from a plain-text file and return trimmed strings.
+ * Each line becomes one "paragraph", matching the DOCX paragraph model.
+ */
+export function loadParagraphsFromText(txtPath: string): string[] {
+  const content = fs.readFileSync(txtPath, "utf-8");
+  return content
+    .split(/\r?\n/)
+    .map((line) => line.trim());
+}
+
+/**
  * Load all paragraphs from a DOCX file and return trimmed non-empty strings.
  */
 export function loadParagraphs(docxPath: string): string[] {
@@ -85,16 +96,22 @@ export function loadParagraphs(docxPath: string): string[] {
   return paragraphs;
 }
 
+const NOTE_EXTENSIONS = [".docx", ".txt"];
+
 /**
- * Collect all DOCX file paths from a directory, sorted alphabetically.
+ * Collect all supported note file paths from directories or explicit paths.
+ * Supported extensions: .docx, .txt
  */
-export function collectDocxFiles(inputPaths: string[]): string[] {
+export function collectNoteFiles(inputPaths: string[]): string[] {
   const files: string[] = [];
   for (const p of inputPaths) {
     const stat = fs.statSync(p);
     if (stat.isDirectory()) {
       const entries = fs.readdirSync(p)
-        .filter((f) => f.toLowerCase().endsWith(".docx") && !f.startsWith("~$"))
+        .filter((f) => {
+          const lower = f.toLowerCase();
+          return NOTE_EXTENSIONS.some((ext) => lower.endsWith(ext)) && !f.startsWith("~$");
+        })
         .sort()
         .map((f) => path.join(p, f));
       files.push(...entries);
@@ -103,4 +120,11 @@ export function collectDocxFiles(inputPaths: string[]): string[] {
     }
   }
   return files;
+}
+
+/**
+ * @deprecated Use collectNoteFiles instead.
+ */
+export function collectDocxFiles(inputPaths: string[]): string[] {
+  return collectNoteFiles(inputPaths);
 }

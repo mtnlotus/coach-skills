@@ -10,7 +10,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { program } from "commander";
-import { collectDocxFiles, loadParagraphs } from "./lib/docx-reader.js";
+import { collectNoteFiles, loadParagraphs, loadParagraphsFromText } from "./lib/docx-reader.js";
 import { NoteParser } from "./lib/note-parser.js";
 import { mergeNotes, rawNoteToPhpData, sortNotes } from "./lib/note-merger.js";
 import { PhpDataSchema } from "./models.js";
@@ -18,22 +18,24 @@ import { PhpDataSchema } from "./models.js";
 program
   .name("parse-notes")
   .description("Parse health coaching DOCX progress notes into PHP data JSON.")
-  .argument("<paths...>", "DOCX files or directory containing them")
+  .argument("<paths...>", "DOCX or plain-text (.txt) files, or a directory containing them")
   .option("-o, --output <file>", "output JSON file", "output/php-data.json")
   .action((paths: string[], opts: { output: string }) => {
-    const docxFiles = collectDocxFiles(paths);
+    const noteFiles = collectNoteFiles(paths);
 
-    if (docxFiles.length === 0) {
-      console.error("Error: no DOCX files found.");
+    if (noteFiles.length === 0) {
+      console.error("Error: no supported note files (.docx, .txt) found.");
       process.exit(1);
     }
 
     const parsed = [];
-    for (const f of docxFiles) {
+    for (const f of noteFiles) {
       const name = path.basename(f);
       process.stderr.write(`Parsing ${name}…\n`);
       try {
-        const paras = loadParagraphs(f);
+        const paras = f.toLowerCase().endsWith(".txt")
+          ? loadParagraphsFromText(f)
+          : loadParagraphs(f);
         const parser = new NoteParser(paras, name);
         parsed.push(parser.parse());
       } catch (err) {

@@ -364,7 +364,10 @@ export function buildBundleFromNotes(notes: PhpData[], sessionDate?: string): IB
           add(buildServiceRequest(step, patientIdx, goalIdx, noteDate));
         }
       } else {
-        // Existing goal: emit only new action steps, referencing the original Goal
+        // Existing goal: emit updated readiness (if scores present) and new action steps,
+        // both referencing the original Goal resource.
+        const readiness = buildReadinessObs(goal, patientIdx, existingGoalIdx, noteDate);
+        if (readiness) add(readiness);
         for (const step of goal.action_steps) {
           add(buildServiceRequest(step, patientIdx, existingGoalIdx, noteDate));
         }
