@@ -1,0 +1,5545 @@
+{
+  "entry" : [
+    {
+      "fullUrl": "resource:0",
+      "resource" : {
+        "id" : "FB4D54E8-0E2B-4979-ADF3-027A80C43A03",
+        "name" : [
+          {
+            "family" : "Carlson",
+            "given" : [
+              "Dave"
+            ],
+            "text" : "Dave Carlson"
+          }
+        ],
+        "resourceType" : "Patient",
+        "telecom" : [
+          {
+            "system" : "email",
+            "value" : "dave@mtnlotus.com"
+          }
+        ]
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/C7625946-E97F-4734-B648-BA8122B3FED9"
+      },
+      "fullUrl" : "Observation/C7625946-E97F-4734-B648-BA8122B3FED9",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "body",
+              "display" : "Healthy Body",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 2
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-reasons",
+                  "display" : "Now Reasons",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueString" : "Knee injury prevents most activity. "
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 9
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-changes",
+                  "display" : "Future Changes",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueString" : "Return to activity walking, hiking and bicycling. "
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2025-06-06T10:26:11-04:00",
+        "id" : "C7625946-E97F-4734-B648-BA8122B3FED9",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/910BA59C-5602-4724-AB58-9DC37F32A364"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "fulfillment-purpose",
+              "display" : "Fulfillment & Purpose",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 6
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 10
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2025-06-06T10:31:03-04:00",
+        "id" : "910BA59C-5602-4724-AB58-9DC37F32A364",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/0FF32E68-07D2-4745-B3C9-85F92051E4B9"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "nourishment",
+              "display" : "Nourishment",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 5
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 8
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2023-10-28T20:50:04-04:00",
+        "id" : "0FF32E68-07D2-4745-B3C9-85F92051E4B9",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/326AB5B9-AD45-4B25-9A0A-3E73D3778C8D"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "physical-environment",
+              "display" : "Physical Environment",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 5
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 8
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2023-10-28T20:50:39-04:00",
+        "id" : "326AB5B9-AD45-4B25-9A0A-3E73D3778C8D",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/E42557A7-AC07-4B16-BF03-9F6703A128ED"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "community",
+              "display" : "Community",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 3
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 7
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2023-10-28T20:51:38-04:00",
+        "id" : "E42557A7-AC07-4B16-BF03-9F6703A128ED",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/EE78BFAD-92F9-404E-BD85-52D3D2DAC670"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "sleep",
+              "display" : "Restful Sleep",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 3
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 8
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2023-10-28T20:50:20-04:00",
+        "id" : "EE78BFAD-92F9-404E-BD85-52D3D2DAC670",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/5B229765-34DD-4698-81A9-68610404B7CD"
+      },
+      "fullUrl" : "Observation/5B229765-34DD-4698-81A9-68610404B7CD",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "mind",
+              "display" : "Healthy Mind",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 3
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-reasons",
+                  "display" : "Now Reasons",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueString" : "Not living in present moment. "
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 8
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-changes",
+                  "display" : "Future Changes",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueString" : "Daily meditation. "
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2023-11-23T16:27:38-05:00",
+        "id" : "5B229765-34DD-4698-81A9-68610404B7CD",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/573CF0D6-D6AA-4F07-806B-03AF3286A879"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "creativity-play",
+              "display" : "Creativity & Play",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "component" : [
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "now-rating",
+                  "display" : "Now Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 4
+          },
+          {
+            "code" : {
+              "coding" : [
+                {
+                  "code" : "future-rating",
+                  "display" : "Future Rating",
+                  "system" : "http://hl7.org/fhir/us/pco/CodeSystem/wellbeing-concepts"
+                }
+              ]
+            },
+            "valueInteger" : 10
+          }
+        ],
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2025-01-05T11:22:27-05:00",
+        "id" : "573CF0D6-D6AA-4F07-806B-03AF3286A879",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/BE46042A-07B0-4D13-BE28-8BA0B6C484C4"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "body",
+              "display" : "Healthy Body",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2023-10-28T20:47:59-04:00",
+        "id" : "BE46042A-07B0-4D13-BE28-8BA0B6C484C4",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueBoolean" : true
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/6A219740-FE9F-4F93-8941-34DD52A94F08"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "mind",
+              "display" : "Healthy Mind",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-11-03T08:49:53-05:00",
+        "id" : "6A219740-FE9F-4F93-8941-34DD52A94F08",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueBoolean" : false
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/89C5F503-1EA2-4277-AA0F-CE7D996C1AF0"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "what-matters",
+                "display" : "What Matters",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "creativity-play",
+              "display" : "Creativity & Play",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/wellbeing-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-06T10:31:03-04:00",
+        "id" : "89C5F503-1EA2-4277-AA0F-CE7D996C1AF0",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-what-matters-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueBoolean" : false
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+      },
+      "fullUrl" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39",
+      "resource" : {
+        "achievementStatus" : {
+          "coding" : [
+            {
+              "code" : "not-achieved",
+              "display" : "Not Achieved",
+              "system" : "http://terminology.hl7.org/CodeSystem/goal-achievement"
+            }
+          ],
+          "text" : "Not Achieved"
+        },
+        "addresses" : [
+          {
+            "display" : "Healthy Body",
+            "reference" : "Observation/C7625946-E97F-4734-B648-BA8122B3FED9"
+          }
+        ],
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "person-centered",
+                "display" : "Person-Centered",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "physical-function",
+                "display" : "Physical Function",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-goal-domains"
+              }
+            ]
+          }
+        ],
+        "description" : {
+          "text" : "Run Windsor half-marathon "
+        },
+        "expressedBy" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "id" : "83C68F68-4922-49CB-BD4E-6F60BD2FDF39",
+        "lifecycleStatus" : "cancelled",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "Goal prevented by knee injury on Feb 2nd ",
+            "time" : "2025-06-06T11:12:18-04:00"
+          }
+        ],
+        "resourceType" : "Goal",
+        "startDate" : "2024-06-09",
+        "statusDate" : "2025-06-06",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "target" : [
+          {
+            "dueDate" : "2024-10-06"
+          }
+        ]
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+      },
+      "fullUrl" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A",
+      "resource" : {
+        "addresses" : [
+          {
+            "display" : "Healthy Mind",
+            "reference" : "Observation/5B229765-34DD-4698-81A9-68610404B7CD"
+          }
+        ],
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "person-centered",
+                "display" : "Person-Centered",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "emotional-and-mental-health",
+                "display" : "Emotional And Mental Health",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-goal-domains"
+              }
+            ]
+          }
+        ],
+        "description" : {
+          "text" : "Meditate 20 minutes every day"
+        },
+        "expressedBy" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "id" : "AD85586F-A65A-4268-9A82-6E1D40B7095A",
+        "lifecycleStatus" : "active",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "Daily meditation is becoming a habit!!",
+            "time" : "2024-04-12T17:34:53-04:00"
+          },
+          {
+            "text" : "Flexible Mind, Roger Gabriel\n\n“Let come what comes, let go of what goes. See what remains.”",
+            "time" : "2024-05-15T08:52:13-04:00"
+          },
+          {
+            "text" : "Happiness is not having to know what happens next. Enjoy the wisdom of uncertainty.\n\n- Roger Gabriel, Least Effort",
+            "time" : "2024-10-25T08:44:46-04:00"
+          }
+        ],
+        "resourceType" : "Goal",
+        "startDate" : "2023-09-19",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+      },
+      "fullUrl" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D",
+      "resource" : {
+        "achievementStatus" : {
+          "coding" : [
+            {
+              "code" : "achieved",
+              "display" : "Achieved",
+              "system" : "http://terminology.hl7.org/CodeSystem/goal-achievement"
+            }
+          ],
+          "text" : "Achieved"
+        },
+        "addresses" : [
+          {
+            "display" : "Healthy Body",
+            "reference" : "Observation/C7625946-E97F-4734-B648-BA8122B3FED9"
+          }
+        ],
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "person-centered",
+                "display" : "Person-Centered",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "physical-function",
+                "display" : "Physical Function",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-goal-domains"
+              }
+            ]
+          }
+        ],
+        "description" : {
+          "text" : "A consistent practice for fitness incorporating core strength and aerobic activity."
+        },
+        "expressedBy" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "id" : "DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D",
+        "lifecycleStatus" : "completed",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile"
+          ]
+        },
+        "resourceType" : "Goal",
+        "startDate" : "2023-10-28",
+        "statusDate" : "2024-06-09",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "target" : [
+          {
+            "dueDate" : "2024-03-31"
+          }
+        ]
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+      },
+      "fullUrl" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA",
+      "resource" : {
+        "achievementStatus" : {
+          "coding" : [
+            {
+              "code" : "in-progress",
+              "display" : "In Progress",
+              "system" : "http://terminology.hl7.org/CodeSystem/goal-achievement"
+            }
+          ],
+          "text" : "In Progress"
+        },
+        "addresses" : [
+          {
+            "display" : "Healthy Body",
+            "reference" : "Observation/C7625946-E97F-4734-B648-BA8122B3FED9"
+          }
+        ],
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "person-centered",
+                "display" : "Person-Centered",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-concepts"
+              }
+            ]
+          },
+          {
+            "coding" : [
+              {
+                "code" : "physical-function",
+                "display" : "Physical Function",
+                "system" : "http://hl7.org/fhir/us/pco/CodeSystem/pco-goal-domains"
+              }
+            ]
+          }
+        ],
+        "description" : {
+          "text" : "Return to active lifestyle, initially with walking, hiking and weight training."
+        },
+        "expressedBy" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "id" : "A110C5DF-AD35-4308-8D93-7ADFE52DAEFA",
+        "lifecycleStatus" : "active",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "Progress on my PT, but still a few weeks away from walking. ",
+            "time" : "2025-06-14T10:55:17-04:00"
+          }
+        ],
+        "resourceType" : "Goal",
+        "startDate" : "2025-06-06",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "target" : [
+          {
+            "dueDate" : "2025-09-30"
+          }
+        ]
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68489",
+              "display" : "Goal attainment scale",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-09T23:59:59-04:00",
+        "focus" : [
+          {
+            "display" : "Run Windsor half-marathon ",
+            "reference" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+          }
+        ],
+        "id" : "83C68F68-4922-49CB-BD4E-6F60BD2FDF39",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "gas-less-than-expected",
+              "display" : "Less than expected",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Less than expected"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68489",
+              "display" : "Goal attainment scale",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2023-09-19T23:59:59-04:00",
+        "focus" : [
+          {
+            "display" : "Meditate 20 minutes every day",
+            "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+          }
+        ],
+        "id" : "AD85586F-A65A-4268-9A82-6E1D40B7095A",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "gas-less-than-expected",
+              "display" : "Less than expected",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Less than expected"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68489",
+              "display" : "Goal attainment scale",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2023-10-28T23:59:59-04:00",
+        "focus" : [
+          {
+            "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+            "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+          }
+        ],
+        "id" : "DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "gas-less-than-expected",
+              "display" : "Less than expected",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Less than expected"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68489",
+              "display" : "Goal attainment scale",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-06T23:59:59-04:00",
+        "focus" : [
+          {
+            "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+            "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+          }
+        ],
+        "id" : "A110C5DF-AD35-4308-8D93-7ADFE52DAEFA",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "gas-less-than-expected",
+              "display" : "Less than expected",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Less than expected"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/etE21LaHCTHbmX58j8hOnG7txg7.I7mAAh4SR-rFk6qQ3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-08-25T18:04:07Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "7",
+                "display" : "Lab",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Lab"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "64729",
+              "display" : "IRON AND TIBC",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            },
+            {
+              "code" : "50190-8",
+              "display" : "Iron and Iron binding capacity panel - Serum or Plasma",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "IRON +TIBC"
+        },
+        "id" : "etE21LaHCTHbmX58j8hOnG7txg7.I7mAAh4SR-rFk6qQ3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "784017940"
+          }
+        ],
+        "intent" : "original-order",
+        "occurrencePeriod" : {
+          "start" : "2025-08-25T04:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "reasonCode" : [
+          {
+            "coding" : [
+              {
+                "code" : "35240004",
+                "display" : "Iron deficiency (disorder)",
+                "system" : "http://snomed.info/sct"
+              },
+              {
+                "code" : "280.9",
+                "display" : "Iron deficiency anemia, unspecified",
+                "system" : "http://hl7.org/fhir/sid/icd-9-cm"
+              },
+              {
+                "code" : "E61.1",
+                "display" : "Iron deficiency",
+                "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+              }
+            ],
+            "text" : "Iron deficiency"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/e8Uq90sd7ftslZLC7r5-nQ-IfO19HXZsng7QuOPZBwSY3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-08-25T18:04:07Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "7",
+                "display" : "Lab",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Lab"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "828",
+              "display" : "HEMOGLOBIN A1C",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            },
+            {
+              "code" : "55454-3",
+              "display" : "Deprecated Hemoglobin A1c in Blood",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "HEMOGLOBIN A1C"
+        },
+        "id" : "e8Uq90sd7ftslZLC7r5-nQ-IfO19HXZsng7QuOPZBwSY3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "783966495"
+          }
+        ],
+        "intent" : "original-order",
+        "occurrencePeriod" : {
+          "start" : "2025-08-25T04:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "reasonCode" : [
+          {
+            "coding" : [
+              {
+                "code" : "714628002",
+                "display" : "Prediabetes (finding)",
+                "system" : "http://snomed.info/sct"
+              },
+              {
+                "code" : "790.29",
+                "display" : "Other abnormal glucose",
+                "system" : "http://hl7.org/fhir/sid/icd-9-cm"
+              },
+              {
+                "code" : "R73.03",
+                "display" : "Prediabetes",
+                "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+              }
+            ],
+            "text" : "Prediabetes"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/etE21LaHCTHbmX58j8hOnG096b.699L-XJwLh7eS0U4g3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-08-25T18:04:07Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "7",
+                "display" : "Lab",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Lab"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "784",
+              "display" : "FERRITIN",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "FERRITIN"
+        },
+        "id" : "etE21LaHCTHbmX58j8hOnG096b.699L-XJwLh7eS0U4g3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "784017941"
+          }
+        ],
+        "intent" : "original-order",
+        "occurrencePeriod" : {
+          "start" : "2025-08-25T04:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "reasonCode" : [
+          {
+            "coding" : [
+              {
+                "code" : "35240004",
+                "display" : "Iron deficiency (disorder)",
+                "system" : "http://snomed.info/sct"
+              },
+              {
+                "code" : "280.9",
+                "display" : "Iron deficiency anemia, unspecified",
+                "system" : "http://hl7.org/fhir/sid/icd-9-cm"
+              },
+              {
+                "code" : "E61.1",
+                "display" : "Iron deficiency",
+                "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+              }
+            ],
+            "text" : "Iron deficiency"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/609BC771-864A-44BC-8BCF-79C76BF91B1C"
+      },
+      "resource" : {
+        "authoredOn" : "2025-06-06T11:22:47-04:00",
+        "code" : {
+          "text" : "Physical Therapy 2x per week for post-surgical rehab"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+              "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+            }
+          }
+        ],
+        "id" : "609BC771-864A-44BC-8BCF-79C76BF91B1C",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2025-07-31T01:30:00-04:00",
+              "start" : "2025-06-06T00:00:00-04:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "wk"
+          }
+        },
+        "patientInstruction" : "Appointments scheduled at UofM MedSport",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/F74F2D7B-B532-4A84-ACEB-FD53EE6E5E54"
+      },
+      "resource" : {
+        "authoredOn" : "2023-10-28T21:07:18-04:00",
+        "code" : {
+          "text" : "Core strength workout for 10 minutes"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+              "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+            }
+          }
+        ],
+        "id" : "F74F2D7B-B532-4A84-ACEB-FD53EE6E5E54",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-12-02T01:59:59-05:00",
+              "start" : "2023-10-28T02:00:00-04:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "wk"
+          }
+        },
+        "patientInstruction" : "Use Emma‘s workouts on Peloton.",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "on-hold",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/0E873755-90F5-489D-AEBB-A1513AA085C1"
+      },
+      "resource" : {
+        "authoredOn" : "2024-02-18T21:00:33-05:00",
+        "code" : {
+          "text" : "Meditate 15 minutes"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "0E873755-90F5-489D-AEBB-A1513AA085C1",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "If you focus on success, you’ll have only stress.  If you focus on excellence, success will be guaranteed. \n",
+            "time" : "2024-02-18T22:47:42-05:00"
+          },
+          {
+            "text" : "Roger Gabriel on Dharma:\nFind your own truth and live it fearlessly.",
+            "time" : "2024-04-19T09:28:00-04:00"
+          }
+        ],
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2024-04-01T01:59:59-04:00",
+              "start" : "2024-02-18T02:00:00-05:00"
+            },
+            "frequency" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/CE18C5DF-1500-4CB6-9D4F-E71888F2C68B"
+      },
+      "resource" : {
+        "authoredOn" : "2025-07-12T14:11:03-04:00",
+        "code" : {
+          "text" : "Increase to 3 lb cuff for home PT"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+              "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+            }
+          }
+        ],
+        "id" : "CE18C5DF-1500-4CB6-9D4F-E71888F2C68B",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2025-07-26T23:59:59-04:00",
+              "start" : "2025-07-12T00:00:00-04:00"
+            },
+            "frequency" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/F2634BCC-463B-494E-A029-5F120917BEFB"
+      },
+      "resource" : {
+        "authoredOn" : "2024-06-09T19:18:32-04:00",
+        "code" : {
+          "text" : "Run on treadmill or outside"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Run Windsor half-marathon ",
+              "reference" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+            }
+          }
+        ],
+        "id" : "F2634BCC-463B-494E-A029-5F120917BEFB",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2024-06-23T23:59:59-04:00",
+              "start" : "2024-06-09T02:00:00-04:00"
+            },
+            "frequency" : 3,
+            "periodUnit" : "wk"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "revoked",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/D760FED5-7018-4A6B-8635-64CD4ADD9451"
+      },
+      "resource" : {
+        "authoredOn" : "2023-09-24T21:56:51-04:00",
+        "code" : {
+          "text" : "Meditate before bed"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "D760FED5-7018-4A6B-8635-64CD4ADD9451",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "From autumn equinox meditation with Dr Patel:\n\nAs the leaves fall, I too release what no longer serves me making space for new growth. ",
+            "time" : "2023-09-24T22:10:09-04:00"
+          },
+          {
+            "text" : "I did pretty well with regular meditation before bed. But would like to improve morning routine. ",
+            "time" : "2023-10-28T20:53:14-04:00"
+          }
+        ],
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-10-23T01:59:59-04:00",
+              "start" : "2023-09-24T02:00:00-04:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "wk"
+          }
+        },
+        "patientInstruction" : "Chopra daily meditation",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/0760DB36-450B-4A64-95B6-82AAB01DE284"
+      },
+      "resource" : {
+        "authoredOn" : "2024-06-10T09:04:26-04:00",
+        "code" : {
+          "text" : "Meditate every morning"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "0760DB36-450B-4A64-95B6-82AAB01DE284",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrencePeriod" : {
+          "start" : "2024-06-10T02:00:00-04:00"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/36E9E5A2-6B1A-4022-B813-994C7C9C08E6"
+      },
+      "resource" : {
+        "authoredOn" : "2025-06-07T07:53:33-04:00",
+        "code" : {
+          "text" : "Complete PT exercises at home"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+              "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+            }
+          }
+        ],
+        "id" : "36E9E5A2-6B1A-4022-B813-994C7C9C08E6",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2025-08-31T01:29:00-04:00",
+              "start" : "2025-06-06T00:00:00-04:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "d"
+          }
+        },
+        "patientInstruction" : "Follow instructions provided by MedSport",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/4F5A3F08-33E2-4B61-8502-3B81EEF86A11"
+      },
+      "resource" : {
+        "authoredOn" : "2023-09-22T15:37:47-04:00",
+        "code" : {
+          "text" : "Meditate in the morning"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "4F5A3F08-33E2-4B61-8502-3B81EEF86A11",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-10-23T01:59:59-04:00",
+              "start" : "2023-09-22T02:00:00-04:00"
+            },
+            "frequency" : 3,
+            "periodUnit" : "wk"
+          }
+        },
+        "patientInstruction" : "Use 7 Spiritual Laws mantra \nhttps://chopra.onelink.me/Qz3W/aac37zig",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/ektRI9qvl9Yc2lIT7WAi1FFpgLyKhG3xFaR0CnE6pr5Y3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-06-02T13:05:34Z",
+        "basedOn" : [
+          {
+            "display" : "ANESTHESIA INTUBATION",
+            "reference" : "ServiceRequest/ektRI9qvl9Yc2lIT7WAi1FJmuXvTtluq7t.y-HQCUmnk3"
+          }
+        ],
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "1",
+                "display" : "Procedures",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Procedures"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "148418",
+              "display" : "ANESTHESIA INTUBATION",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "ANESTHESIA INTUBATION"
+        },
+        "encounter" : {
+          "display" : "Anesthesia",
+          "extension" : [
+            {
+              "url" : "http://open.epic.com/FHIR/StructureDefinition/extension/ce-encounter-id",
+              "valueIdentifier" : {
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.3.698084.8",
+                "use" : "usual",
+                "value" : "383658171"
+              }
+            }
+          ],
+          "identifier" : {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.3.698084.8",
+            "use" : "usual",
+            "value" : "383658172"
+          }
+        },
+        "id" : "ektRI9qvl9Yc2lIT7WAi1FFpgLyKhG3xFaR0CnE6pr5Y3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "767241657"
+          }
+        ],
+        "intent" : "order",
+        "note" : [
+          {
+            "text" : "This order was created via procedure documentation"
+          }
+        ],
+        "occurrencePeriod" : {
+          "end" : "2025-06-03T03:59:59Z",
+          "start" : "2025-06-02T13:05:34Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/e6OJNx2C0zfa68eMpJazqwcoWHlKY.JoiJ7X2i61JlNQ3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-05-16T13:39:46Z",
+        "basedOn" : [
+          {
+            "display" : "Orthopedic MedSport Case Request",
+            "reference" : "ServiceRequest/ek8vyUU3aMGwZa5mALYlvUeCMhqDWAl623WuuP0.YmFI3"
+          }
+        ],
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "66",
+                "display" : "Surgical Requests",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Surgical Requests"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "177914",
+              "display" : "UM OR ORT MEDSPORT CASE REQUEST",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "Orthopedic MedSport Case Request"
+        },
+        "id" : "e6OJNx2C0zfa68eMpJazqwcoWHlKY.JoiJ7X2i61JlNQ3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "763611773"
+          }
+        ],
+        "intent" : "filler-order",
+        "note" : [
+          {
+            "text" : "Arthrex and Smith and Nephew root repair guides\r\nArthrex knee scorpion\r\nArthrex peek swivel lock, spade tip drill and 4.75 tap"
+          }
+        ],
+        "occurrencePeriod" : {
+          "end" : "2025-05-17T03:59:59Z",
+          "start" : "2025-05-16T13:39:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/F8E1EA4C-C06C-47D3-B02F-94B0EA212C2E"
+      },
+      "resource" : {
+        "authoredOn" : "2023-10-28T21:06:16-04:00",
+        "code" : {
+          "text" : "Yoga for 10 -20 minutes"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+              "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+            }
+          }
+        ],
+        "id" : "F8E1EA4C-C06C-47D3-B02F-94B0EA212C2E",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "Aimee recommended a Aditi Shaw on Peloton. Found several 10 to 20 minute Slow Flow yoga classes that have emphasis on form. This sounds good to me.",
+            "time" : "2023-10-28T21:28:54-04:00"
+          }
+        ],
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-11-11T23:59:59-05:00",
+              "start" : "2023-10-28T02:00:00-04:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "wk"
+          }
+        },
+        "patientInstruction" : "Find a yoga instructor in Apple fitness that I like.",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "on-hold",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/eg82suDB69IJrOeaQ-6XJF-vddR7ZKDgTQUdXXV3vFgk3"
+      },
+      "resource" : {
+        "authoredOn" : "2022-11-03T16:47:31Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "54",
+                "display" : "GI",
+                "system" : "urn:oid:1.2.840.114350.1.13.246.2.7.10.798268.30"
+              }
+            ],
+            "text" : "GI"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "444783004",
+              "display" : "GI DX COLONOSCOPY - ASYMPTOMATIC",
+              "system" : "http://snomed.info/sct"
+            }
+          ],
+          "text" : "COLONOSCOPY ASYMPTOMATIC/SCREENING"
+        },
+        "id" : "eg82suDB69IJrOeaQ-6XJF-vddR7ZKDgTQUdXXV3vFgk3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.246.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "810005813"
+          }
+        ],
+        "intent" : "order",
+        "note" : [
+          {
+            "text" : "This order was created through External Result Entry"
+          }
+        ],
+        "occurrencePeriod" : {
+          "start" : "2022-11-03T06:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/ek8vyUU3aMGwZa5mALYlvUeCMhqDWAl623WuuP0.YmFI3"
+      },
+        "fullUrl" : "ServiceRequest/ek8vyUU3aMGwZa5mALYlvUeCMhqDWAl623WuuP0.YmFI3",
+      "resource" : {
+        "authoredOn" : "2025-05-16T13:39:45Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "66",
+                "display" : "Surgical Requests",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Surgical Requests"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "177914",
+              "display" : "UM OR ORT MEDSPORT CASE REQUEST",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "Orthopedic MedSport Case Request"
+        },
+        "id" : "ek8vyUU3aMGwZa5mALYlvUeCMhqDWAl623WuuP0.YmFI3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "763611769"
+          }
+        ],
+        "intent" : "original-order",
+        "note" : [
+          {
+            "text" : "Arthrex and Smith and Nephew root repair guides\r\nArthrex knee scorpion\r\nArthrex peek swivel lock, spade tip drill and 4.75 tap"
+          }
+        ],
+        "occurrencePeriod" : {
+          "start" : "2025-05-16T13:39:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/FB31A977-B464-463B-996B-288D009CADBA"
+      },
+      "resource" : {
+        "authoredOn" : "2024-01-09T08:57:33-05:00",
+        "code" : {
+          "text" : "Meditate every day"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "FB31A977-B464-463B-996B-288D009CADBA",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "Roger Gabriel meditations\n\nDharma\n“Find your own truth and live it fearlessly.”\n\nLaw of Least Effort \n“Happiness is not having to know what happens next.”\n\n“Information doesn’t change anyone, inspiration does. Find your reason to live!”",
+            "time" : "2024-01-30T22:38:23-05:00"
+          }
+        ],
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2024-02-21T01:59:59-05:00",
+              "start" : "2024-01-09T02:00:00-05:00"
+            },
+            "frequency" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/D380DAAC-4230-4BF6-93BF-B19EDDB1BA0B"
+      },
+      "resource" : {
+        "authoredOn" : "2024-02-18T21:10:46-05:00",
+        "code" : {
+          "text" : "20 minutes of weight training and core workout. "
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+              "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+            }
+          }
+        ],
+        "id" : "D380DAAC-4230-4BF6-93BF-B19EDDB1BA0B",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2024-04-01T01:59:59-04:00",
+              "start" : "2024-02-18T02:00:00-05:00"
+            },
+            "frequency" : 1,
+            "periodUnit" : "wk"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/5FE625E5-DE3E-4347-BCAB-9DB17A449296"
+      },
+      "resource" : {
+        "authoredOn" : "2023-11-17T22:01:40-05:00",
+        "code" : {
+          "text" : "Aerobic workout, running or spinning."
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+              "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+            }
+          }
+        ],
+        "id" : "5FE625E5-DE3E-4347-BCAB-9DB17A449296",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "note" : [
+          {
+            "text" : "Threshold run with Leah Rosenfeld today, it felt so good! Good reinforcement to make this a commitment.",
+            "time" : "2023-11-17T22:03:00-05:00"
+          }
+        ],
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-12-01T23:59:59-05:00",
+              "start" : "2023-11-17T02:00:00-05:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "wk"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "revoked",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/15F87246-9425-486B-80E9-A0FF34AA365B"
+      },
+      "resource" : {
+        "authoredOn" : "2024-01-10T22:15:41-05:00",
+        "code" : {
+          "text" : "Run on treadmill"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+              "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+            }
+          }
+        ],
+        "id" : "15F87246-9425-486B-80E9-A0FF34AA365B",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2024-03-31T21:08:51-04:00",
+              "start" : "2024-01-10T02:00:00-05:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "wk"
+          }
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/D4B41357-EB45-4B44-9222-105FBB18C552"
+      },
+      "resource" : {
+        "authoredOn" : "2025-06-28T09:38:44-04:00",
+        "code" : {
+          "text" : "Add 2 lb cuff weight to PT exercises "
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+              "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+            }
+          }
+        ],
+        "id" : "D4B41357-EB45-4B44-9222-105FBB18C552",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2025-07-10T23:59:59-04:00",
+              "start" : "2025-06-26T00:00:00-04:00"
+            },
+            "frequency" : 2,
+            "periodUnit" : "d"
+          }
+        },
+        "patientInstruction" : "Follow instructions from Gary",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/eZIfym-LrNV-DuO1pq99Kdn47shGmwDpVWlr4KKgG57c3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-08-25T18:01:50Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "7",
+                "display" : "Lab",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Lab"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "64768",
+              "display" : "HEPATITIS C ANTIBODY",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "HEPATITIS C ANTIBODY"
+        },
+        "id" : "eZIfym-LrNV-DuO1pq99Kdn47shGmwDpVWlr4KKgG57c3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "784017076"
+          }
+        ],
+        "intent" : "original-order",
+        "occurrencePeriod" : {
+          "start" : "2025-08-25T04:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "reasonCode" : [
+          {
+            "coding" : [
+              {
+                "code" : "309406008",
+                "display" : "Viral screening status (finding)",
+                "system" : "http://snomed.info/sct"
+              },
+              {
+                "code" : "V73.89",
+                "display" : "Special screening examination for other specified viral diseases",
+                "system" : "http://hl7.org/fhir/sid/icd-9-cm"
+              },
+              {
+                "code" : "Z11.59",
+                "display" : "Encounter for screening for other viral diseases",
+                "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+              }
+            ],
+            "text" : "Need for hepatitis C screening test"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/7A89E924-BE73-4FAE-9D56-91ACEAE0A5B2"
+      },
+      "resource" : {
+        "authoredOn" : "2023-10-28T21:01:19-04:00",
+        "code" : {
+          "text" : "Meditate for 10 - 15 minutes"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "7A89E924-BE73-4FAE-9D56-91ACEAE0A5B2",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-11-11T23:59:59-05:00",
+              "start" : "2023-10-28T02:00:00-04:00"
+            },
+            "frequency" : 4,
+            "periodUnit" : "wk"
+          }
+        },
+        "patientInstruction" : "Continue using Chopra app meditations.",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/e8Uq90sd7ftslZLC7r5-nQ2Wb8O8IbOPbMVAbR45pln03"
+      },
+      "resource" : {
+        "authoredOn" : "2025-08-25T18:04:07Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "7",
+                "display" : "Lab",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Lab"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "684",
+              "display" : "LIPID PANEL",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "LIPID PANEL"
+        },
+        "id" : "e8Uq90sd7ftslZLC7r5-nQ2Wb8O8IbOPbMVAbR45pln03",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "783966496"
+          }
+        ],
+        "intent" : "original-order",
+        "occurrencePeriod" : {
+          "start" : "2025-08-25T04:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "reasonCode" : [
+          {
+            "coding" : [
+              {
+                "code" : "267434003",
+                "display" : "Mixed hyperlipidemia (disorder)",
+                "system" : "http://snomed.info/sct"
+              },
+              {
+                "code" : "272.2",
+                "display" : "Mixed hyperlipidemia",
+                "system" : "http://hl7.org/fhir/sid/icd-9-cm"
+              },
+              {
+                "code" : "E78.2",
+                "display" : "Mixed hyperlipidemia",
+                "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+              }
+            ],
+            "text" : "Mixed hyperlipidemia"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/eVS-MVlQnbkMuPcKK290uA5DQ4AWqp4iNAAJNu3j7BAE3"
+      },
+      "resource" : {
+        "authoredOn" : "2025-08-25T18:04:07Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "7",
+                "display" : "Lab",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Lab"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "880",
+              "display" : "PSA - SCREENING",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "PSA - SCREENING"
+        },
+        "id" : "eVS-MVlQnbkMuPcKK290uA5DQ4AWqp4iNAAJNu3j7BAE3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "784017939"
+          }
+        ],
+        "intent" : "original-order",
+        "occurrencePeriod" : {
+          "start" : "2025-08-25T04:00:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "reasonCode" : [
+          {
+            "coding" : [
+              {
+                "code" : "305058001",
+                "display" : "Patient encounter status (finding)",
+                "system" : "http://snomed.info/sct"
+              },
+              {
+                "code" : "V76.44",
+                "display" : "Special screening for malignant neoplasm of prostate",
+                "system" : "http://hl7.org/fhir/sid/icd-9-cm"
+              },
+              {
+                "code" : "Z12.5",
+                "display" : "Encounter for screening for malignant neoplasm of prostate",
+                "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+              }
+            ],
+            "text" : "Prostate cancer screening"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "active",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/ektRI9qvl9Yc2lIT7WAi1FJmuXvTtluq7t.y-HQCUmnk3"
+      },
+      "fullUrl" : "ServiceRequest/ektRI9qvl9Yc2lIT7WAi1FJmuXvTtluq7t.y-HQCUmnk3",
+      "resource" : {
+        "authoredOn" : "2025-06-02T13:05:34Z",
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "1",
+                "display" : "Procedures",
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.10.798268.30"
+              }
+            ],
+            "text" : "Procedures"
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "148418",
+              "display" : "ANESTHESIA INTUBATION",
+              "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.696580"
+            }
+          ],
+          "text" : "ANESTHESIA INTUBATION"
+        },
+        "encounter" : {
+          "display" : "Anesthesia",
+          "extension" : [
+            {
+              "url" : "http://open.epic.com/FHIR/StructureDefinition/extension/ce-encounter-id",
+              "valueIdentifier" : {
+                "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.3.698084.8",
+                "use" : "usual",
+                "value" : "383658171"
+              }
+            }
+          ],
+          "identifier" : {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.3.698084.8",
+            "use" : "usual",
+            "value" : "383658172"
+          }
+        },
+        "id" : "ektRI9qvl9Yc2lIT7WAi1FJmuXvTtluq7t.y-HQCUmnk3",
+        "identifier" : [
+          {
+            "system" : "urn:oid:1.2.840.114350.1.13.277.2.7.2.798268",
+            "type" : {
+              "coding" : [
+                {
+                  "code" : "PLAC",
+                  "display" : "Placer Identifier",
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203"
+                }
+              ],
+              "text" : "Placer Identifier"
+            },
+            "use" : "usual",
+            "value" : "767241656"
+          }
+        ],
+        "intent" : "original-order",
+        "note" : [
+          {
+            "text" : "This order was created via procedure documentation"
+          }
+        ],
+        "occurrencePeriod" : {
+          "start" : "2025-06-02T13:06:00Z"
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "quantityQuantity" : {
+          "value" : 1
+        },
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "ServiceRequest/CDEB65F2-B898-495B-A8E2-589C5B61F038"
+      },
+      "resource" : {
+        "authoredOn" : "2023-11-19T19:27:17-05:00",
+        "code" : {
+          "text" : "Meditate on daily spiritual law"
+        },
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+            "valueReference" : {
+              "display" : "Meditate 20 minutes every day",
+              "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+            }
+          }
+        ],
+        "id" : "CDEB65F2-B898-495B-A8E2-589C5B61F038",
+        "intent" : "order",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/mcc/StructureDefinition/MCCServiceRequest"
+          ]
+        },
+        "occurrenceTiming" : {
+          "repeat" : {
+            "boundsPeriod" : {
+              "end" : "2023-12-03T23:59:59-05:00",
+              "start" : "2023-11-19T02:00:00-05:00"
+            },
+            "frequency" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "patientInstruction" : "Listen to Deepak https://chopra.onelink.me/Qz3W/aac37zig ",
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "requester" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "resourceType" : "ServiceRequest",
+        "status" : "completed",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/E485A344-AC96-41A6-A21A-AD2F273BE5AF"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "readiness-assessment",
+              "display" : "Readiness assessment",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-06T11:22:09-04:00",
+        "focus" : [
+          {
+            "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+            "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+          }
+        ],
+        "hasMember" : [
+          {
+            "display" : "Importance of change",
+            "reference" : "Observation/5CD82F00-6630-4EC7-B8B3-1E2E8BF55971"
+          },
+          {
+            "display" : "Confidence to change",
+            "reference" : "Observation/B505417B-1E20-4EFA-89E8-9786D3C201E6"
+          }
+        ],
+        "id" : "E485A344-AC96-41A6-A21A-AD2F273BE5AF",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/5CD82F00-6630-4EC7-B8B3-1E2E8BF55971"
+      },
+        "fullUrl" : "Observation/5CD82F00-6630-4EC7-B8B3-1E2E8BF55971",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "importance",
+              "display" : "Importance of change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-06T11:22:09-04:00",
+        "focus" : [
+          {
+            "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+            "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+          }
+        ],
+        "id" : "5CD82F00-6630-4EC7-B8B3-1E2E8BF55971",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 10
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/B505417B-1E20-4EFA-89E8-9786D3C201E6"
+      },
+        "fullUrl" : "Observation/B505417B-1E20-4EFA-89E8-9786D3C201E6",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "confidence",
+              "display" : "Confidence to change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-06T11:22:09-04:00",
+        "focus" : [
+          {
+            "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+            "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+          }
+        ],
+        "id" : "B505417B-1E20-4EFA-89E8-9786D3C201E6",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 8
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/9D9C4773-97C8-4C2D-9898-17BC014BB40A"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "readiness-assessment",
+              "display" : "Readiness assessment",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-09T19:18:15-04:00",
+        "focus" : [
+          {
+            "display" : "Run Windsor half-marathon ",
+            "reference" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+          }
+        ],
+        "hasMember" : [
+          {
+            "display" : "Importance of change",
+            "reference" : "Observation/27275261-FDD6-4B17-8576-2519EBC70817"
+          },
+          {
+            "display" : "Confidence to change",
+            "reference" : "Observation/6FF19C25-8A46-400E-BCBE-8329BDFFED75"
+          }
+        ],
+        "id" : "9D9C4773-97C8-4C2D-9898-17BC014BB40A",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/27275261-FDD6-4B17-8576-2519EBC70817"
+      },
+        "fullUrl" : "Observation/27275261-FDD6-4B17-8576-2519EBC70817",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "importance",
+              "display" : "Importance of change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-09T19:18:15-04:00",
+        "focus" : [
+          {
+            "display" : "Run Windsor half-marathon ",
+            "reference" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+          }
+        ],
+        "id" : "27275261-FDD6-4B17-8576-2519EBC70817",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 10
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/6FF19C25-8A46-400E-BCBE-8329BDFFED75"
+      },
+        "fullUrl" : "Observation/6FF19C25-8A46-400E-BCBE-8329BDFFED75",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "confidence",
+              "display" : "Confidence to change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-09T19:18:15-04:00",
+        "focus" : [
+          {
+            "display" : "Run Windsor half-marathon ",
+            "reference" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+          }
+        ],
+        "id" : "6FF19C25-8A46-400E-BCBE-8329BDFFED75",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 8
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/CE3E5B6F-4FCE-494F-BB0C-4E3C56256EA5"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "readiness-assessment",
+              "display" : "Readiness assessment",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-03-15T18:08:57-04:00",
+        "focus" : [
+          {
+            "display" : "Meditate 20 minutes every day",
+            "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+          }
+        ],
+        "hasMember" : [
+          {
+            "display" : "Importance of change",
+            "reference" : "Observation/FD6CCDB0-941D-4AAA-9913-50205A929644"
+          },
+          {
+            "display" : "Confidence to change",
+            "reference" : "Observation/59BE1C7E-0EFC-4276-966C-064D1E0CCE5B"
+          }
+        ],
+        "id" : "CE3E5B6F-4FCE-494F-BB0C-4E3C56256EA5",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/FD6CCDB0-941D-4AAA-9913-50205A929644"
+      },
+        "fullUrl" : "Observation/FD6CCDB0-941D-4AAA-9913-50205A929644",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "importance",
+              "display" : "Importance of change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-03-15T18:08:57-04:00",
+        "focus" : [
+          {
+            "display" : "Meditate 20 minutes every day",
+            "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+          }
+        ],
+        "id" : "FD6CCDB0-941D-4AAA-9913-50205A929644",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 10
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/59BE1C7E-0EFC-4276-966C-064D1E0CCE5B"
+      },
+        "fullUrl" : "Observation/59BE1C7E-0EFC-4276-966C-064D1E0CCE5B",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "confidence",
+              "display" : "Confidence to change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-03-15T18:08:57-04:00",
+        "focus" : [
+          {
+            "display" : "Meditate 20 minutes every day",
+            "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+          }
+        ],
+        "id" : "59BE1C7E-0EFC-4276-966C-064D1E0CCE5B",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 8
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/1CE24CB4-5926-4DC5-A910-524C4CF89B53"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "readiness-assessment",
+              "display" : "Readiness assessment",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-03-15T11:49:56-04:00",
+        "focus" : [
+          {
+            "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+            "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+          }
+        ],
+        "hasMember" : [
+          {
+            "display" : "Importance of change",
+            "reference" : "Observation/7892BCF1-3EEA-4776-BAF2-84F79BD90452"
+          },
+          {
+            "display" : "Confidence to change",
+            "reference" : "Observation/40D97166-3EA6-46AB-AA60-ABAC19305EF6"
+          }
+        ],
+        "id" : "1CE24CB4-5926-4DC5-A910-524C4CF89B53",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/7892BCF1-3EEA-4776-BAF2-84F79BD90452"
+      },
+        "fullUrl" : "Observation/7892BCF1-3EEA-4776-BAF2-84F79BD90452",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "importance",
+              "display" : "Importance of change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-03-15T11:49:56-04:00",
+        "focus" : [
+          {
+            "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+            "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+          }
+        ],
+        "id" : "7892BCF1-3EEA-4776-BAF2-84F79BD90452",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 9
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/40D97166-3EA6-46AB-AA60-ABAC19305EF6"
+      },
+        "fullUrl" : "Observation/40D97166-3EA6-46AB-AA60-ABAC19305EF6",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "confidence",
+              "display" : "Confidence to change",
+              "system" : "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-03-15T11:49:56-04:00",
+        "focus" : [
+          {
+            "display" : "A consistent practice for fitness incorporating core strength and aerobic activity.",
+            "reference" : "Goal/DB19D32E-CEEB-4A62-B0AE-9B1F65F6616D"
+          }
+        ],
+        "id" : "40D97166-3EA6-46AB-AA60-ABAC19305EF6",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueQuantity" : {
+          "value" : 5
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/BB372272-B382-44AB-A2C1-A28DE68ED4DB"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68491",
+              "display" : "Patient follow-up goal attainment scaling score",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-26T17:55:16-04:00",
+        "focus" : [
+          {
+            "display" : "Run Windsor half-marathon ",
+            "reference" : "Goal/83C68F68-4922-49CB-BD4E-6F60BD2FDF39"
+          }
+        ],
+        "id" : "BB372272-B382-44AB-A2C1-A28DE68ED4DB",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "gas-much-less-than-expected",
+              "display" : "Much less than expected",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Much less than expected"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/F4B6FE7D-BFAA-4D3A-95F4-FA3F04421773"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68491",
+              "display" : "Patient follow-up goal attainment scaling score",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2025-06-14T10:55:17-04:00",
+        "focus" : [
+          {
+            "display" : "Return to active lifestyle, initially with walking, hiking and weight training.",
+            "reference" : "Goal/A110C5DF-AD35-4308-8D93-7ADFE52DAEFA"
+          }
+        ],
+        "id" : "F4B6FE7D-BFAA-4D3A-95F4-FA3F04421773",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "gas-less-than-expected",
+              "display" : "Less than expected",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Less than expected"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/3C038B71-777C-470C-84E8-AD2B29C48728"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68491",
+              "display" : "Patient follow-up goal attainment scaling score",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-15T09:32:54-04:00",
+        "focus" : [
+          {
+            "display" : "Meditate 20 minutes every day",
+            "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+          }
+        ],
+        "id" : "3C038B71-777C-470C-84E8-AD2B29C48728",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "LA6111-4",
+              "display" : "Expected outcome",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Expected outcome"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/D5E19F82-09F9-463B-943F-B70FDCCAC2BC"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "68491",
+              "display" : "Patient follow-up goal attainment scaling score",
+              "system" : "http://loinc.org"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-04-12T17:34:53-04:00",
+        "focus" : [
+          {
+            "display" : "Meditate 20 minutes every day",
+            "reference" : "Goal/AD85586F-A65A-4268-9A82-6E1D40B7095A"
+          }
+        ],
+        "id" : "D5E19F82-09F9-463B-943F-B70FDCCAC2BC",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-score-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueCodeableConcept" : {
+          "coding" : [
+            {
+              "code" : "LA6111-4",
+              "display" : "Expected outcome",
+              "system" : "http://loinc.org"
+            }
+          ],
+          "text" : "Expected outcome"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/08A8C6EC-CF6A-42CB-A2EB-55C1C043154C"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "coding" : [
+            {
+              "code" : "visionForHealth",
+              "display" : "Why Statement",
+              "system" : "http://mtnlotus.com/fhir/mlw/CodeSystem/reflection"
+            }
+          ],
+          "text" : "Why Statement"
+        },
+        "derivedFrom" : [
+          {
+            "display" : "My Lotus Lifestyle"
+          }
+        ],
+        "effectiveDateTime" : "2025-06-14T15:48:49-04:00",
+        "hasMember" : [
+          {
+            "display" : "What is your *Why*?",
+            "reference" : "Observation/9CE8449D-E5C7-4291-9D1E-ED95BFEA2382"
+          }
+        ],
+        "id" : "08A8C6EC-CF6A-42CB-A2EB-55C1C043154C",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/9CE8449D-E5C7-4291-9D1E-ED95BFEA2382"
+      },
+        "fullUrl" : "Observation/9CE8449D-E5C7-4291-9D1E-ED95BFEA2382",
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What is your *Why*?"
+        },
+        "effectiveDateTime" : "2025-06-14T15:48:49-04:00",
+        "id" : "9CE8449D-E5C7-4291-9D1E-ED95BFEA2382",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "To thrive in health and creativity with my soulmate Aimee, embracing life’s adventures and the joy of sharing good food."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/E513ABCB-8606-473C-958E-7A9B97133FF7"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What are the biggest challenges you are facing right now?"
+        },
+        "effectiveDateTime" : "2025-06-22T01:28:55-04:00",
+        "id" : "E513ABCB-8606-473C-958E-7A9B97133FF7",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Difficulty sleeping. Very limited mobility."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/326496EA-071F-4CA2-813B-0742FD53A4B3"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "How are you addressing the challenges that you are facing in order to move forward to your goals?"
+        },
+        "effectiveDateTime" : "2025-06-22T01:28:55-04:00",
+        "id" : "326496EA-071F-4CA2-813B-0742FD53A4B3",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "One day at a time, focused on progress with PT."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/67F7CA72-2562-44D3-8806-C3AB45398E99"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What would you like to focus on before your next check-in?"
+        },
+        "effectiveDateTime" : "2025-06-22T01:28:55-04:00",
+        "id" : "67F7CA72-2562-44D3-8806-C3AB45398E99",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "A bit more movement around the house and looking forward to starting to walk after 8 weeks post-surgery."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/F1FC3BE2-5714-44EC-9F5A-27F50629A4AD"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What have you accomplished since your last check-in? What were your small or large successes?"
+        },
+        "effectiveDateTime" : "2025-06-22T01:28:55-04:00",
+        "id" : "F1FC3BE2-5714-44EC-9F5A-27F50629A4AD",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Completed successful knee surgery on June 2nd and making good progress on PT."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/F5E9BBCF-0420-4B69-B162-7A61D6D9EE1C"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What would you like to focus on before your next check-in?"
+        },
+        "effectiveDateTime" : "2024-06-09T19:16:45-04:00",
+        "id" : "F5E9BBCF-0420-4B69-B162-7A61D6D9EE1C",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Restart a new set of goods and action steps."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/753214AF-BAC8-434F-934D-2080DE4A01E3"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What are the biggest challenges you are facing right now?"
+        },
+        "dataAbsentReason" : {
+          "coding" : [
+            {
+              "code" : "asked-declined",
+              "display" : "Asked But Declined",
+              "system" : "http://hl7.org/fhir/ValueSet/data-absent-reason"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-09T19:16:45-04:00",
+        "id" : "753214AF-BAC8-434F-934D-2080DE4A01E3",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/858FE19D-8D14-41CE-BA81-EDDA6BB4217E"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What have you accomplished since your last check-in? What were your small or large successes?"
+        },
+        "effectiveDateTime" : "2024-06-09T19:16:45-04:00",
+        "id" : "858FE19D-8D14-41CE-BA81-EDDA6BB4217E",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Progress on consistent running."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/F430EAFD-8086-4D21-B3FA-0C0DF507BDF1"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "How are you addressing the challenges that you are facing in order to move forward to your goals?"
+        },
+        "dataAbsentReason" : {
+          "coding" : [
+            {
+              "code" : "asked-declined",
+              "display" : "Asked But Declined",
+              "system" : "http://hl7.org/fhir/ValueSet/data-absent-reason"
+            }
+          ]
+        },
+        "effectiveDateTime" : "2024-06-09T19:16:45-04:00",
+        "id" : "F430EAFD-8086-4D21-B3FA-0C0DF507BDF1",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        }
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/1CFE64C2-5DD1-4E8D-9386-8F3D65C404DA"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "How are you addressing the challenges that you are facing in order to move forward to your goals?"
+        },
+        "effectiveDateTime" : "2024-02-18T21:08:51-05:00",
+        "id" : "1CFE64C2-5DD1-4E8D-9386-8F3D65C404DA",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Next time I travel, put action steps on hold and create achievable steps to perform while traveling"
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/50C6842F-C26A-4EC1-AC40-03FDFA97C029"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What have you accomplished since your last check-in? What were your small or large successes?"
+        },
+        "effectiveDateTime" : "2024-02-18T21:08:51-05:00",
+        "id" : "50C6842F-C26A-4EC1-AC40-03FDFA97C029",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Gain confidence by making progress on two meaningful action steps. Focus on achievable steps."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/061E5ADD-CAA0-4BEA-B6FC-12964E8C8D66"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What would you like to focus on before your next check-in?"
+        },
+        "effectiveDateTime" : "2024-02-18T21:08:51-05:00",
+        "id" : "061E5ADD-CAA0-4BEA-B6FC-12964E8C8D66",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Get back on track by completing my goals for action steps during the next two weeks."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/9708B4F0-64A8-4967-99A6-AEC2A04B0BC4"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What are the biggest challenges you are facing right now?"
+        },
+        "effectiveDateTime" : "2024-02-18T21:08:51-05:00",
+        "id" : "9708B4F0-64A8-4967-99A6-AEC2A04B0BC4",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Difficult to keep up with my action steps well traveling. First to Southeast Asia, and then to Phoenix."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/338DF4FF-479A-4406-874F-D0E0E7EA26EC"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What would you like to focus on before your next check-in?"
+        },
+        "effectiveDateTime" : "2023-11-17T21:56:10-05:00",
+        "id" : "338DF4FF-479A-4406-874F-D0E0E7EA26EC",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Completing all of my action steps!"
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/E72E52F0-68B0-44F1-8FFF-6A74BB9AECF8"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What are the biggest challenges you are facing right now?"
+        },
+        "effectiveDateTime" : "2023-11-17T21:56:10-05:00",
+        "id" : "E72E52F0-68B0-44F1-8FFF-6A74BB9AECF8",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Making a committed time for my actions that is not negotiable on my schedule."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/71CDC382-59F3-419E-840B-0523CADB1885"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What have you accomplished since your last check-in? What were your small or large successes?"
+        },
+        "effectiveDateTime" : "2023-11-17T21:56:10-05:00",
+        "id" : "71CDC382-59F3-419E-840B-0523CADB1885",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "I learned the value of small, action steps. So important to choose small, achievable steps."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/C8EC1954-0A4F-4A11-9CCD-BD975DCE9A31"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "How are you addressing the challenges that you are facing in order to move forward to your goals?"
+        },
+        "effectiveDateTime" : "2023-11-17T21:56:10-05:00",
+        "id" : "C8EC1954-0A4F-4A11-9CCD-BD975DCE9A31",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Narrowing my focus and action steps for this next round with commitment on success"
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/1E22AA93-20A7-4F9C-BD31-96B4D778B215"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What have you accomplished since your last check-in? What were your small or large successes?"
+        },
+        "effectiveDateTime" : "2023-10-28T20:58:17-04:00",
+        "id" : "1E22AA93-20A7-4F9C-BD31-96B4D778B215",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "I focused on more consistent meditation for the past two weeks and did pretty well with that."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/AF30CB12-742C-453F-A5EE-F58B6A3AD455"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "How are you addressing the challenges that you are facing in order to move forward to your goals?"
+        },
+        "effectiveDateTime" : "2023-10-28T20:58:17-04:00",
+        "id" : "AF30CB12-742C-453F-A5EE-F58B6A3AD455",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Starting to work on a plan to incorporate core strength, yoga, and at least some aerobic exercise."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/BA41E1BD-569B-4088-B6F5-C7601973D86B"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What would you like to focus on before your next check-in?"
+        },
+        "effectiveDateTime" : "2023-10-28T20:58:17-04:00",
+        "id" : "BA41E1BD-569B-4088-B6F5-C7601973D86B",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Core strength and starting a yoga practice."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/EF9252DB-D922-4974-9FCB-02935D938B51"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What are the biggest challenges you are facing right now?"
+        },
+        "effectiveDateTime" : "2023-10-28T20:58:17-04:00",
+        "id" : "EF9252DB-D922-4974-9FCB-02935D938B51",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Restlessness, lack of activity, and poor sleep many nights."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/D7E22981-4F7D-4EDE-9D29-9EA5F125CDFD"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What have you accomplished since your last check-in? What were your small or large successes?"
+        },
+        "effectiveDateTime" : "2023-10-08T13:53:00-04:00",
+        "id" : "D7E22981-4F7D-4EDE-9D29-9EA5F125CDFD",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Created a realistic plan for morning and evening, meditation, with partial success"
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/58D7ACD4-6693-4B2D-BE78-DB61A67CC522"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What are the biggest challenges you are facing right now?"
+        },
+        "effectiveDateTime" : "2023-10-08T13:53:00-04:00",
+        "id" : "58D7ACD4-6693-4B2D-BE78-DB61A67CC522",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Making the commitment to achieve my target number of meditations"
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/41588F5D-0B0F-4680-BE93-09F12FF8B492"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "How are you addressing the challenges that you are facing in order to move forward to your goals?"
+        },
+        "effectiveDateTime" : "2023-10-08T13:53:00-04:00",
+        "id" : "41588F5D-0B0F-4680-BE93-09F12FF8B492",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Keep the action step target, small, and achievable, so that I can see success."
+      }
+    },
+    {
+      "request" : {
+        "method" : "PUT",
+        "url" : "Observation/15A491F1-FD6A-4B17-B72D-792B84CFE78E"
+      },
+      "resource" : {
+        "category" : [
+          {
+            "coding" : [
+              {
+                "code" : "survey",
+                "display" : "Survey",
+                "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+              }
+            ]
+          }
+        ],
+        "code" : {
+          "text" : "What would you like to focus on before your next check-in?"
+        },
+        "effectiveDateTime" : "2023-10-08T13:53:00-04:00",
+        "id" : "15A491F1-FD6A-4B17-B72D-792B84CFE78E",
+        "meta" : {
+          "profile" : [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+          ]
+        },
+        "performer" : [
+          {
+            "display" : "Dave Carlson",
+            "reference" : "resource:0"
+          }
+        ],
+        "resourceType" : "Observation",
+        "status" : "final",
+        "subject" : {
+          "display" : "Dave Carlson",
+          "reference" : "resource:0"
+        },
+        "valueString" : "Adding a short 10 minute yoga session to my action plan."
+      }
+    }
+  ],
+  "resourceType" : "Bundle",
+  "type" : "transaction"
+}

@@ -1,0 +1,163 @@
+{
+	"resourceType": "Bundle",
+	"type": "collection",
+	"entry": [
+		{
+			"fullUrl": "resource:0",
+			"resource": {
+				"resourceType": "Patient",
+				"name": [
+					{
+						"family": "Anywoman",
+						"given": [
+							"Diana"
+						]
+					}
+				],
+				"birthDate": "1989-10-07"
+			}
+		},
+		{
+			"fullUrl": "resource:1",
+			"resource": {
+				"resourceType": "Observation",
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "247751003"
+						}
+					]
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"effectiveDateTime": "2025-09-15T10:35:00Z",
+				"valueString": "Create balance between my personal life and demanding job to make real, lasting progress on my health and weight loss."
+			}
+		},
+		{
+			"fullUrl": "resource:2",
+			"resource": {
+				"resourceType": "Observation",
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+							"code": "well-being-signs"
+						}
+					]
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"effectiveDateTime": "2026-03-27T11:35:00Z",
+				"component": [
+					{
+						"code": {
+							"coding": [
+								{
+									"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+									"code": "satisfied"
+								}
+							]
+						},
+						"valueInteger": 6
+					},
+					{
+						"code": {
+							"coding": [
+								{
+									"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+									"code": "involved"
+								}
+							]
+						},
+						"valueInteger": 8
+					},
+					{
+						"code": {
+							"coding": [
+								{
+									"system": "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs",
+									"code": "functioning"
+								}
+							]
+						},
+						"valueInteger": 7
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "resource:3",
+			"resource": {
+				"resourceType": "Goal",
+				"lifecycleStatus": "active",
+				"description": {
+					"text": "Trade out some of my favorite foods for healthier options and cut back on dairy."
+				},
+				"subject": {
+					"reference": "resource:0"
+				},
+				"startDate": "2025-10-17"
+			}
+		},
+		{
+			"fullUrl": "resource:4",
+			"resource": {
+				"authoredOn": "2026-02-15T00:00:00-04:00",
+				"code": {
+					"text": "Meet with a nutritionist to understand my protein requirements"
+				},
+				"intent": "order",
+				"occurrencePeriod": {
+					"start": "2026-02-15T00:00:00-04:00",
+					"end": "2026-03-15T01:30:00-04:00"
+				},
+				"resourceType": "ServiceRequest",
+				"status": "active",
+				"subject": {
+					"reference": "resource:0"
+				},
+				"extension": [
+					{
+						"url": "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+						"valueReference": {
+							"reference": "resource:3"
+						}
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "resource:5",
+			"resource": {
+				"authoredOn": "2026-03-06T11:22:47-04:00",
+				"code": {
+					"text": "Drink 60 oz of water each day"
+				},
+				"intent": "order",
+				"occurrencePeriod": {
+					"start": "2026-03-06T11:22:47-04:00",
+					"end": "2026-03-31T12:00:00-04:00"
+				},
+				"resourceType": "ServiceRequest",
+				"status": "active",
+				"subject": {
+					"reference": "resource:0"
+				},
+				"extension": [
+					{
+						"url": "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal",
+						"valueReference": {
+							"reference": "resource:3"
+						}
+					}
+				]
+			}
+		}
+	]
+}
