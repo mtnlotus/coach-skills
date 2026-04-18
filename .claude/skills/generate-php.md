@@ -31,15 +31,15 @@ When the user invokes this skill:
 ## PDF Contents (in order)
 
 1. **Header** — VA Whole Health wordmark, "Personal Health Plan" title,
-   patient name, report date
-2. **My Why** — Purpose quote (accent bar), Mission, Aspiration
-3. **What Matters Most to Me** — MAP narrative
-4. **My Well-Being Signs** — Score bars for Q1/Q2/Q3 + overall average
-5. **My Goals** — Goal text box, Importance/Confidence bars, Action Steps
-   with COMPLETED / IN PROGRESS / NOT MET badges
-6. **My Strengths & Values** — Strengths · Values · Vision (inline lists)
-7. **Next Steps** — Discharge / follow-up plan
-8. **Footer** — "VA Whole Health • Personal Health Plan" + page number
+   patient name, most recent session date
+2. **Mission, Aspiration, Purpose (MAP)** — Purpose quote (accent bar),
+   Mission, Aspiration, What Matters Most narrative
+3. **My Well-Being Signs** — Score bars for Q1/Q2/Q3 + overall average
+4. **My Goals** — Goal text box, Importance/Confidence bars, rationale notes,
+   Action Steps with COMPLETED / IN PROGRESS / NOT MET badges
+5. **My Strengths & Values** — Strengths · Values · Vision (inline lists)
+6. **Next Steps** — Discharge / follow-up plan
+7. **Footer** — "VA Whole Health • Personal Health Plan" + page number
 
 ## Notes
 
