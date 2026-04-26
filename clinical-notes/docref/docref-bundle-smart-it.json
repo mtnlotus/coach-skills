@@ -1,0 +1,219 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "68b93878-bb57-432e-8278-3a93681cf78e",
+                "status": "current",
+                "docStatus": "final",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11506-3",
+                            "display": "Progress note"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                                "code": "clinical-note",
+                                "display": "Clinical Note"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/d5525459-8f3e-4e60-8ed2-5140d165db75",
+                    "display": "Wiegand, Truman"
+                },
+                "date": "2025-12-08T11:00:00-05:00",
+                "author": [
+                    {
+                        "type": "Practitioner",
+                        "reference": "Practitioner/96333652-ed28-41d3-bb60-d435f478c8ed",
+                        "display": "Dr. Shonta Sanford"
+                    }
+                ],
+                "description": "Health and Wellness Coaching — Initial Visit (Session 1)",
+                "context": {
+                    "period": {
+                        "start": "2025-12-08T11:00:00-05:00"
+                    },
+                    "event": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "1156338001",
+                                    "display": "Health coaching"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "contentType": "text/plain",
+                            "language": "en-US",
+                            "data": "TE9DQUwgVElUTEU6IEhFQUxUSCBBTkQgV0VMTE5FU1MgQ09BQ0hJTkcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApTVEFOREFSRCBUSVRMRTogSU5URUdSQVRJVkUgSEVBTFRIIE5PVEUgICAgICAgICAgICAgICAgICAgICAgICAgCkRBVEUgT0YgTk9URTogREVDIDA4LCAyMDI1QDExOjAwICAgICAJCUVOVFJZIERBVEU6IERFQyAwOCwgMjAyNUAxMTowMDo0MyAgICAgIApBVVRIT1I6IAlDb2FjaCwgQ2F0aHkgQi4JCQlFWFAgQ09TSUdORVI6ICAgICAgICAgICAgICAgICAgICAgICAgICAgCgpIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nCkhFQUxUSCBBTkQgV0VMTE5FU1MgQ09BQ0hJTkcgVklTSVQKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KKlR5cGUgb2YgVmlzaXQ6CiAgSW4tcGVyc29uCgoqU2Vzc2lvbiBudW1iZXI6CiAgMQoKQWRkaXRpb25hbCBpbmZvcm1hdGlvbiAoZS5nLiBWZXRlcmFuJ3Mgc2VsZi1pZGVudGlmaWVkIHN0cmVuZ3RocywgVmFsdWVzLApWaXNpb24gZm9yIHRoZSBGdXR1cmUpOgpWZXRlcmFuJ3MgdmFsdWVzOiBmYW1pbHkgdGltZSwgYWxvbmUgdGltZSwgdGltZSB3aXRoIGZyaWVuZHMsIGNvbW11bmljYXRpb24sClRydXN0IFZpc2lvbiBmb3IgZnV0dXJlOiBTdGF5aW5nIGFjdGl2ZSwgZG9pbmcgYWN0aXZhdGVzIHRoZXkgZW5qb3kgZG9pbmcsCnRyYXZlbGluZyB3aXRoIGZhbWlseSBhbmQgc3BvdXNlLiAKClRpbWUgc3BlbnQgd2l0aCBWZXRlcmFuOgogIG92ZXIgNjAgbWludXRlcwoKSGVhbHRoIGFuZCBXZWxsbmVzcyBDb2FjaGluZyAiV2hhdCB0byBFeHBlY3QgRG9jdW1lbnQiIHdhcyBkaXNjdXNzZWQgYW5kIGFncmVlZAp0byBieSBWZXRlcmFuIGFuZCBjb2FjaC4KCldlbGwtQmVpbmcgU2lnbnMgKFdCUykgcmV2aWV3ZWQuCiAgV2VsbC1CZWluZyBTaWducyAKCiAgICBXZWxsLUJlaW5nIFNpZ25zIChXQlMpCiAgICAgIFdCUyBBdmVyYWdlIFNjb3JlOiA2LjMzIAoKICAgICAgU2NvcmVzIHJhbmdlIGZyb20gMC0xMCwgd2l0aCBoaWdoZXIgc2NvcmVzIGluZGljYXRpbmcgYmV0dGVyIHdlbGwtYmVpbmcuCgogICAgICBRdWVzdGlvbnMgYW5kIEFuc3dlcnM6IAoKICAgICAgT3ZlciB0aGUgcGFzdCBtb250aCAoMCA9IG5vbmUgb2YgdGhlIHRpbWUvMTAgPSBhbGwgb2YgdGhlIHRpbWUpLCBvbiAKICAgICAgYXZlcmFnZSBob3cgb2Z0ZW4gaGF2ZSB5b3UgYmVlbjoKCiAgICAgIDEuIEZ1bGx5IHNhdGlzZmllZCB3aXRoIGhvdyB0aGVzZSB0aGluZ3MgYXJlIGdvaW5nPwogICAgICA2CiAgICAgIDIuIFJlZ3VsYXJseSBpbnZvbHZlZCBpbiB0aGluZ3MgdGhhdCBhcmUgaW1wb3J0YW50IHRvIHlvdT8KICAgICAgNwogICAgICAzLiBGdW5jdGlvbmluZyB5b3VyIGJlc3QgaW4gdGhlIG1vc3QgaW1wb3J0YW50IHRoaW5ncyB5b3UgZG8/CiAgICAgIDYKClBlcnNvbmFsIEhlYWx0aCBJbnZlbnRvcnkgKFBISSkgcmV2aWV3ZWQKCldoYXQgcmVhbGx5IG1hdHRlcnMgdG8gU2FuZHJhIEFueXdvbWFuLgpNaXNzaW9uLCBBc3BpcmF0aW9uLCBQdXJwb3NlIChNQVApCiAgVmV0ZXJhbiBkZXNjcmliZWQ6Ck1pc3Npb24gaXMgdG8gbGl2ZSBsaWZlLCBzdGF5IGFjdGl2ZSwgZW5qb3kgdGhlIGRvd24gdGltZSwgCiAgYW5kIHJlbWFpbiBraW5kIHRvIGV2ZXJ5b25lLiBFdmVyeW9uZSBoYXMgYSBzdG9yeS4gCgpBc3BpcmF0aW9ucyB3aGVuIHlvdW5nZXIsIAogIHRvIGJlIGZpbmFuY2lhbGx5IHN1Y2Nlc3NmdWwsIGhhdmUgYSBmYW1pbHksIGFuZCBub3cgaXMgdG8gYmUgZmluYW5jaWFsbHkgCiAgc3RhYmxlLCBidXQgYWxzbyBrbm93IHRoYXQgd29yayBpcyBub3QgZXZlcnl0aGluZywgc28gZW5qb3kgd29yaywgYnV0IGFsc28gdGFrZSB0aW1lIHRvIGVuam95IGxpZmUgYXMgd2VsbC4gCgpQdXJwb3NlOiBMZWF2ZSBhIHBvc2l0aXZlIGluZmx1ZW5jZSBpbiBldmVyeW9uZSdzIGxpZmUgSSBtZWV0LgoKVmV0ZXJhbiB3YXMgc2VlbiBmb3IgSGVhbHRoIGFuZCBXZWxsbmVzcyBDb2FjaGluZyByZWxhdGVkIHRvOgogIFBvd2VyIG9mIHRoZSBNaW5kCgpWRVRFUkFOUyBHT0FMUwotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpMb25nLVRlcm0gUy5NLkEuUi5ULiBXaG9sZSBIZWFsdGggR29hbHM6CiAgVmV0ZXJhbiBpbiBlYXJseSBzdGFnZSBvZiBjb2FjaGluZzsgZ29hbHMgd2VyZSBub3Qgc2V0IGR1cmluZyB0b2RheSdzIHZpc2l0LgoKU2hvcnQtVGVybSBTLk0uQS5SLlQuIEdvYWxzL0FjdGlvbiBTdGVwczoKICBWZXRlcmFuIGluIGVhcmx5IHN0YWdlIG9mIGNvYWNoaW5nOyBnb2FscyB3ZXJlIG5vdCBzZXQgZHVyaW5nIHRvZGF5J3MgdmlzaXQuCgpUb2RheSdzIGNvYWNoaW5nIHNlc3Npb24gYWxpZ25zIHdpdGggdGhlIFZldGVyYW4ncyBNaXNzaW9uLCBBc3BpcmF0aW9uLCBvciAKUHVycG9zZSBpbiB0aGUgZm9sbG93aW5nIHdheXM6CiAgVG9kYXkncyBzZXNzaW9uIGFsbG93ZWQgdGhlIFZldGVyYW4gdG8gcmVmbGVjdCBvbiB0aGVpciBNQVAgYW5kIGRpc2N1c3Mgd2hhdCAKICB0aGF0IGV2ZW4gbG9va3MgbGlrZS4KCkFERElUSU9OQUwgU0VTU0lPTiBJTkZPUk1BVElPTgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpQcm92aWRlZCBWZXRlcmFuIHdpdGggZWR1Y2F0aW9uIGFuZCBoYW5kb3V0cyBvbjoKICBQb3dlciBvZiB0aGUgTWluZCBIYW5kb3V0CgpWZXRlcmFuIGlzIGludGVyZXN0ZWQgaW4gcmVmZXJyYWwgdG86CiAgTWluZGZ1bG5lc3MvTWVkaXRhdGlvbgoKUExBTgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpQbGFuOgogIEFycmFuZ2VkIGZvbGxvdy11cCB3aXRoIFZldGVyYW46CiAgICBWZXRlcmFuIGFncmVlZCB0byBmb2xsb3ctdXAgYnk6CiAgICAgIEluLXBlcnNvbiB2aXNpdAo=",
+                            "title": "Health and Wellness Coaching — Initial Visit (Session 1)"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "DocumentReference/68b93878-bb57-432e-8278-3a93681cf78e"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "fe17e91e-f835-48b3-811d-6a7509557726",
+                "status": "current",
+                "docStatus": "final",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11506-3",
+                            "display": "Progress note"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                                "code": "clinical-note",
+                                "display": "Clinical Note"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/d5525459-8f3e-4e60-8ed2-5140d165db75",
+                    "display": "Wiegand, Truman"
+                },
+                "date": "2026-02-05T11:00:00-05:00",
+                "author": [
+                    {
+                        "type": "Practitioner",
+                        "reference": "Practitioner/96333652-ed28-41d3-bb60-d435f478c8ed",
+                        "display": "Dr. Shonta Sanford"
+                    }
+                ],
+                "description": "Health and Wellness Coaching — Middle Visit (Session 5)",
+                "context": {
+                    "period": {
+                        "start": "2026-02-05T11:00:00-05:00"
+                    },
+                    "event": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "1156338001",
+                                    "display": "Health coaching"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "contentType": "text/plain",
+                            "language": "en-US",
+                            "data": "TE9DQUwgVElUTEU6IEhFQUxUSCBBTkQgV0VMTE5FU1MgQ09BQ0hJTkcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApTVEFOREFSRCBUSVRMRTogSU5URUdSQVRJVkUgSEVBTFRIIE5PVEUgICAgICAgICAgICAgICAgICAgICAgICAgCkRBVEUgT0YgTk9URTogRkVCIDA1LCAyMDI2QDExOjAwICAgICAJCUVOVFJZIERBVEU6IEZFQiAwNSwgMjAyNkAxMTowMDo0MyAgICAgIApBVVRIT1I6IAlDb2FjaCwgQ2F0aHkgQi4JCQlFWFAgQ09TSUdORVI6ICAgICAgICAgICAgICAgICAgICAgICAgICAgCgpIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nCgpIRUFMVEggQU5EIFdFTExORVNTIENPQUNISU5HIFZJU0lUCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCipUeXBlIG9mIFZpc2l0OgogIEluLXBlcnNvbgoKKlNlc3Npb24gbnVtYmVyOgogIDUKCkFkZGl0aW9uYWwgaW5mb3JtYXRpb24gKGUuZy4gVmV0ZXJhbidzIHNlbGYtaWRlbnRpZmllZCBzdHJlbmd0aHMsIFZhbHVlcywKVmlzaW9uIGZvciB0aGUgRnV0dXJlKToKU3RyZW5ndGhzIGRpc2N1c3NlZCBhbmQgaWRlbnRpZmllZDogb3JnYW5pemVkLCBkZXRlcm1pbmVkLCBraW5kLCBmdW4KClRpbWUgc3BlbnQgd2l0aCBWZXRlcmFuOgogIG92ZXIgNjAgbWludXRlcwoKCldoYXQgcmVhbGx5IG1hdHRlcnMgdG8gU2FuZHJhIEFueXdvbWFuLgpNaXNzaW9uLCBBc3BpcmF0aW9uLCBQdXJwb3NlIChNQVApCiAgVmV0ZXJhbiBjb250aW51ZXMgdG8gZGVzY3JpYmUgaG93IHdoYXQgbWF0dGVycyBtb3N0IHRvIHRoZW0gaXMgdG8gYmUgYWJsZSB0byAKICBzdGF5IGFjdGl2ZSBhbmQgZW5qb3kgaG9iYmllcyBhbmQgbGlmZS4gV2FudHMgdG8gdHJ5IG5ldyB0aGluZ3MgYW5kIHRyYXZlbCAKICBhbmQgaGF2ZSBlbmVyZ3kgd2hlbiB3aXRoIGZhbWlseSBhbmQgZnJpZW5kcy4KCgpWZXRlcmFuIHdhcyBzZWVuIGZvciBIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nIHJlbGF0ZWQgdG86CiAgUG93ZXIgb2YgdGhlIE1pbmQKClZFVEVSQU5TIEdPQUxTCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkxvbmctVGVybSBTLk0uQS5SLlQuIFdob2xlIEhlYWx0aCBHb2FsczoKICAgIENvbGxhYm9yYXRpdmVseSBpZGVudGlmaWVkIG5ldyBsb25nLXRlcm0gV2hvbGUgSGVhbHRoIGdvYWwocykgb2Y6CiAgICAgIEluIDYgbW9udGhzLCBWZXRlcmFuIHdpbGwgbGlrZSB0byBoYXZlIGFuIGVzdGFibGlzaGVkIG1pbmRmdWxuZXNzIAogICAgICBwcmFjdGljZSB3aGVyZSB0aGV5IHByYWN0aWNlIG1pbmRmdWxuZXNzIGRhaWx5IGZvciAzLTUgbWludXRlcyBzdGFydGluZyAKICAgICAgaW4gdGhlIG1vcm5pbmcgb3IgcmlnaHQgYmVmb3JlIGJlZCwgdXNpbmcgdGhlaXIgYXBwOiBJbnNpZGUgVGltZXIKCiAgICBVdGlsaXplZCBJbXBvcnRhbmNlIFJ1bGVyOgogICAgICBIb3cgaW1wb3J0YW50IGRvZXMgVmV0ZXJhbiBjb25zaWRlciBoZWFsdGggdG9waWNzIGlkZW50aWZpZWQ/CiAgICAgICgxPW5vdCBpbXBvcnRhbnQsIDEwPXZlcnkgaW1wb3J0YW50KQogICAgICA4CgogICAgICBHb2FsIGlzIGltcG9ydGFudCB0byBWZXRlcmFuIGJlY2F1c2U6CiAgICAgICAgVmV0ZXJhbiBzYWlkIDggYmVjYXVzZSBieSBwcmlvcml0aXppbmcgdGhlaXIgbWluZHNldCB0aGV5IHdpbGwgYmUgYWJsZSAKICAgICAgICB0byBiZSBzdWNjZXNzZnVsIGluIG90aGVyIGFyZWFzIG9mIHRoZWlyIGxpZmUgYW5kIGhhdmUgY29udHJvbAoKCiAgICBVdGlsaXplZCBDb25maWRlbmNlIFJ1bGVyOgogICAgICBIb3cgY29uZmlkZW50IGlzIHRoZSBWZXRlcmFuIHRoYXQgdGhleSB3aWxsIGJlIGFibGUgdG8gYWNjb21wbGlzaCB0aGVpcgogICAgICBnb2FsPwogICAgICAoMT1ub3QgY29uZmlkZW50LCAxMD12ZXJ5IGNvbmZpZGVudCkKICAgICAgOAoKICAgICAgVmV0ZXJhbiBpcyBjb25maWRlbnQgYmVjYXVzZToKICAgICAgICBEaXNjdXNzZWQgbGV2ZXJhZ2luZyB0aGUgVmV0ZXJhbidzIHN0cmVuZ3RocyBvZiBkZXRlcm1pbmF0aW9uLCBmdW4sIGFuZCAKICAgICAgICBvcmdhbml6ZWQuIFRoZXkgZmVlbCB0aGV5IGNhbiBjb25maWRlbnRseSBpbmNvcnBvcmF0ZSB0aGlzIGludG8gdGhlaXIgCiAgICAgICAgbGlmZXN0eWxlIGFuZCByb3V0aW5lLgoKClNob3J0LVRlcm0gUy5NLkEuUi5ULiBHb2Fscy9BY3Rpb24gU3RlcHM6CiAgVmV0ZXJhbidzIFMuTS5BLlIuVC4gZ29hbChzKToKICAgIFZldGVyYW4gc2V0IGEgbmV3IFMuTS5BLlIuVC4gZ29hbChzKSBvZjoKICAgICAgR29hbCAxOgogICAgICAgIFZldGVyYW4gaXMgZ29pbmcgdG8gc3RhcnQgc21hbGwgYXQgZmlyc3QgYnkgdGhlIG5leHQgdGltZSB3ZSBtZWV0LHRoZXkgCiAgICAgICAgYXJlIGdvaW5nIHRvIGNvbXBsZXRlIHR3byBkYXlzIG9mIG1pbmRmdWxuZXNzIGV4ZXJjaXNlcywgRnJpZGF5IGFuZCBTdW5kYXkgbW9ybmluZyBkdXJpbmcgZmlyc3QgY3VwIG9mIGNvZmZlZS4gVGhvc2UgYXJlIHRoZSB0d28gZGF5cyB0aGF0IGRvbid0IGhhdmUgYSBsb3QgZ29pbmcgb24uIFRoZXkgd2lsbCBzZXQgYW4gYWxhcm0gdG8gaGVscCB0aGVtIHJlbWVtYmVyIGFuZCBzdGFydCB3aXRoIDEgbWludXRlIGV4ZXJjaXNlcy4gCiAgICAgICAgVXRpbGl6ZWQgSW1wb3J0YW5jZSBSdWxlcjoKICAgICAgICAgIEhvdyBpbXBvcnRhbnQgZG9lcyBWZXRlcmFuIGNvbnNpZGVyIGhlYWx0aCB0b3BpY3MgaWRlbnRpZmllZD8KICAgICAgICAgICgxPW5vdCBpbXBvcnRhbnQsIDEwPXZlcnkgaW1wb3J0YW50KQogICAgICAgICAgOAoKICAgICAgICAgIEdvYWwgaXMgaW1wb3J0YW50IHRvIFZldGVyYW4gYmVjYXVzZToKICAgICAgICAgICAgSXQgaXMgaW1wb3J0YW50IHRvIHRoaXMgVmV0ZXJhbiB0byBzdGFydCBzb21ld2hlcmUgYW5kIGlzIGV4Y2l0ZWQgCiAgICAgICAgICAgIGFib3V0IHRoaXMuIE1lbnRpb25lZCBuZWVkaW5nIHRoZWlyIG1pbmRzZXQgdG8gYmUgcG9zaXRpdmUgYW5kIAogICAgICAgICAgICBwcmFjdGljZSB0aGF0IG5vdy4KCgogICAgICAgIFV0aWxpemVkIENvbmZpZGVuY2UgUnVsZXI6CiAgICAgICAgICBIb3cgY29uZmlkZW50IGlzIHRoZSBWZXRlcmFuIHRoYXQgdGhleSB3aWxsIGJlIGFibGUgdG8gYWNjb21wbGlzaAogICAgICAgICAgdGhlaXIgZ29hbD8KICAgICAgICAgICgxPW5vdCBjb25maWRlbnQsIDEwPXZlcnkgY29uZmlkZW50KQogICAgICAgICAgOAoKICAgICAgICAgIFZldGVyYW4gaXMgY29uZmlkZW50IGJlY2F1c2U6CiAgICAgICAgICAgIFZldGVyYW4gc3RhdGVkIHRoZXkgZmVlbCBjb25maWRlbnQgYmVjYXVzZSBpdCBpcyB0d28gZGF5cywgZG9lc24ndCAKICAgICAgICAgICAgZmVlbCBvdmVyd2hlbG1pbmcsIHRoZXkgc2V0IHRoZWlyIGFsYXJtIGFuZCB0aGV5IGhhdmUgdGhlIGFwcC4KCgpUb2RheSdzIGNvYWNoaW5nIHNlc3Npb24gYWxpZ25zIHdpdGggdGhlIFZldGVyYW4ncyBNaXNzaW9uLCBBc3BpcmF0aW9uLCBvciAKUHVycG9zZSBpbiB0aGUgZm9sbG93aW5nIHdheXM6CiAgVmV0ZXJhbiBpZGVudGlmZWQgdGhhdCBieSBzdGFydGluZyB3aXRoIHRoZXNlIGdvYWxzLCB0aGV5IHdpbGwgYmUgYWJsZSB0byAKICBoZWxwIGZ1bGZpbGwgdGhlaXIgbWlzc2lvbiBhbmQgaGF2ZSBhIHBvc2l0aXZlIGF0dGl0dWRlIGFuZCBtaW5kc2V0IHRvIGRvIGl0LgoKQURESVRJT05BTCBTRVNTSU9OIElORk9STUFUSU9OCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpQcm92aWRlZCBWZXRlcmFuIHdpdGggZWR1Y2F0aW9uIGFuZCBoYW5kb3V0cyBvbjoKICBNaW5kZnVsIEF3YXJlbmVzcyBIYW5kb3V0CgoKUExBTgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpQbGFuOgogIEFycmFuZ2VkIGZvbGxvdy11cCB3aXRoIFZldGVyYW46CiAgICBWZXRlcmFuIGFncmVlZCB0byBmb2xsb3ctdXAgYnk6CiAgICAgIEluLXBlcnNvbiB2aXNpdAo=",
+                            "title": "Health and Wellness Coaching — Middle Visit (Session 5)"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "DocumentReference/fe17e91e-f835-48b3-811d-6a7509557726"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "4260d29e-fdc8-483a-bb02-414c84b58127",
+                "status": "current",
+                "docStatus": "final",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "11506-3",
+                            "display": "Progress note"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                                "code": "clinical-note",
+                                "display": "Clinical Note"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/d5525459-8f3e-4e60-8ed2-5140d165db75",
+                    "display": "Wiegand, Truman"
+                },
+                "date": "2026-04-14T11:00:00-04:00",
+                "author": [
+                    {
+                        "type": "Practitioner",
+                        "reference": "Practitioner/96333652-ed28-41d3-bb60-d435f478c8ed",
+                        "display": "Dr. Shonta Sanford"
+                    }
+                ],
+                "description": "Health and Wellness Coaching — Final Visit (Session 10)",
+                "context": {
+                    "period": {
+                        "start": "2026-04-14T11:00:00-04:00"
+                    },
+                    "event": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "1156338001",
+                                    "display": "Health coaching"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "contentType": "text/plain",
+                            "language": "en-US",
+                            "data": "TE9DQUwgVElUTEU6IEhFQUxUSCBBTkQgV0VMTE5FU1MgQ09BQ0hJTkcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApTVEFOREFSRCBUSVRMRTogSU5URUdSQVRJVkUgSEVBTFRIIE5PVEUgICAgICAgICAgICAgICAgICAgICAgICAgCkRBVEUgT0YgTk9URTogQVBSIDE0LCAyMDI2QDExOjAwICAgICAJCUVOVFJZIERBVEU6IEFQUiAxNCwgMjAyNkAxMTowMDo0MyAgICAgIApBVVRIT1I6IAlDb2FjaCwgQ2F0aHkgQi4JCQlFWFAgQ09TSUdORVI6ICAgICAgICAgICAgICAgICAgICAgICAgICAgCgpIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nCgpIRUFMVEggQU5EIFdFTExORVNTIENPQUNISU5HIFZJU0lUCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCipUeXBlIG9mIFZpc2l0OgogIEluLXBlcnNvbgoKKlNlc3Npb24gbnVtYmVyOgogIDEwCgpUaW1lIHNwZW50IHdpdGggVmV0ZXJhbjoKICAzMC02MCBtaW51dGVzCgpXZWxsLUJlaW5nIFNpZ25zIChXQlMpIHJldmlld2VkLgogIFdlbGwtQmVpbmcgU2lnbnMgCgogICAgV2VsbC1CZWluZyBTaWducyAoV0JTKQogICAgICBXQlMgQXZlcmFnZSBTY29yZTogNy4zMyAKCiAgICAgIFNjb3JlcyByYW5nZSBmcm9tIDAtMTAsIHdpdGggaGlnaGVyIHNjb3JlcyBpbmRpY2F0aW5nIGJldHRlciB3ZWxsLWJlaW5nLgoKICAgICAgUXVlc3Rpb25zIGFuZCBBbnN3ZXJzOiAKCiAgICAgIE92ZXIgdGhlIHBhc3QgbW9udGggKDAgPSBub25lIG9mIHRoZSB0aW1lLzEwID0gYWxsIG9mIHRoZSB0aW1lKSwgb24gCiAgICAgIGF2ZXJhZ2UgaG93IG9mdGVuIGhhdmUgeW91IGJlZW46CgogICAgICAxLiBGdWxseSBzYXRpc2ZpZWQgd2l0aCBob3cgdGhlc2UgdGhpbmdzIGFyZSBnb2luZz8KICAgICAgNwoKICAgICAgMi4gUmVndWxhcmx5IGludm9sdmVkIGluIHRoaW5ncyB0aGF0IGFyZSBpbXBvcnRhbnQgdG8geW91PwogICAgICA3CgogICAgICAzLiBGdW5jdGlvbmluZyB5b3VyIGJlc3QgaW4gdGhlIG1vc3QgaW1wb3J0YW50IHRoaW5ncyB5b3UgZG8/CiAgICAgIDgKCgpUaGlzIHdhcyBhIGZpbmFsIGNvYWNoaW5nIHNlc3Npb24uCiAgVmV0ZXJhbiBkZXNjcmliZWQgdGhhdCBtZWV0aW5nIHRoZWlyIGdvYWxzIGhhcyBiZWVuIGNvbnNpc3RlbnQgYW5kIGZlZWxzIHRoZXkgCiAgYXJlIGF0IGEgcGxhY2Ugd2hlcmUgdGhleSBjYW4gY29udGludWUgd2l0aCB0aGUgbW9tZW50dW0gYW5kIG1lZXQgdGhlaXIgbG9uZyAKICB0ZXJtIGdvYWwuIFRoZXkgcGxhbiB0b24gY29udGludWUgdG8gd29yayB0b3dhcmQgYWRvcHRpbmcgYSBtaW5kZnVsbmVzcyAKICBwcmFjdGljZS4KCgpWZXRlcmFuIHdhcyBzZWVuIGZvciBIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nIHJlbGF0ZWQgdG86CiAgUG93ZXIgb2YgdGhlIE1pbmQKClZFVEVSQU5TIEdPQUxTCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkxvbmctVGVybSBTLk0uQS5SLlQuIFdob2xlIEhlYWx0aCBHb2FsczoKICAgIENvbGxhYm9yYXRpdmVseSBpZGVudGlmaWVkIG5ldyBsb25nLXRlcm0gV2hvbGUgSGVhbHRoIGdvYWwocykgb2Y6CiAgICAgIEluIDYgbW9udGhzLCBWZXRlcmFuIHdpbGwgbGlrZSB0byBoYXZlIGFuIGVzdGFibGlzaGVkIG1pbmRmdWxuZXNzIAogICAgICBwcmFjdGljZSB3aGVyZSB0aGV5IHByYWN0aWNlIG1pbmRmdWxuZXNzIGRhaWx5IGZvciAzLTUgbWludXRlcyBzdGFydGluZyAKICAgICAgaW4gdGhlIG1vcm5pbmcgb3IgcmlnaHQgYmVmb3JlIGJlZCwgdXNpbmcgdGhlaXIgYXBwOiBJbnNpZGUgVGltZXIKCiAgICBVdGlsaXplZCBJbXBvcnRhbmNlIFJ1bGVyOgogICAgICBIb3cgaW1wb3J0YW50IGRvZXMgVmV0ZXJhbiBjb25zaWRlciBoZWFsdGggdG9waWNzIGlkZW50aWZpZWQ/CiAgICAgICgxPW5vdCBpbXBvcnRhbnQsIDEwPXZlcnkgaW1wb3J0YW50KQogICAgICA5CgogICAgICBHb2FsIGlzIGltcG9ydGFudCB0byBWZXRlcmFuIGJlY2F1c2U6CiAgICAgICAgVGhpcyBjb250aW51ZXMgdG8gcmVtYWluIHRoZWlyIHByaW9yaXR5IGJlY2F1c2UgdGhleSBhcmUgc2VlaW5nIHRoZSAKICAgICAgICBpbXBhY3Qgb24gdGhlaXIgaGVhbHRoIGFuZCB3ZWxsLWJlaW5nCgoKICAgIFV0aWxpemVkIENvbmZpZGVuY2UgUnVsZXI6CiAgICAgIEhvdyBjb25maWRlbnQgaXMgdGhlIFZldGVyYW4gdGhhdCB0aGV5IHdpbGwgYmUgYWJsZSB0byBhY2NvbXBsaXNoIHRoZWlyCiAgICAgIGdvYWw/CiAgICAgICgxPW5vdCBjb25maWRlbnQsIDEwPXZlcnkgY29uZmlkZW50KQogICAgICA5CgogICAgICBWZXRlcmFuIGlzIGNvbmZpZGVudCBiZWNhdXNlOgogICAgICAgIFRoZXkgaGF2ZSBiZWVuIHN1Y2Nlc3NmdWxseSBjb21wbGV0aW5nIHRoZWlyIGFjdGlvbiBzdGVwcyBhbmQgZmVlbCB0aGV5IAogICAgICAgIGhhdmUgdGhlIHRvb2xzIGFuZCBtb21lbnR1bSB0byBrZWVwIGdvaW5nLgoKClNob3J0LVRlcm0gUy5NLkEuUi5ULiBHb2Fscy9BY3Rpb24gU3RlcHM6CiAgVmV0ZXJhbidzIFMuTS5BLlIuVC4gZ29hbChzKToKICAgIFJldmlld2VkIHByb2dyZXNzIG9uIHByZXZpb3VzbHkgc2V0IFMuTS5BLlIuVC4gZ29hbCBvZjoKICAgICAgR29hbCAxOgogICAgICAgIFZldGVyYW4gd291bGQgbGlrZSB0byBrZWVwIHdpdGggdGhlIG1pbmRmdWxuZXNzIHByYXRpY2UgYW5kIGlzIAogICAgICAgIGN1cnJlbnRseSB1cCB0byBkYWlseSBwcmFjdGljZSBpbiB0aGUgbW9ybmluZyB3aGlsZSBkcmlua2luZyB0aGVpciAKICAgICAgICBjb2ZmZWUuCiAgICAgICAgVmV0ZXJhbiByZXBvcnRzIGdvYWwgd2FzOgogICAgICAgICAgTWV0CgpUb2RheSdzIGNvYWNoaW5nIHNlc3Npb24gYWxpZ25zIHdpdGggdGhlIFZldGVyYW4ncyBNaXNzaW9uLCBBc3BpcmF0aW9uLCBvciAKUHVycG9zZSBpbiB0aGUgZm9sbG93aW5nIHdheXM6CiAgVmV0ZXJhbiBleHByZXNzZXMgdGhhdCB0b2RheSdzIHNlc3Npb24gYWxsb3dlZCB0aGVtIHRvIHNlZSB0aGF0IGJ5IGJyZWFraW5nIAogIGRvd24gdGhpcyBnb2FsIGhlbHBlZCBzZXQgdGhlbSB1cCBmb3Igc3VjY2VzcyBhbmQgaGFzIGFsbG93ZWQgdGhlbSB0byBzZWUgCiAgdGhlaXIgTUFQIGNsZWFyZXIuCgpBRERJVElPTkFMIFNFU1NJT04gSU5GT1JNQVRJT04KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCkFkZGl0aW9uYWwgaW5mb3JtYXRpb24gKGUuZy4gVmV0ZXJhbidzIHNlbGYtaWRlbnRpZmllZCBzdHJlbmd0aHMsIFZhbHVlcywKVmlzaW9uIGZvciB0aGUgRnV0dXJlKToKVmV0ZXJhbiBpcyB0YWtpbmcgYXdheSBmcm9tIHRvZGF5J3Mgc2Vzc2lvbiB0aGF0IHRoZXkgYXJlIGRvaW5nIGdyZWF0IHRoaW5ncywKYW5kIHRoYXQgaXQgaXMgaW1wb3J0YW50IHRvIGtlZXAgdXAgd2l0aCB0aGVzZSBkYWlseSBoYWJpdHMuIAoKUExBTgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpQbGFuOgogIE90aGVyOgogICAgVmV0ZXJhbiB3aWxsIGNhbGwgYmFjayBpZiB0aGV5IGZlZWwgdGhleSBuZWVkIHNvbWUgYWRkaXRpb25hbCBzdXBwb3J0IGFuZCAKICAgIHdpbGwgYmUgYXR0ZW5kaW5nIG1pbmRmdWxuZXNzIGNsYXNzZXMgZm9yIHRoZSBuZXh0IGZldyB3ZWVrcyBsb2NhbGx5LgoKCg==",
+                            "title": "Health and Wellness Coaching — Final Visit (Session 10)"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "DocumentReference/4260d29e-fdc8-483a-bb02-414c84b58127"
+            }
+        }
+    ]
+}

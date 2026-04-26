@@ -1,0 +1,64 @@
+{
+    "resourceType": "DocumentReference",
+    "status": "current",
+    "docStatus": "final",
+    "type": {
+        "coding": [
+            {
+                "system": "http://loinc.org",
+                "code": "11506-3",
+                "display": "Progress note"
+            }
+        ]
+    },
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                    "code": "clinical-note",
+                    "display": "Clinical Note"
+                }
+            ]
+        }
+    ],
+    "subject": {
+        "reference": "resource:0",
+        "display": "Anywoman, Sandra"
+    },
+    "date": "2025-12-08T11:00:00-05:00",
+    "author": [
+        {
+            "type": "Practitioner",
+            "reference": "resource:1",
+            "display": "Coach, Cathy B."
+        }
+    ],
+    "description": "Health and Wellness Coaching — Initial Visit (Session 1)",
+    "context": {
+        "period": {
+            "start": "2025-12-08T11:00:00-05:00"
+        },
+        "event": [
+            {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "1156338001",
+                        "display": "Health coaching"
+                    }
+                ]
+            }
+        ]
+    },
+    "content": [
+        {
+            "attachment": {
+                "contentType": "text/plain",
+                "language": "en-US",
+                "data": "TE9DQUwgVElUTEU6IEhFQUxUSCBBTkQgV0VMTE5FU1MgQ09BQ0hJTkcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApTVEFOREFSRCBUSVRMRTogSU5URUdSQVRJVkUgSEVBTFRIIE5PVEUgICAgICAgICAgICAgICAgICAgICAgICAgCkRBVEUgT0YgTk9URTogREVDIDA4LCAyMDI1QDExOjAwICAgICAJCUVOVFJZIERBVEU6IERFQyAwOCwgMjAyNUAxMTowMDo0MyAgICAgIApBVVRIT1I6IAlDT0FDSCwgQ0FUSFkgQi4JCQlFWFAgQ09TSUdORVI6ICAgICAgICAgICAgICAgICAgICAgICAgICAgCgpIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nCkhFQUxUSCBBTkQgV0VMTE5FU1MgQ09BQ0hJTkcgVklTSVQKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KKlR5cGUgb2YgVmlzaXQ6CiAgSW4tcGVyc29uCgoqU2Vzc2lvbiBudW1iZXI6CiAgMQoKQWRkaXRpb25hbCBpbmZvcm1hdGlvbiAoZS5nLiBWZXRlcmFuJ3Mgc2VsZi1pZGVudGlmaWVkIHN0cmVuZ3RocywgVmFsdWVzLApWaXNpb24gZm9yIHRoZSBGdXR1cmUpOgpWZXRlcmFuJ3MgdmFsdWVzOiBmYW1pbHkgdGltZSwgYWxvbmUgdGltZSwgdGltZSB3aXRoIGZyaWVuZHMsIGNvbW11bmljYXRpb24sClRydXN0IFZpc2lvbiBmb3IgZnV0dXJlOiBTdGF5aW5nIGFjdGl2ZSwgZG9pbmcgYWN0aXZhdGVzIHRoZXkgZW5qb3kgZG9pbmcsCnRyYXZlbGluZyB3aXRoIGZhbWlseSBhbmQgc3BvdXNlLiAKClRpbWUgc3BlbnQgd2l0aCBWZXRlcmFuOgogIG92ZXIgNjAgbWludXRlcwoKSGVhbHRoIGFuZCBXZWxsbmVzcyBDb2FjaGluZyAiV2hhdCB0byBFeHBlY3QgRG9jdW1lbnQiIHdhcyBkaXNjdXNzZWQgYW5kIGFncmVlZAp0byBieSBWZXRlcmFuIGFuZCBjb2FjaC4KCldlbGwtQmVpbmcgU2lnbnMgKFdCUykgcmV2aWV3ZWQuCiAgV2VsbC1CZWluZyBTaWducyAKCiAgICBXZWxsLUJlaW5nIFNpZ25zIChXQlMpCiAgICAgIFdCUyBBdmVyYWdlIFNjb3JlOiA2LjMzIAoKICAgICAgU2NvcmVzIHJhbmdlIGZyb20gMC0xMCwgd2l0aCBoaWdoZXIgc2NvcmVzIGluZGljYXRpbmcgYmV0dGVyIHdlbGwtYmVpbmcuCgogICAgICBRdWVzdGlvbnMgYW5kIEFuc3dlcnM6IAoKICAgICAgT3ZlciB0aGUgcGFzdCBtb250aCAoMCA9IG5vbmUgb2YgdGhlIHRpbWUvMTAgPSBhbGwgb2YgdGhlIHRpbWUpLCBvbiAKICAgICAgYXZlcmFnZSBob3cgb2Z0ZW4gaGF2ZSB5b3UgYmVlbjoKCiAgICAgIDEuIEZ1bGx5IHNhdGlzZmllZCB3aXRoIGhvdyB0aGVzZSB0aGluZ3MgYXJlIGdvaW5nPwogICAgICA2CiAgICAgIDIuIFJlZ3VsYXJseSBpbnZvbHZlZCBpbiB0aGluZ3MgdGhhdCBhcmUgaW1wb3J0YW50IHRvIHlvdT8KICAgICAgNwogICAgICAzLiBGdW5jdGlvbmluZyB5b3VyIGJlc3QgaW4gdGhlIG1vc3QgaW1wb3J0YW50IHRoaW5ncyB5b3UgZG8/CiAgICAgIDYKClBlcnNvbmFsIEhlYWx0aCBJbnZlbnRvcnkgKFBISSkgcmV2aWV3ZWQKCldoYXQgcmVhbGx5IG1hdHRlcnMgdG8gWlpaVEVTVCxURVNURUxJR0lCSUwuCk1pc3Npb24sIEFzcGlyYXRpb24sIFB1cnBvc2UgKE1BUCkKICBWZXRlcmFuIGRlc2NyaWJlZDoKTWlzc2lvbiBpcyB0byBsaXZlIGxpZmUsIHN0YXkgYWN0aXZlLCBlbmpveSB0aGUgZG93biB0aW1lLCAKICBhbmQgcmVtYWluIGtpbmQgdG8gZXZlcnlvbmUuIEV2ZXJ5b25lIGhhcyBhIHN0b3J5LiAKCkFzcGlyYXRpb25zIHdoZW4geW91bmdlciwgCiAgdG8gYmUgZmluYW5jaWFsbHkgc3VjY2Vzc2Z1bCwgaGF2ZSBhIGZhbWlseSwgYW5kIG5vdyBpcyB0byBiZSBmaW5hbmNpYWxseSAKICBzdGFibGUsIGJ1dCBhbHNvIGtub3cgdGhhdCB3b3JrIGlzIG5vdCBldmVyeXRoaW5nLCBzbyBlbmpveSB3b3JrLCBidXQgYWxzbyB0YWtlIHRpbWUgdG8gZW5qb3kgbGlmZSBhcyB3ZWxsLiAKClB1cnBvc2U6IExlYXZlIGEgcG9zaXRpdmUgaW5mbHVlbmNlIGluIGV2ZXJ5b25lJ3MgbGlmZSBJIG1lZXQuCgpWZXRlcmFuIHdhcyBzZWVuIGZvciBIZWFsdGggYW5kIFdlbGxuZXNzIENvYWNoaW5nIHJlbGF0ZWQgdG86CiAgUG93ZXIgb2YgdGhlIE1pbmQKClZFVEVSQU5TIEdPQUxTCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkxvbmctVGVybSBTLk0uQS5SLlQuIFdob2xlIEhlYWx0aCBHb2FsczoKICBWZXRlcmFuIGluIGVhcmx5IHN0YWdlIG9mIGNvYWNoaW5nOyBnb2FscyB3ZXJlIG5vdCBzZXQgZHVyaW5nIHRvZGF5J3MgdmlzaXQuCgpTaG9ydC1UZXJtIFMuTS5BLlIuVC4gR29hbHMvQWN0aW9uIFN0ZXBzOgogIFZldGVyYW4gaW4gZWFybHkgc3RhZ2Ugb2YgY29hY2hpbmc7IGdvYWxzIHdlcmUgbm90IHNldCBkdXJpbmcgdG9kYXkncyB2aXNpdC4KClRvZGF5J3MgY29hY2hpbmcgc2Vzc2lvbiBhbGlnbnMgd2l0aCB0aGUgVmV0ZXJhbidzIE1pc3Npb24sIEFzcGlyYXRpb24sIG9yIApQdXJwb3NlIGluIHRoZSBmb2xsb3dpbmcgd2F5czoKICBUb2RheSdzIHNlc3Npb24gYWxsb3dlZCB0aGUgVmV0ZXJhbiB0byByZWZsZWN0IG9uIHRoZWlyIE1BUCBhbmQgZGlzY3VzcyB3aGF0IAogIHRoYXQgZXZlbiBsb29rcyBsaWtlLgoKQURESVRJT05BTCBTRVNTSU9OIElORk9STUFUSU9OCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tClByb3ZpZGVkIFZldGVyYW4gd2l0aCBlZHVjYXRpb24gYW5kIGhhbmRvdXRzIG9uOgogIFBvd2VyIG9mIHRoZSBNaW5kIEhhbmRvdXQKClZldGVyYW4gaXMgaW50ZXJlc3RlZCBpbiByZWZlcnJhbCB0bzoKICBNaW5kZnVsbmVzcy9NZWRpdGF0aW9uCgpQTEFOCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tClBsYW46CiAgQXJyYW5nZWQgZm9sbG93LXVwIHdpdGggVmV0ZXJhbjoKICAgIFZldGVyYW4gYWdyZWVkIHRvIGZvbGxvdy11cCBieToKICAgICAgSW4tcGVyc29uIHZpc2l0Cg==",
+                "title": "Health and Wellness Coaching — Initial Visit (Session 1)"
+            }
+        }
+    ]
+}

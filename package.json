@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "AI-assisted skills for Health & Wellness Coaches to generate a Personal Health Plan",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
   "scripts": {
     "parse-notes": "tsx src/parse-notes.ts",
     "generate-fhir": "tsx src/generate-fhir.ts",

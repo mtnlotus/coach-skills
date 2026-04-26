@@ -1,7 +1,7 @@
 LOCAL TITLE: HEALTH AND WELLNESS COACHING                             
 STANDARD TITLE: INTEGRATIVE HEALTH NOTE                         
 DATE OF NOTE: FEB 05, 2026@11:00     		ENTRY DATE: FEB 05, 2026@11:00:43      
-AUTHOR: 	COACH, CATHY B.			EXP COSIGNER:                           
+AUTHOR: 	Coach, Cathy B.			EXP COSIGNER:                           
 
 Health and Wellness Coaching
 
@@ -21,7 +21,7 @@ Time spent with Veteran:
   over 60 minutes
 
 
-What really matters to ZZZTEST,TESTELIGIBIL.
+What really matters to Sandra Anywoman.
 Mission, Aspiration, Purpose (MAP)
   Veteran continues to describe how what matters most to them is to be able to 
   stay active and enjoy hobbies and life. Wants to try new things and travel 

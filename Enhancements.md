@@ -17,6 +17,5 @@
 ## Enhancements
 1. Accept two alternative inputs with clinical notes provided as .docx files or .txt plain text format. The plain text notes contain the same content and formatting as the docx.
 2. Accept input from a FHIR Bundle, without having any docx or txt note files, and use it to render a PDF summary. Use the FHIR bundle you already generate containing the personal health plan data as input for requirements. If needed, recommend additions to resource templates in the FHIR Bundle.
-3. Sorry, I did not provide enought direction for that last update. Do NOT add additional resources into the FHIR Bundle. Keep the bundle contents as they    
-were before this update and create the PDF using whatever is present. Yes, some of the content from the clinical note will be missing.
+3. Sorry, I did not provide enough direction for that last update. Do NOT add additional resources into the FHIR Bundle. Keep the bundle contents as they were before this update and create the PDF using whatever is present. Yes, some of the content from the clinical note will be missing.
 

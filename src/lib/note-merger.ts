@@ -58,11 +58,20 @@ export function rawNoteToPhpData(note: RawNote): PhpData {
 }
 
 function parsePatientName(nameStr: string): Patient {
-  const parts = nameStr.trim().split(/\s+/);
+  const trimmed = nameStr.trim();
+  // EHR format: FAMILY,GIVEN (comma, no space) — e.g. "SMITH,JOHN"
+  if (/^[^,\s]+,[^,\s]/.test(trimmed)) {
+    const commaIdx = trimmed.indexOf(",");
+    const family = trimmed.slice(0, commaIdx).trim();
+    const given = trimmed.slice(commaIdx + 1).trim();
+    return { given: given ? [given] : [], family };
+  }
+  // Space-separated: "John Smith" → given: ["John"], family: "Smith"
+  const parts = trimmed.split(/\s+/);
   if (parts.length >= 2) {
     return { given: parts.slice(0, -1), family: parts[parts.length - 1] };
   }
-  return { given: [nameStr], family: "" };
+  return { given: [trimmed], family: "" };
 }
 
 /** Sort RawNotes by session_date (when available) then session_number. */

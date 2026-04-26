@@ -1,7 +1,7 @@
 LOCAL TITLE: HEALTH AND WELLNESS COACHING                             
 STANDARD TITLE: INTEGRATIVE HEALTH NOTE                         
 DATE OF NOTE: DEC 08, 2025@11:00     		ENTRY DATE: DEC 08, 2025@11:00:43      
-AUTHOR: 	COACH, CATHY B.			EXP COSIGNER:                           
+AUTHOR: 	Coach, Cathy B.			EXP COSIGNER:                           
 
 Health and Wellness Coaching
 HEALTH AND WELLNESS COACHING VISIT
@@ -46,7 +46,7 @@ Well-Being Signs (WBS) reviewed.
 
 Personal Health Inventory (PHI) reviewed
 
-What really matters to ZZZTEST,TESTELIGIBIL.
+What really matters to Sandra Anywoman.
 Mission, Aspiration, Purpose (MAP)
   Veteran described:
 Mission is to live life, stay active, enjoy the down time, 
