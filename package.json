@@ -5,16 +5,18 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "types": "./src/index.ts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "parse-notes": "tsx src/parse-notes.ts",
     "generate-fhir": "tsx src/generate-fhir.ts",
     "generate-pdf": "tsx src/generate-pdf.ts",
     "generate-pdf-from-fhir": "tsx src/generate-pdf-from-fhir.ts",
     "build": "tsc",
+    "prepare": "tsc",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
