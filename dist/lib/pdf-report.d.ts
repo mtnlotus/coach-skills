@@ -32,6 +32,7 @@ export declare class PHPReport {
     private _renderPageHeader;
     private _renderMap;
     private _renderWbs;
+    private _renderGoalDetail;
     private _renderGoals;
     private _renderStrengthsValues;
     private _renderNextSteps;

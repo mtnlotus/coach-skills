@@ -12,7 +12,7 @@ const WBS_PANEL_CODE = "well-being-signs";
 const PCO_READINESS_SYSTEM = "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts";
 const PCO_GAS_GOAL_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile";
 const PCO_READINESS_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment";
-const PERTAINSTOGOAL_URL = "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal";
+const GOAL_TYPE_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/goal-type";
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
@@ -25,14 +25,6 @@ export function toDatetime(dateStr) {
         return `${dateStr}T00:00:00Z`;
     }
     return dateStr; // already a datetime; pass through
-}
-function srStatus(status) {
-    const mapping = {
-        met: "completed",
-        "not-met": "stopped",
-        "in-progress": "active",
-    };
-    return mapping[status ?? ""] ?? "active";
 }
 // ---------------------------------------------------------------------------
 // Resource builders
@@ -129,6 +121,7 @@ function buildGoal(goal, patientIdx, noteDate) {
         lifecycleStatus: goal.lifecycle_status,
         description: { text: goal.text },
         subject: ref(patientIdx),
+        category: [{ coding: [{ system: GOAL_TYPE_SYSTEM, code: goal.goal_type }] }],
     };
     resource.startDate = goal.start_date ?? noteDate;
     return resource;
@@ -170,26 +163,6 @@ function buildReadinessObs(goal, patientIdx, goalIdx, obsDate) {
         resource.note = annotations;
     return resource;
 }
-function buildServiceRequest(step, patientIdx, goalIdx, noteDate) {
-    const resource = {
-        resourceType: "ServiceRequest",
-        status: srStatus(step.status),
-        intent: "order",
-        code: { text: step.text },
-        subject: ref(patientIdx),
-        extension: [{ url: PERTAINSTOGOAL_URL, valueReference: ref(goalIdx) }],
-    };
-    const periodStart = step.start_date ?? noteDate;
-    if (periodStart || step.end_date) {
-        const period = {};
-        if (periodStart)
-            period.start = toDatetime(periodStart);
-        if (step.end_date)
-            period.end = toDatetime(step.end_date);
-        resource.occurrencePeriod = period;
-    }
-    return resource;
-}
 // ---------------------------------------------------------------------------
 // Bundle assembler
 // ---------------------------------------------------------------------------
@@ -216,9 +189,6 @@ export function buildBundle(php, sessionDate) {
         const readiness = buildReadinessObs(goal, patientIdx, goalIdx, sessionDate);
         if (readiness)
             add(readiness);
-        for (const step of goal.action_steps) {
-            add(buildServiceRequest(step, patientIdx, goalIdx, sessionDate));
-        }
     }
     return { resourceType: "Bundle", type: "collection", entry: entries };
 }
@@ -256,25 +226,18 @@ export function buildBundleFromNotes(notes, sessionDate) {
             const goalKey = goal.text.slice(0, 60);
             const existingGoalIdx = seenGoalKeys.get(goalKey);
             if (existingGoalIdx === undefined) {
-                // New goal: emit Goal + readiness + action steps
+                // New goal: emit Goal + readiness
                 const goalIdx = add(buildGoal(goal, patientIdx, noteDate));
                 seenGoalKeys.set(goalKey, goalIdx);
                 const readiness = buildReadinessObs(goal, patientIdx, goalIdx, noteDate);
                 if (readiness)
                     add(readiness);
-                for (const step of goal.action_steps) {
-                    add(buildServiceRequest(step, patientIdx, goalIdx, noteDate));
-                }
             }
             else {
-                // Existing goal: emit updated readiness (if scores present) and new action steps,
-                // both referencing the original Goal resource.
+                // Existing goal: emit updated readiness referencing the original Goal resource
                 const readiness = buildReadinessObs(goal, patientIdx, existingGoalIdx, noteDate);
                 if (readiness)
                     add(readiness);
-                for (const step of goal.action_steps) {
-                    add(buildServiceRequest(step, patientIdx, existingGoalIdx, noteDate));
-                }
             }
         }
     }

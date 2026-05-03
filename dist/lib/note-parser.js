@@ -224,7 +224,7 @@ export class NoteParser {
             if (/^Goal \d+:/.test(p)) {
                 if (current?.text)
                     goals.push(current);
-                current = { importance: undefined, confidence: undefined, status: "in-progress" };
+                current = { goal_type: "short-term", importance: undefined, confidence: undefined, lifecycle_status: "active" };
                 const textParts = [];
                 let j = i + 1;
                 while (j < sectionEnd && this.paras[j] && !/Utilized (Importance|Confidence) Ruler|Veteran reports goal was:/.test(this.paras[j])) {
@@ -238,16 +238,34 @@ export class NoteParser {
                     const val = this.findIntInWindow(i);
                     if (val !== null)
                         current.importance = val;
+                    for (let j = i + 1; j < Math.min(i + 15, sectionEnd); j++) {
+                        if (/important.*because|because.*important/i.test(this.paras[j])) {
+                            const body = this.collectUntil(j + 1, /Utilized (Importance|Confidence) Ruler:|^Goal \d+:/i, 10);
+                            current.importance_note = body ? `${this.paras[j]} ${body}` : this.paras[j];
+                            break;
+                        }
+                    }
                 }
                 else if (p.includes("Utilized Confidence Ruler:")) {
                     const val = this.findIntInWindow(i);
                     if (val !== null)
                         current.confidence = val;
+                    for (let j = i + 1; j < Math.min(i + 15, sectionEnd); j++) {
+                        if (/confident.*because|because.*confident/i.test(this.paras[j])) {
+                            const body = this.collectUntil(j + 1, /Utilized (Importance|Confidence) Ruler:|^Goal \d+:|Veteran reports goal was:/i, 10);
+                            current.confidence_note = body ? `${this.paras[j]} ${body}` : this.paras[j];
+                            break;
+                        }
+                    }
                 }
                 else if (p.includes("Veteran reports goal was:")) {
                     const [, statusText] = this.nextNonempty(i);
-                    if (statusText)
-                        current.status = statusText.toLowerCase().replace(/\s+/g, "-");
+                    if (statusText) {
+                        const normalized = statusText.toLowerCase().replace(/\s+/g, "-");
+                        current.lifecycle_status = normalized === "met" ? "completed"
+                            : normalized === "not-met" ? "cancelled"
+                                : "active";
+                    }
                 }
             }
             i++;

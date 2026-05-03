@@ -225,33 +225,21 @@ export class PHPReport {
         }
         this.setY(yStart + LINE_H + mm(2));
     }
-    _statusBadge(status) {
-        const s = (status ?? "in-progress").toLowerCase();
-        if (s === "met")
+    _statusBadge(lifecycleStatus) {
+        const s = (lifecycleStatus ?? "active").toLowerCase();
+        if (s === "completed")
             return [VA_GREEN, "COMPLETED"];
-        if (s === "not-met" || s === "not met")
+        if (s === "cancelled")
             return [VA_RED, "NOT MET"];
         return [VA_GOLD, "IN PROGRESS"];
     }
-    _actionStep(step, indent = INDENT) {
-        const [badgeColor, badgeLabel] = this._statusBadge(step.status);
+    _actionStep(goal, indent = INDENT) {
+        const [badgeColor, badgeLabel] = this._statusBadge(goal.lifecycle_status);
         const badgeW = mm(22);
         const badgeH = mm(5.5);
-        const textW = CONTENT_W - indent - badgeW - mm(4);
-        const yStart = this.getY();
-        // Measure text height
-        this._font("regular", 9.5);
-        const textHeight = this.doc.heightOfString(step.text, { width: textW });
-        // Draw step text
-        this._fill(DARK_TEXT)._font("regular", 9.5);
-        this.doc.fillColor(DARK_TEXT).text(step.text, L_MARGIN + indent, yStart, {
-            width: textW,
-            lineGap: 0,
-        });
-        const textEndY = this.doc.y;
-        // Draw badge: right-aligned, vertically centred against text block
+        const y = this.getY();
         const badgeX = PAGE_W - R_MARGIN - badgeW;
-        const badgeY = yStart + (textHeight - badgeH) / 2;
+        const badgeY = y + (badgeH - badgeH) / 2;
         this._fillStroke(badgeColor);
         this.doc.rect(badgeX, badgeY, badgeW, badgeH).fill();
         this._fill(WHITE)._font("bold", 7.5);
@@ -260,8 +248,7 @@ export class PHPReport {
             lineBreak: false,
             align: "center",
         });
-        // Restore cursor below text (not badge)
-        this.setY(textEndY + mm(1.5));
+        this.setY(y + badgeH + mm(1));
     }
     _tagRow(label, items, indent = INDENT) {
         if (!items.length)
@@ -408,44 +395,79 @@ export class PHPReport {
             this.ln(mm(4));
         }
     }
+    _renderGoalDetail(goal) {
+        this.ln(mm(1));
+        // Measure goal box height and decide whether to page-break before drawing.
+        this._font("italic", 10);
+        const textW = CONTENT_W - INDENT * 2 - mm(4);
+        const textH = this.doc.heightOfString(goal.text, { width: textW });
+        const boxH = textH + mm(4);
+        // Minimum space: box + score bars + a bit of note room
+        const minNeeded = boxH + LINE_H * 2 + mm(10);
+        if (this.remaining() < minNeeded) {
+            this.doc.addPage();
+        }
+        const y = this.getY();
+        this._fillStroke(VA_BLUE_BG);
+        this.doc.rect(L_MARGIN + INDENT, y, CONTENT_W - INDENT * 2, boxH).fill();
+        this._fill(VA_NAVY)._font("italic", 10);
+        this.doc.fillColor(VA_NAVY).text(goal.text, L_MARGIN + INDENT + mm(2), y + mm(2), {
+            width: textW,
+            lineGap: 0,
+        });
+        this.setY(y + boxH + mm(1));
+        this._twoScoreBars("Importance", goal.importance, "Confidence", goal.confidence);
+        if (goal.importance_note) {
+            this._body(goal.importance_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
+            this.ln(mm(1.5));
+        }
+        if (goal.confidence_note) {
+            this._body(goal.confidence_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
+        }
+        if (goal.importance_note || goal.confidence_note)
+            this.ln(mm(1));
+        // Status badge for short-term goals that are not simply "active"
+        if (goal.goal_type === "short-term" && goal.lifecycle_status !== "active") {
+            this._actionStep(goal, INDENT);
+        }
+    }
     _renderGoals(php) {
         if (!php.goals.length)
             return;
         this._sectionHeader("My Goals");
-        for (const goal of php.goals) {
+        const longTermGoals = php.goals.filter((g) => g.goal_type === "long-term");
+        const shortTermGoals = php.goals.filter((g) => g.goal_type === "short-term");
+        if (longTermGoals.length > 0) {
             this.ln(mm(2));
-            const y = this.getY();
-            // Measure goal text height for background rect
-            this._font("italic", 10);
-            const textW = CONTENT_W - INDENT * 2 - mm(4);
-            const textH = this.doc.heightOfString(goal.text, { width: textW });
-            const boxH = textH + mm(4);
-            this._fillStroke(VA_BLUE_BG);
-            this.doc.rect(L_MARGIN + INDENT, y, CONTENT_W - INDENT * 2, boxH).fill();
-            this._fill(VA_NAVY)._font("italic", 10);
-            this.doc.fillColor(VA_NAVY).text(goal.text, L_MARGIN + INDENT + mm(2), y + mm(2), {
-                width: textW,
-                lineGap: 0,
+            this._fill(VA_BLUE)._font("bold", 10);
+            this.doc.fillColor(VA_BLUE).text("Long-Term Goals", L_MARGIN + INDENT, this.getY(), {
+                lineBreak: false,
             });
-            this.setY(y + boxH + mm(1));
-            this._twoScoreBars("Importance", goal.importance, "Confidence", goal.confidence);
-            if (goal.importance_note) {
-                this._body(goal.importance_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
+            this.ln(SMALL_LINE_H + mm(1));
+            for (const goal of longTermGoals) {
+                this._renderGoalDetail(goal);
             }
-            if (goal.confidence_note) {
-                this._body(goal.confidence_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
+        }
+        if (shortTermGoals.length > 0) {
+            // Measure the first goal's box height so we can keep heading + first goal together.
+            this._font("italic", 10);
+            const firstGoalTextW = CONTENT_W - INDENT * 2 - mm(4);
+            const firstGoalBoxH = this.doc.heightOfString(shortTermGoals[0].text, { width: firstGoalTextW }) + mm(4);
+            const headingH = mm(3) + SMALL_LINE_H + mm(1);
+            const minForHeadingPlusGoal = headingH + firstGoalBoxH + LINE_H * 2 + mm(10);
+            if (this.remaining() < minForHeadingPlusGoal) {
+                this.doc.addPage();
             }
-            if (goal.importance_note || goal.confidence_note)
-                this.ln(mm(1));
-            if (goal.action_steps.length > 0) {
-                this._fill(VA_BLUE)._font("bold", 9);
-                this.doc.fillColor(VA_BLUE).text("Action Steps", L_MARGIN + INDENT, this.getY(), {
-                    lineBreak: false,
-                });
-                this.ln(SMALL_LINE_H + mm(0.5));
-                for (const step of goal.action_steps) {
-                    this._actionStep(step, INDENT + mm(3));
-                }
+            else {
+                this.ln(mm(3));
+            }
+            this._fill(VA_BLUE)._font("bold", 10);
+            this.doc.fillColor(VA_BLUE).text("Short-Term Goals", L_MARGIN + INDENT, this.getY(), {
+                lineBreak: false,
+            });
+            this.ln(SMALL_LINE_H + mm(1));
+            for (const goal of shortTermGoals) {
+                this._renderGoalDetail(goal);
             }
         }
     }

@@ -7,7 +7,7 @@
  * discharge_plan, is_final_session) will be absent from the PDF.
  */
 
-import type { PhpData, Patient, WbsAssessment, Goal, ActionStep } from "../models.js";
+import type { PhpData, Patient, WbsAssessment, Goal } from "../models.js";
 
 // ---------------------------------------------------------------------------
 // Constants (mirrors fhir-builder.ts)
@@ -18,7 +18,7 @@ const WHAT_MATTERS_CODE = "247751003";
 const WBS_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs";
 const WBS_PANEL_CODE = "well-being-signs";
 const PCO_READINESS_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment";
-const PERTAINSTOGOAL_URL = "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal";
+const GOAL_TYPE_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/goal-type";
 
 // ---------------------------------------------------------------------------
 // Minimal structural types for reading bundle JSON
@@ -51,10 +51,7 @@ interface BundleResource {
   lifecycleStatus?: string;
   description?: { text: string };
   startDate?: string;
-  // ServiceRequest
-  status?: string;
-  extension?: Extension[];
-  occurrencePeriod?: Period;
+  category?: { coding?: { system?: string; code?: string }[] }[];
 }
 
 interface BundleEntry {
@@ -71,15 +68,6 @@ export interface FhirBundle {
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-
-function reverseStatus(status: string | undefined): string {
-  const mapping: Record<string, string> = {
-    completed: "met",
-    stopped: "not-met",
-    active: "in-progress",
-  };
-  return mapping[status ?? ""] ?? "in-progress";
-}
 
 /**
  * Parse the MAP Observation valueString back into structured fields.
@@ -144,11 +132,15 @@ export function bundleToPhpData(bundle: FhirBundle): PhpData {
   for (const entry of entries) {
     const r = entry.resource;
     if (r.resourceType === "Goal") {
+      const goalTypeCoding = r.category
+        ?.flatMap((c) => c.coding ?? [])
+        .find((c) => c.system === GOAL_TYPE_SYSTEM);
+      const goalType = goalTypeCoding?.code === "short-term" ? "short-term" : "long-term";
       const goal: Goal = {
         text: r.description?.text ?? "",
+        goal_type: goalType,
         lifecycle_status: r.lifecycleStatus ?? "active",
         start_date: r.startDate,
-        action_steps: [],
       };
       goalIdxByUrl.set(entry.fullUrl, goals.length);
       goals.push(goal);
@@ -224,19 +216,6 @@ export function bundleToPhpData(bundle: FhirBundle): PhpData {
       }
     }
 
-    else if (r.resourceType === "ServiceRequest") {
-      const goalUrl = r.extension?.find((e) => e.url === PERTAINSTOGOAL_URL)?.valueReference?.reference;
-      const goalIdx = goalUrl !== undefined ? goalIdxByUrl.get(goalUrl) : undefined;
-      if (goalIdx !== undefined) {
-        const step: ActionStep = {
-          text: r.code?.text ?? "",
-          status: reverseStatus(r.status),
-          start_date: r.occurrencePeriod?.start?.slice(0, 10),
-          end_date: r.occurrencePeriod?.end?.slice(0, 10),
-        };
-        goals[goalIdx].action_steps.push(step);
-      }
-    }
   }
 
   return {

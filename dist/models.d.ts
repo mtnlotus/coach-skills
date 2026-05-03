@@ -51,90 +51,36 @@ export declare const MapSchema: z.ZodObject<{
     aspiration?: string | undefined;
     purpose?: string | undefined;
 }>;
-export declare const ActionStepSchema: z.ZodObject<{
-    text: z.ZodString;
-    importance: z.ZodOptional<z.ZodNumber>;
-    confidence: z.ZodOptional<z.ZodNumber>;
-    status: z.ZodOptional<z.ZodString>;
-    start_date: z.ZodOptional<z.ZodString>;
-    end_date: z.ZodOptional<z.ZodString>;
-}, "strip", z.ZodTypeAny, {
-    text: string;
-    status?: string | undefined;
-    importance?: number | undefined;
-    confidence?: number | undefined;
-    start_date?: string | undefined;
-    end_date?: string | undefined;
-}, {
-    text: string;
-    status?: string | undefined;
-    importance?: number | undefined;
-    confidence?: number | undefined;
-    start_date?: string | undefined;
-    end_date?: string | undefined;
-}>;
 export declare const GoalSchema: z.ZodObject<{
     text: z.ZodString;
+    goal_type: z.ZodDefault<z.ZodEnum<["long-term", "short-term"]>>;
     importance: z.ZodOptional<z.ZodNumber>;
     confidence: z.ZodOptional<z.ZodNumber>;
     importance_note: z.ZodOptional<z.ZodString>;
     confidence_note: z.ZodOptional<z.ZodString>;
     lifecycle_status: z.ZodDefault<z.ZodString>;
     start_date: z.ZodOptional<z.ZodString>;
-    action_steps: z.ZodDefault<z.ZodArray<z.ZodObject<{
-        text: z.ZodString;
-        importance: z.ZodOptional<z.ZodNumber>;
-        confidence: z.ZodOptional<z.ZodNumber>;
-        status: z.ZodOptional<z.ZodString>;
-        start_date: z.ZodOptional<z.ZodString>;
-        end_date: z.ZodOptional<z.ZodString>;
-    }, "strip", z.ZodTypeAny, {
-        text: string;
-        status?: string | undefined;
-        importance?: number | undefined;
-        confidence?: number | undefined;
-        start_date?: string | undefined;
-        end_date?: string | undefined;
-    }, {
-        text: string;
-        status?: string | undefined;
-        importance?: number | undefined;
-        confidence?: number | undefined;
-        start_date?: string | undefined;
-        end_date?: string | undefined;
-    }>, "many">>;
+    end_date: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     text: string;
+    goal_type: "long-term" | "short-term";
     lifecycle_status: string;
-    action_steps: {
-        text: string;
-        status?: string | undefined;
-        importance?: number | undefined;
-        confidence?: number | undefined;
-        start_date?: string | undefined;
-        end_date?: string | undefined;
-    }[];
     importance?: number | undefined;
     confidence?: number | undefined;
-    start_date?: string | undefined;
     importance_note?: string | undefined;
     confidence_note?: string | undefined;
+    start_date?: string | undefined;
+    end_date?: string | undefined;
 }, {
     text: string;
+    goal_type?: "long-term" | "short-term" | undefined;
     importance?: number | undefined;
     confidence?: number | undefined;
-    start_date?: string | undefined;
     importance_note?: string | undefined;
     confidence_note?: string | undefined;
     lifecycle_status?: string | undefined;
-    action_steps?: {
-        text: string;
-        status?: string | undefined;
-        importance?: number | undefined;
-        confidence?: number | undefined;
-        start_date?: string | undefined;
-        end_date?: string | undefined;
-    }[] | undefined;
+    start_date?: string | undefined;
+    end_date?: string | undefined;
 }>;
 export declare const PhpDataSchema: z.ZodObject<{
     patient: z.ZodOptional<z.ZodObject<{
@@ -192,66 +138,34 @@ export declare const PhpDataSchema: z.ZodObject<{
     }>>;
     goals: z.ZodDefault<z.ZodArray<z.ZodObject<{
         text: z.ZodString;
+        goal_type: z.ZodDefault<z.ZodEnum<["long-term", "short-term"]>>;
         importance: z.ZodOptional<z.ZodNumber>;
         confidence: z.ZodOptional<z.ZodNumber>;
         importance_note: z.ZodOptional<z.ZodString>;
         confidence_note: z.ZodOptional<z.ZodString>;
         lifecycle_status: z.ZodDefault<z.ZodString>;
         start_date: z.ZodOptional<z.ZodString>;
-        action_steps: z.ZodDefault<z.ZodArray<z.ZodObject<{
-            text: z.ZodString;
-            importance: z.ZodOptional<z.ZodNumber>;
-            confidence: z.ZodOptional<z.ZodNumber>;
-            status: z.ZodOptional<z.ZodString>;
-            start_date: z.ZodOptional<z.ZodString>;
-            end_date: z.ZodOptional<z.ZodString>;
-        }, "strip", z.ZodTypeAny, {
-            text: string;
-            status?: string | undefined;
-            importance?: number | undefined;
-            confidence?: number | undefined;
-            start_date?: string | undefined;
-            end_date?: string | undefined;
-        }, {
-            text: string;
-            status?: string | undefined;
-            importance?: number | undefined;
-            confidence?: number | undefined;
-            start_date?: string | undefined;
-            end_date?: string | undefined;
-        }>, "many">>;
+        end_date: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         text: string;
+        goal_type: "long-term" | "short-term";
         lifecycle_status: string;
-        action_steps: {
-            text: string;
-            status?: string | undefined;
-            importance?: number | undefined;
-            confidence?: number | undefined;
-            start_date?: string | undefined;
-            end_date?: string | undefined;
-        }[];
         importance?: number | undefined;
         confidence?: number | undefined;
-        start_date?: string | undefined;
         importance_note?: string | undefined;
         confidence_note?: string | undefined;
+        start_date?: string | undefined;
+        end_date?: string | undefined;
     }, {
         text: string;
+        goal_type?: "long-term" | "short-term" | undefined;
         importance?: number | undefined;
         confidence?: number | undefined;
-        start_date?: string | undefined;
         importance_note?: string | undefined;
         confidence_note?: string | undefined;
         lifecycle_status?: string | undefined;
-        action_steps?: {
-            text: string;
-            status?: string | undefined;
-            importance?: number | undefined;
-            confidence?: number | undefined;
-            start_date?: string | undefined;
-            end_date?: string | undefined;
-        }[] | undefined;
+        start_date?: string | undefined;
+        end_date?: string | undefined;
     }>, "many">>;
     is_final_session: z.ZodDefault<z.ZodBoolean>;
     discharge_plan: z.ZodOptional<z.ZodString>;
@@ -260,20 +174,14 @@ export declare const PhpDataSchema: z.ZodObject<{
     strengths: string[];
     goals: {
         text: string;
+        goal_type: "long-term" | "short-term";
         lifecycle_status: string;
-        action_steps: {
-            text: string;
-            status?: string | undefined;
-            importance?: number | undefined;
-            confidence?: number | undefined;
-            start_date?: string | undefined;
-            end_date?: string | undefined;
-        }[];
         importance?: number | undefined;
         confidence?: number | undefined;
-        start_date?: string | undefined;
         importance_note?: string | undefined;
         confidence_note?: string | undefined;
+        start_date?: string | undefined;
+        end_date?: string | undefined;
     }[];
     is_final_session: boolean;
     map?: {
@@ -324,20 +232,14 @@ export declare const PhpDataSchema: z.ZodObject<{
     } | undefined;
     goals?: {
         text: string;
+        goal_type?: "long-term" | "short-term" | undefined;
         importance?: number | undefined;
         confidence?: number | undefined;
-        start_date?: string | undefined;
         importance_note?: string | undefined;
         confidence_note?: string | undefined;
         lifecycle_status?: string | undefined;
-        action_steps?: {
-            text: string;
-            status?: string | undefined;
-            importance?: number | undefined;
-            confidence?: number | undefined;
-            start_date?: string | undefined;
-            end_date?: string | undefined;
-        }[] | undefined;
+        start_date?: string | undefined;
+        end_date?: string | undefined;
     }[] | undefined;
     is_final_session?: boolean | undefined;
     discharge_plan?: string | undefined;
@@ -345,6 +247,5 @@ export declare const PhpDataSchema: z.ZodObject<{
 export type Patient = z.infer<typeof PatientSchema>;
 export type WbsAssessment = z.infer<typeof WbsAssessmentSchema>;
 export type Map = z.infer<typeof MapSchema>;
-export type ActionStep = z.infer<typeof ActionStepSchema>;
 export type Goal = z.infer<typeof GoalSchema>;
 export type PhpData = z.infer<typeof PhpDataSchema>;

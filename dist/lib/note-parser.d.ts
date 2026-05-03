@@ -2,7 +2,7 @@
  * Single-note parser. Extracts structured fields from one set of DOCX paragraphs.
  * Mirrors _NoteParser from parse_notes.py.
  */
-import type { WbsAssessment, ActionStep, Goal } from "../models.js";
+import type { WbsAssessment, Goal } from "../models.js";
 interface RawNote {
     source: string;
     session_number: number | null;
@@ -20,9 +20,7 @@ interface RawNote {
     }> | null;
     what_matters_most: string | null;
     long_term_goals: Partial<Goal>[];
-    short_term_goals: Partial<ActionStep & {
-        status: string;
-    }>[];
+    short_term_goals: Partial<Goal>[];
     is_final_session: boolean;
     discharge_plan: string | null;
 }

@@ -26,16 +26,6 @@ interface HumanName {
     family?: string;
     given?: string[];
 }
-interface Extension {
-    url: string;
-    valueReference?: {
-        reference: string;
-    };
-}
-interface Period {
-    start?: string;
-    end?: string;
-}
 interface Reference {
     reference: string;
 }
@@ -58,9 +48,12 @@ interface BundleResource {
         text: string;
     };
     startDate?: string;
-    status?: string;
-    extension?: Extension[];
-    occurrencePeriod?: Period;
+    category?: {
+        coding?: {
+            system?: string;
+            code?: string;
+        }[];
+    }[];
 }
 interface BundleEntry {
     fullUrl: string;

@@ -3,7 +3,7 @@
  * Mirrors generate_fhir.py resource builders.
  */
 
-import type { PhpData, Goal, ActionStep } from "../models.js";
+import type { PhpData, Goal } from "../models.js";
 // Minimal FHIR R4 shape types for bundle construction.
 // We define these locally to avoid fighting @smile-cdr/fhirts class-vs-interface
 // complexity; the output is plain JSON that validates against the FHIR spec.
@@ -51,19 +51,10 @@ interface IGoal {
   description: { text: string };
   subject: IReference;
   startDate?: string;
+  category?: ICodeableConcept[];
 }
 
-interface IServiceRequest {
-  resourceType: "ServiceRequest";
-  status: string;
-  intent: string;
-  code: ICodeableConcept;
-  subject: IReference;
-  extension?: IExtension[];
-  occurrencePeriod?: IPeriod;
-}
-
-type IResource = IPatient | IObservation | IGoal | IServiceRequest;
+type IResource = IPatient | IObservation | IGoal;
 
 interface IBundle_Entry {
   fullUrl: string;
@@ -89,7 +80,7 @@ const WBS_PANEL_CODE = "well-being-signs";
 const PCO_READINESS_SYSTEM = "http://hl7.org/fhir/us/pco/CodeSystem/readiness-assessment-concepts";
 const PCO_GAS_GOAL_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-gas-goal-profile";
 const PCO_READINESS_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment";
-const PERTAINSTOGOAL_URL = "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal";
+const GOAL_TYPE_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/goal-type";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -105,15 +96,6 @@ export function toDatetime(dateStr: string): string {
     return `${dateStr}T00:00:00Z`;
   }
   return dateStr; // already a datetime; pass through
-}
-
-function srStatus(status: string | undefined): IServiceRequest["status"] {
-  const mapping: Record<string, IServiceRequest["status"]> = {
-    met: "completed",
-    "not-met": "stopped",
-    "in-progress": "active",
-  };
-  return mapping[status ?? ""] ?? "active";
 }
 
 // ---------------------------------------------------------------------------
@@ -210,6 +192,7 @@ function buildGoal(goal: Goal, patientIdx: number, noteDate?: string): IGoal {
     lifecycleStatus: goal.lifecycle_status as IGoal["lifecycleStatus"],
     description: { text: goal.text },
     subject: ref(patientIdx),
+    category: [{ coding: [{ system: GOAL_TYPE_SYSTEM, code: goal.goal_type }] }],
   };
   resource.startDate = goal.start_date ?? noteDate;
   return resource;
@@ -254,30 +237,6 @@ function buildReadinessObs(
   return resource;
 }
 
-function buildServiceRequest(
-  step: ActionStep,
-  patientIdx: number,
-  goalIdx: number,
-  noteDate?: string,
-): IServiceRequest {
-  const resource: IServiceRequest = {
-    resourceType: "ServiceRequest",
-    status: srStatus(step.status),
-    intent: "order",
-    code: { text: step.text },
-    subject: ref(patientIdx),
-    extension: [{ url: PERTAINSTOGOAL_URL, valueReference: ref(goalIdx) }],
-  };
-  const periodStart = step.start_date ?? noteDate;
-  if (periodStart || step.end_date) {
-    const period: IPeriod = {};
-    if (periodStart) period.start = toDatetime(periodStart);
-    if (step.end_date) period.end = toDatetime(step.end_date);
-    resource.occurrencePeriod = period;
-  }
-  return resource;
-}
-
 // ---------------------------------------------------------------------------
 // Bundle assembler
 // ---------------------------------------------------------------------------
@@ -307,9 +266,6 @@ export function buildBundle(php: PhpData, sessionDate?: string): IBundle {
     const goalIdx = add(buildGoal(goal, patientIdx, sessionDate));
     const readiness = buildReadinessObs(goal, patientIdx, goalIdx, sessionDate);
     if (readiness) add(readiness);
-    for (const step of goal.action_steps) {
-      add(buildServiceRequest(step, patientIdx, goalIdx, sessionDate));
-    }
   }
 
   return { resourceType: "Bundle", type: "collection", entry: entries };
@@ -355,22 +311,15 @@ export function buildBundleFromNotes(notes: PhpData[], sessionDate?: string): IB
       const existingGoalIdx = seenGoalKeys.get(goalKey);
 
       if (existingGoalIdx === undefined) {
-        // New goal: emit Goal + readiness + action steps
+        // New goal: emit Goal + readiness
         const goalIdx = add(buildGoal(goal, patientIdx, noteDate));
         seenGoalKeys.set(goalKey, goalIdx);
         const readiness = buildReadinessObs(goal, patientIdx, goalIdx, noteDate);
         if (readiness) add(readiness);
-        for (const step of goal.action_steps) {
-          add(buildServiceRequest(step, patientIdx, goalIdx, noteDate));
-        }
       } else {
-        // Existing goal: emit updated readiness (if scores present) and new action steps,
-        // both referencing the original Goal resource.
+        // Existing goal: emit updated readiness referencing the original Goal resource
         const readiness = buildReadinessObs(goal, patientIdx, existingGoalIdx, noteDate);
         if (readiness) add(readiness);
-        for (const step of goal.action_steps) {
-          add(buildServiceRequest(step, patientIdx, existingGoalIdx, noteDate));
-        }
       }
     }
   }

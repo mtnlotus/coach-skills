@@ -27,24 +27,16 @@ export const MapSchema = z.object({
   purpose: z.string().optional(),
 });
 
-export const ActionStepSchema = z.object({
-  text: z.string(),
-  importance: z.number().int().optional(), // 1-10
-  confidence: z.number().int().optional(), // 1-10
-  status: z.string().optional(),           // "met" | "not-met" | "in-progress"
-  start_date: z.string().optional(),       // YYYY-MM-DD
-  end_date: z.string().optional(),         // YYYY-MM-DD
-});
-
 export const GoalSchema = z.object({
   text: z.string(),
+  goal_type: z.enum(["long-term", "short-term"]).default("long-term"),
   importance: z.number().int().optional(), // most recent readiness ruler value
   confidence: z.number().int().optional(), // most recent readiness ruler value
   importance_note: z.string().optional(),  // readiness ruler importance rationale
   confidence_note: z.string().optional(),  // readiness ruler confidence rationale
   lifecycle_status: z.string().default("active"), // "active" | "completed" | "cancelled"
   start_date: z.string().optional(),       // YYYY-MM-DD
-  action_steps: z.array(ActionStepSchema).default([]),
+  end_date: z.string().optional(),         // YYYY-MM-DD
 });
 
 export const PhpDataSchema = z.object({
@@ -65,6 +57,5 @@ export const PhpDataSchema = z.object({
 export type Patient = z.infer<typeof PatientSchema>;
 export type WbsAssessment = z.infer<typeof WbsAssessmentSchema>;
 export type Map = z.infer<typeof MapSchema>;
-export type ActionStep = z.infer<typeof ActionStepSchema>;
 export type Goal = z.infer<typeof GoalSchema>;
 export type PhpData = z.infer<typeof PhpDataSchema>;

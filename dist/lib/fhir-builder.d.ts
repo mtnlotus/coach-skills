@@ -19,14 +19,6 @@ interface IHumanName {
     family?: string;
     given?: string[];
 }
-interface IPeriod {
-    start?: string;
-    end?: string;
-}
-interface IExtension {
-    url: string;
-    valueReference?: IReference;
-}
 interface IMeta {
     profile?: string[];
 }
@@ -63,17 +55,9 @@ interface IGoal {
     };
     subject: IReference;
     startDate?: string;
+    category?: ICodeableConcept[];
 }
-interface IServiceRequest {
-    resourceType: "ServiceRequest";
-    status: string;
-    intent: string;
-    code: ICodeableConcept;
-    subject: IReference;
-    extension?: IExtension[];
-    occurrencePeriod?: IPeriod;
-}
-type IResource = IPatient | IObservation | IGoal | IServiceRequest;
+type IResource = IPatient | IObservation | IGoal;
 interface IBundle_Entry {
     fullUrl: string;
     resource: IResource;

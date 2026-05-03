@@ -14,18 +14,10 @@ const WHAT_MATTERS_CODE = "247751003";
 const WBS_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/well-being-signs";
 const WBS_PANEL_CODE = "well-being-signs";
 const PCO_READINESS_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment";
-const PERTAINSTOGOAL_URL = "http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal";
+const GOAL_TYPE_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/goal-type";
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-function reverseStatus(status) {
-    const mapping = {
-        completed: "met",
-        stopped: "not-met",
-        active: "in-progress",
-    };
-    return mapping[status ?? ""] ?? "in-progress";
-}
 /**
  * Parse the MAP Observation valueString back into structured fields.
  * The builder encodes: "Mission: X Aspiration: Y Purpose: Z narrative"
@@ -76,11 +68,15 @@ export function bundleToPhpData(bundle) {
     for (const entry of entries) {
         const r = entry.resource;
         if (r.resourceType === "Goal") {
+            const goalTypeCoding = r.category
+                ?.flatMap((c) => c.coding ?? [])
+                .find((c) => c.system === GOAL_TYPE_SYSTEM);
+            const goalType = goalTypeCoding?.code === "short-term" ? "short-term" : "long-term";
             const goal = {
                 text: r.description?.text ?? "",
+                goal_type: goalType,
                 lifecycle_status: r.lifecycleStatus ?? "active",
                 start_date: r.startDate,
-                action_steps: [],
             };
             goalIdxByUrl.set(entry.fullUrl, goals.length);
             goals.push(goal);
@@ -158,19 +154,6 @@ export function bundleToPhpData(bundle) {
                     wbsObj.average = Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 100) / 100;
                 }
                 wbs = wbsObj;
-            }
-        }
-        else if (r.resourceType === "ServiceRequest") {
-            const goalUrl = r.extension?.find((e) => e.url === PERTAINSTOGOAL_URL)?.valueReference?.reference;
-            const goalIdx = goalUrl !== undefined ? goalIdxByUrl.get(goalUrl) : undefined;
-            if (goalIdx !== undefined) {
-                const step = {
-                    text: r.code?.text ?? "",
-                    status: reverseStatus(r.status),
-                    start_date: r.occurrencePeriod?.start?.slice(0, 10),
-                    end_date: r.occurrencePeriod?.end?.slice(0, 10),
-                };
-                goals[goalIdx].action_steps.push(step);
             }
         }
     }

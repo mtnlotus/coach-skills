@@ -3,7 +3,7 @@
  * Mirrors _NoteParser from parse_notes.py.
  */
 
-import type { WbsAssessment, ActionStep, Goal } from "../models.js";
+import type { WbsAssessment, Goal } from "../models.js";
 
 const MONTH_MAP: Record<string, string> = {
   january: "01", february: "02", march: "03", april: "04",
@@ -62,7 +62,7 @@ interface RawNote {
   map: Partial<{ mission: string; aspiration: string; purpose: string }> | null;
   what_matters_most: string | null;
   long_term_goals: Partial<Goal>[];
-  short_term_goals: Partial<ActionStep & { status: string }>[];
+  short_term_goals: Partial<Goal>[];
   is_final_session: boolean;
   discharge_plan: string | null;
 }
@@ -250,9 +250,9 @@ export class NoteParser {
     return goals;
   }
 
-  private parseShortTermGoals(sectionIdx: number, sectionEnd: number): Partial<ActionStep & { status: string }>[] {
-    const goals: Partial<ActionStep & { status: string }>[] = [];
-    let current: Partial<ActionStep & { status: string }> | null = null;
+  private parseShortTermGoals(sectionIdx: number, sectionEnd: number): Partial<Goal>[] {
+    const goals: Partial<Goal>[] = [];
+    let current: Partial<Goal> | null = null;
 
     let i = sectionIdx + 1;
     while (i < sectionEnd) {
@@ -260,7 +260,7 @@ export class NoteParser {
 
       if (/^Goal \d+:/.test(p)) {
         if (current?.text) goals.push(current);
-        current = { importance: undefined, confidence: undefined, status: "in-progress" };
+        current = { goal_type: "short-term", importance: undefined, confidence: undefined, lifecycle_status: "active" };
 
         const textParts: string[] = [];
         let j = i + 1;
@@ -273,12 +273,31 @@ export class NoteParser {
         if (p.includes("Utilized Importance Ruler:")) {
           const val = this.findIntInWindow(i);
           if (val !== null) current.importance = val;
+          for (let j = i + 1; j < Math.min(i + 15, sectionEnd); j++) {
+            if (/important.*because|because.*important/i.test(this.paras[j])) {
+              const body = this.collectUntil(j + 1, /Utilized (Importance|Confidence) Ruler:|^Goal \d+:/i, 10);
+              current.importance_note = body ? `${this.paras[j]} ${body}` : this.paras[j];
+              break;
+            }
+          }
         } else if (p.includes("Utilized Confidence Ruler:")) {
           const val = this.findIntInWindow(i);
           if (val !== null) current.confidence = val;
+          for (let j = i + 1; j < Math.min(i + 15, sectionEnd); j++) {
+            if (/confident.*because|because.*confident/i.test(this.paras[j])) {
+              const body = this.collectUntil(j + 1, /Utilized (Importance|Confidence) Ruler:|^Goal \d+:|Veteran reports goal was:/i, 10);
+              current.confidence_note = body ? `${this.paras[j]} ${body}` : this.paras[j];
+              break;
+            }
+          }
         } else if (p.includes("Veteran reports goal was:")) {
           const [, statusText] = this.nextNonempty(i);
-          if (statusText) current.status = statusText.toLowerCase().replace(/\s+/g, "-");
+          if (statusText) {
+            const normalized = statusText.toLowerCase().replace(/\s+/g, "-");
+            current.lifecycle_status = normalized === "met" ? "completed"
+              : normalized === "not-met" ? "cancelled"
+              : "active";
+          }
         }
       }
 
