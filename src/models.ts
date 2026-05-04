@@ -20,12 +20,8 @@ export const WbsAssessmentSchema = z.object({
   average: z.number().optional(),
 });
 
-export const MapSchema = z.object({
-  // Mission, Aspiration, Purpose — the patient's Why Statement
-  mission: z.string().optional(),
-  aspiration: z.string().optional(),
-  purpose: z.string().optional(),
-});
+// MAP (Mission, Aspiration, Purpose) — full text, may contain line breaks
+export const MapSchema = z.string();
 
 export const GoalSchema = z.object({
   text: z.string(),
@@ -42,8 +38,7 @@ export const GoalSchema = z.object({
 export const PhpDataSchema = z.object({
   patient: PatientSchema.optional(),
   session_date: z.string().optional(),      // YYYY-MM-DD date of this note
-  what_matters_most: z.string().optional(), // MAP narrative (middle/final visits)
-  map: MapSchema.optional(),                // structured M/A/P (initial visit)
+  map: MapSchema.optional(),                // Mission, Aspiration, Purpose full text
   values: z.array(z.string()).default([]),
   vision: z.string().optional(),
   strengths: z.array(z.string()).default([]),
@@ -56,6 +51,5 @@ export const PhpDataSchema = z.object({
 // Inferred TypeScript types
 export type Patient = z.infer<typeof PatientSchema>;
 export type WbsAssessment = z.infer<typeof WbsAssessmentSchema>;
-export type Map = z.infer<typeof MapSchema>;
 export type Goal = z.infer<typeof GoalSchema>;
 export type PhpData = z.infer<typeof PhpDataSchema>;

@@ -45,32 +45,10 @@ function buildPatient(php) {
     return resource;
 }
 function mapText(php) {
-    const parts = [];
-    if (php.map) {
-        if (php.map.mission)
-            parts.push(php.map.mission);
-        if (php.map.aspiration)
-            parts.push(php.map.aspiration);
-        if (php.map.purpose)
-            parts.push(php.map.purpose);
-    }
-    if (php.what_matters_most)
-        parts.push(php.what_matters_most);
-    return parts.join(" ").trim() || null;
+    return php.map ?? null;
 }
 function buildWhatMattersObs(php, patientIdx, obsDate) {
-    const parts = [];
-    if (php.map) {
-        if (php.map.mission)
-            parts.push(`Mission: ${php.map.mission}`);
-        if (php.map.aspiration)
-            parts.push(`Aspiration: ${php.map.aspiration}`);
-        if (php.map.purpose)
-            parts.push(`Purpose: ${php.map.purpose}`);
-    }
-    if (php.what_matters_most)
-        parts.push(php.what_matters_most);
-    const text = parts.join(" ").trim() || undefined;
+    const text = php.map?.trim() || undefined;
     if (!text)
         return null;
     const resource = {

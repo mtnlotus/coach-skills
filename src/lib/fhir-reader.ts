@@ -66,40 +66,6 @@ export interface FhirBundle {
 }
 
 // ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/**
- * Parse the MAP Observation valueString back into structured fields.
- * The builder encodes: "Mission: X Aspiration: Y Purpose: Z narrative"
- * When no labeled fields are present, the whole string is what_matters_most.
- */
-function parseMapValueString(text: string): {
-  map?: { mission?: string; aspiration?: string; purpose?: string };
-  what_matters_most?: string;
-} {
-  const hasMission    = /Mission:/i.test(text);
-  const hasAspiration = /Aspiration:/i.test(text);
-  const hasPurpose    = /Purpose:/i.test(text);
-
-  if (!hasMission && !hasAspiration && !hasPurpose) {
-    return { what_matters_most: text };
-  }
-
-  // Extract each labeled segment; each runs until the next label or end of string
-  const mission    = text.match(/Mission:\s*(.*?)(?=\s+Aspiration:|\s+Purpose:|$)/si)?.[1]?.trim();
-  const aspiration = text.match(/Aspiration:\s*(.*?)(?=\s+Purpose:|$)/si)?.[1]?.trim();
-  // Purpose runs to end; we can't separate it from a trailing narrative
-  const purpose    = text.match(/Purpose:\s*(.*)/si)?.[1]?.trim();
-
-  const map = (mission || aspiration || purpose)
-    ? { mission, aspiration, purpose }
-    : undefined;
-
-  return { map };
-}
-
-// ---------------------------------------------------------------------------
 // Bundle → PhpData
 // ---------------------------------------------------------------------------
 
@@ -120,8 +86,7 @@ export function bundleToPhpData(bundle: FhirBundle): PhpData {
 
   let patient: Patient | undefined;
   let sessionDate: string | undefined;
-  let map: PhpData["map"] | undefined;
-  let what_matters_most: string | undefined;
+  let map: string | undefined;
   let wbs: WbsAssessment | undefined;
 
   // Goals are indexed by fullUrl so Readiness and ServiceRequest can reference them.
@@ -185,13 +150,8 @@ export function bundleToPhpData(bundle: FhirBundle): PhpData {
       }
 
       else if (codeSystem === SNOMED_SYSTEM && codeCode === WHAT_MATTERS_CODE) {
-        // MAP / Sense of Purpose observation. Most-recent-wins across notes.
         if (r.effectiveDateTime) sessionDate = r.effectiveDateTime.slice(0, 10);
-        if (r.valueString) {
-          const parsed = parseMapValueString(r.valueString);
-          if (parsed.map) map = parsed.map;
-          if (parsed.what_matters_most) what_matters_most = parsed.what_matters_most;
-        }
+        if (r.valueString) map = r.valueString;
       }
 
       else if (codeSystem === WBS_SYSTEM && codeCode === WBS_PANEL_CODE) {
@@ -221,7 +181,6 @@ export function bundleToPhpData(bundle: FhirBundle): PhpData {
   return {
     patient,
     session_date: sessionDate,
-    what_matters_most,
     map,
     values: [],
     vision: undefined,

@@ -16,12 +16,8 @@ export const WbsAssessmentSchema = z.object({
     functioning: z.number().int().optional(), // Q3: Functioning best (0-10)
     average: z.number().optional(),
 });
-export const MapSchema = z.object({
-    // Mission, Aspiration, Purpose — the patient's Why Statement
-    mission: z.string().optional(),
-    aspiration: z.string().optional(),
-    purpose: z.string().optional(),
-});
+// MAP (Mission, Aspiration, Purpose) — full text, may contain line breaks
+export const MapSchema = z.string();
 export const GoalSchema = z.object({
     text: z.string(),
     goal_type: z.enum(["long-term", "short-term"]).default("long-term"),
@@ -36,8 +32,7 @@ export const GoalSchema = z.object({
 export const PhpDataSchema = z.object({
     patient: PatientSchema.optional(),
     session_date: z.string().optional(), // YYYY-MM-DD date of this note
-    what_matters_most: z.string().optional(), // MAP narrative (middle/final visits)
-    map: MapSchema.optional(), // structured M/A/P (initial visit)
+    map: MapSchema.optional(), // Mission, Aspiration, Purpose full text
     values: z.array(z.string()).default([]),
     vision: z.string().optional(),
     strengths: z.array(z.string()).default([]),

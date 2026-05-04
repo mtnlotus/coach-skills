@@ -114,56 +114,29 @@ export class NoteParser {
         return { average, satisfied, involved, functioning };
     }
     parseMap(mapIdx) {
-        let mission;
-        let aspiration;
-        let purpose;
-        const narrativeParts = [];
+        const segments = [];
+        let current = [];
         let i = mapIdx + 1;
         while (i < this.n) {
             const p = this.paras[i];
+            if (/^(Veteran was seen|VETERANS GOALS|PLAN|ADDITIONAL)/.test(p))
+                break;
             if (/^Veteran described:/i.test(p)) {
                 i++;
                 continue;
             }
-            if (/^Mission is to/i.test(p)) {
-                const parts = [p];
-                let j = i + 1;
-                while (j < this.n && this.paras[j] && !/^(Aspirations|Purpose:|Veteran was seen)/i.test(this.paras[j])) {
-                    parts.push(this.paras[j]);
-                    j++;
-                }
-                mission = parts.join(" ");
-                i = j;
-                continue;
+            if (p) {
+                current.push(p);
             }
-            if (/^Aspirations when younger/i.test(p)) {
-                const parts = [p];
-                let j = i + 1;
-                while (j < this.n && this.paras[j] && !/^(Purpose:|Veteran was seen)/i.test(this.paras[j])) {
-                    parts.push(this.paras[j]);
-                    j++;
-                }
-                aspiration = parts.join(" ");
-                i = j;
-                continue;
+            else if (current.length) {
+                segments.push(current.join(" "));
+                current = [];
             }
-            if (/^Purpose:/i.test(p)) {
-                const m = p.match(/^Purpose:\s*(.+)/i);
-                purpose = m ? m[1].trim() : "";
-                i++;
-                break;
-            }
-            if (/^(Veteran was seen|VETERANS GOALS|PLAN|ADDITIONAL)/.test(p))
-                break;
-            if (p)
-                narrativeParts.push(p);
             i++;
         }
-        if (mission || aspiration || purpose) {
-            return [{ mission, aspiration, purpose }, null];
-        }
-        const narrative = narrativeParts.join(" ").trim() || null;
-        return [null, narrative];
+        if (current.length)
+            segments.push(current.join(" "));
+        return segments.join("\n\n").trim() || null;
     }
     parseLongTermGoals(sectionIdx, sectionEnd) {
         const goals = [];
@@ -313,7 +286,6 @@ export class NoteParser {
             strengths: [],
             wbs: null,
             map: null,
-            what_matters_most: null,
             long_term_goals: [],
             short_term_goals: [],
             is_final_session: false,
@@ -404,11 +376,9 @@ export class NoteParser {
                 }
             }
             else if (p.includes("Mission, Aspiration, Purpose (MAP)")) {
-                const [mapObj, narrative] = this.parseMap(i);
-                if (mapObj)
-                    result.map = mapObj;
-                if (narrative)
-                    result.what_matters_most = narrative;
+                const mapText = this.parseMap(i);
+                if (mapText)
+                    result.map = mapText;
             }
             else if (p.includes("This was a final coaching session")) {
                 result.is_final_session = true;

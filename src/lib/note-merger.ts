@@ -52,10 +52,7 @@ export function rawNoteToPhpData(note: RawNote): PhpData {
   return {
     patient,
     session_date: note.session_date ?? undefined,
-    what_matters_most: note.what_matters_most ?? undefined,
-    map: note.map
-      ? { mission: note.map.mission, aspiration: note.map.aspiration, purpose: note.map.purpose }
-      : undefined,
+    map: note.map ?? undefined,
     values: note.values,
     vision: note.vision ?? undefined,
     strengths: note.strengths,
@@ -100,8 +97,7 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
   let vision: string | undefined;
   let strengths: string[] = [];
   let wbs: Partial<WbsAssessment> | undefined;
-  let mapData: Partial<{ mission: string; aspiration: string; purpose: string }> = {};
-  let whatMattersMost: string | undefined;
+  let mapText: string | undefined;
   let isFinal = false;
   let dischargePlan: string | undefined;
 
@@ -119,12 +115,7 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
     if (note.vision) vision = note.vision;
     if (note.strengths.length > 0) strengths = note.strengths;
     if (note.wbs) wbs = note.wbs;
-    if (note.map) {
-      for (const [k, v] of Object.entries(note.map)) {
-        if (v) (mapData as Record<string, string>)[k] = v;
-      }
-    }
-    if (note.what_matters_most) whatMattersMost = note.what_matters_most;
+    if (note.map) mapText = note.map;
     if (note.is_final_session) isFinal = true;
     if (note.discharge_plan) dischargePlan = note.discharge_plan;
 
@@ -186,10 +177,7 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
   return {
     patient,
     session_date: sessionDate,
-    what_matters_most: whatMattersMost,
-    map: Object.keys(mapData).length > 0
-      ? { mission: mapData.mission, aspiration: mapData.aspiration, purpose: mapData.purpose }
-      : undefined,
+    map: mapText,
     values,
     vision,
     strengths,

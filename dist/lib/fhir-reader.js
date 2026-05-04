@@ -16,31 +16,6 @@ const WBS_PANEL_CODE = "well-being-signs";
 const PCO_READINESS_PROFILE = "http://hl7.org/fhir/us/pco/StructureDefinition/pco-readiness-assessment";
 const GOAL_TYPE_SYSTEM = "http://mtnlotus.com/fhir/whole-health-cards/CodeSystem/goal-type";
 // ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-/**
- * Parse the MAP Observation valueString back into structured fields.
- * The builder encodes: "Mission: X Aspiration: Y Purpose: Z narrative"
- * When no labeled fields are present, the whole string is what_matters_most.
- */
-function parseMapValueString(text) {
-    const hasMission = /Mission:/i.test(text);
-    const hasAspiration = /Aspiration:/i.test(text);
-    const hasPurpose = /Purpose:/i.test(text);
-    if (!hasMission && !hasAspiration && !hasPurpose) {
-        return { what_matters_most: text };
-    }
-    // Extract each labeled segment; each runs until the next label or end of string
-    const mission = text.match(/Mission:\s*(.*?)(?=\s+Aspiration:|\s+Purpose:|$)/si)?.[1]?.trim();
-    const aspiration = text.match(/Aspiration:\s*(.*?)(?=\s+Purpose:|$)/si)?.[1]?.trim();
-    // Purpose runs to end; we can't separate it from a trailing narrative
-    const purpose = text.match(/Purpose:\s*(.*)/si)?.[1]?.trim();
-    const map = (mission || aspiration || purpose)
-        ? { mission, aspiration, purpose }
-        : undefined;
-    return { map };
-}
-// ---------------------------------------------------------------------------
 // Bundle → PhpData
 // ---------------------------------------------------------------------------
 /**
@@ -59,7 +34,6 @@ export function bundleToPhpData(bundle) {
     let patient;
     let sessionDate;
     let map;
-    let what_matters_most;
     let wbs;
     // Goals are indexed by fullUrl so Readiness and ServiceRequest can reference them.
     const goals = [];
@@ -121,16 +95,10 @@ export function bundleToPhpData(bundle) {
                     sessionDate = r.effectiveDateTime.slice(0, 10);
             }
             else if (codeSystem === SNOMED_SYSTEM && codeCode === WHAT_MATTERS_CODE) {
-                // MAP / Sense of Purpose observation. Most-recent-wins across notes.
                 if (r.effectiveDateTime)
                     sessionDate = r.effectiveDateTime.slice(0, 10);
-                if (r.valueString) {
-                    const parsed = parseMapValueString(r.valueString);
-                    if (parsed.map)
-                        map = parsed.map;
-                    if (parsed.what_matters_most)
-                        what_matters_most = parsed.what_matters_most;
-                }
+                if (r.valueString)
+                    map = r.valueString;
             }
             else if (codeSystem === WBS_SYSTEM && codeCode === WBS_PANEL_CODE) {
                 // WBS panel — last occurrence in the bundle is the most recent session.
@@ -160,7 +128,6 @@ export function bundleToPhpData(bundle) {
     return {
         patient,
         session_date: sessionDate,
-        what_matters_most,
         map,
         values: [],
         vision: undefined,

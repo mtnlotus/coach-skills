@@ -38,19 +38,7 @@ export declare const WbsAssessmentSchema: z.ZodObject<{
     functioning?: number | undefined;
     average?: number | undefined;
 }>;
-export declare const MapSchema: z.ZodObject<{
-    mission: z.ZodOptional<z.ZodString>;
-    aspiration: z.ZodOptional<z.ZodString>;
-    purpose: z.ZodOptional<z.ZodString>;
-}, "strip", z.ZodTypeAny, {
-    mission?: string | undefined;
-    aspiration?: string | undefined;
-    purpose?: string | undefined;
-}, {
-    mission?: string | undefined;
-    aspiration?: string | undefined;
-    purpose?: string | undefined;
-}>;
+export declare const MapSchema: z.ZodString;
 export declare const GoalSchema: z.ZodObject<{
     text: z.ZodString;
     goal_type: z.ZodDefault<z.ZodEnum<["long-term", "short-term"]>>;
@@ -97,20 +85,7 @@ export declare const PhpDataSchema: z.ZodObject<{
         birth_date?: string | undefined;
     }>>;
     session_date: z.ZodOptional<z.ZodString>;
-    what_matters_most: z.ZodOptional<z.ZodString>;
-    map: z.ZodOptional<z.ZodObject<{
-        mission: z.ZodOptional<z.ZodString>;
-        aspiration: z.ZodOptional<z.ZodString>;
-        purpose: z.ZodOptional<z.ZodString>;
-    }, "strip", z.ZodTypeAny, {
-        mission?: string | undefined;
-        aspiration?: string | undefined;
-        purpose?: string | undefined;
-    }, {
-        mission?: string | undefined;
-        aspiration?: string | undefined;
-        purpose?: string | undefined;
-    }>>;
+    map: z.ZodOptional<z.ZodString>;
     values: z.ZodDefault<z.ZodArray<z.ZodString, "many">>;
     vision: z.ZodOptional<z.ZodString>;
     strengths: z.ZodDefault<z.ZodArray<z.ZodString, "many">>;
@@ -184,18 +159,13 @@ export declare const PhpDataSchema: z.ZodObject<{
         end_date?: string | undefined;
     }[];
     is_final_session: boolean;
-    map?: {
-        mission?: string | undefined;
-        aspiration?: string | undefined;
-        purpose?: string | undefined;
-    } | undefined;
+    map?: string | undefined;
     session_date?: string | undefined;
     patient?: {
         family: string;
         given: string[];
         birth_date?: string | undefined;
     } | undefined;
-    what_matters_most?: string | undefined;
     vision?: string | undefined;
     wbs?: {
         session_number?: number | undefined;
@@ -207,11 +177,7 @@ export declare const PhpDataSchema: z.ZodObject<{
     } | undefined;
     discharge_plan?: string | undefined;
 }, {
-    map?: {
-        mission?: string | undefined;
-        aspiration?: string | undefined;
-        purpose?: string | undefined;
-    } | undefined;
+    map?: string | undefined;
     values?: string[] | undefined;
     session_date?: string | undefined;
     patient?: {
@@ -219,7 +185,6 @@ export declare const PhpDataSchema: z.ZodObject<{
         given: string[];
         birth_date?: string | undefined;
     } | undefined;
-    what_matters_most?: string | undefined;
     vision?: string | undefined;
     strengths?: string[] | undefined;
     wbs?: {
@@ -246,6 +211,5 @@ export declare const PhpDataSchema: z.ZodObject<{
 }>;
 export type Patient = z.infer<typeof PatientSchema>;
 export type WbsAssessment = z.infer<typeof WbsAssessmentSchema>;
-export type Map = z.infer<typeof MapSchema>;
 export type Goal = z.infer<typeof GoalSchema>;
 export type PhpData = z.infer<typeof PhpDataSchema>;

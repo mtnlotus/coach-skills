@@ -13,12 +13,7 @@ interface RawNote {
     vision: string | null;
     strengths: string[];
     wbs: Partial<WbsAssessment> | null;
-    map: Partial<{
-        mission: string;
-        aspiration: string;
-        purpose: string;
-    }> | null;
-    what_matters_most: string | null;
+    map: string | null;
     long_term_goals: Partial<Goal>[];
     short_term_goals: Partial<Goal>[];
     is_final_session: boolean;

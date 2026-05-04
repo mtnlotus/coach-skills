@@ -45,10 +45,7 @@ export function rawNoteToPhpData(note) {
     return {
         patient,
         session_date: note.session_date ?? undefined,
-        what_matters_most: note.what_matters_most ?? undefined,
-        map: note.map
-            ? { mission: note.map.mission, aspiration: note.map.aspiration, purpose: note.map.purpose }
-            : undefined,
+        map: note.map ?? undefined,
         values: note.values,
         vision: note.vision ?? undefined,
         strengths: note.strengths,
@@ -90,8 +87,7 @@ export function mergeNotes(parsed) {
     let vision;
     let strengths = [];
     let wbs;
-    let mapData = {};
-    let whatMattersMost;
+    let mapText;
     let isFinal = false;
     let dischargePlan;
     // Long-term goals: keyed by text fingerprint (first 60 chars)
@@ -112,14 +108,8 @@ export function mergeNotes(parsed) {
             strengths = note.strengths;
         if (note.wbs)
             wbs = note.wbs;
-        if (note.map) {
-            for (const [k, v] of Object.entries(note.map)) {
-                if (v)
-                    mapData[k] = v;
-            }
-        }
-        if (note.what_matters_most)
-            whatMattersMost = note.what_matters_most;
+        if (note.map)
+            mapText = note.map;
         if (note.is_final_session)
             isFinal = true;
         if (note.discharge_plan)
@@ -182,10 +172,7 @@ export function mergeNotes(parsed) {
     return {
         patient,
         session_date: sessionDate,
-        what_matters_most: whatMattersMost,
-        map: Object.keys(mapData).length > 0
-            ? { mission: mapData.mission, aspiration: mapData.aspiration, purpose: mapData.purpose }
-            : undefined,
+        map: mapText,
         values,
         vision,
         strengths,

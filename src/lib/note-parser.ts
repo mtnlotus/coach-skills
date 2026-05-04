@@ -59,8 +59,7 @@ interface RawNote {
   vision: string | null;
   strengths: string[];
   wbs: Partial<WbsAssessment> | null;
-  map: Partial<{ mission: string; aspiration: string; purpose: string }> | null;
-  what_matters_most: string | null;
+  map: string | null;
   long_term_goals: Partial<Goal>[];
   short_term_goals: Partial<Goal>[];
   is_final_session: boolean;
@@ -140,64 +139,28 @@ export class NoteParser {
     return { average, satisfied, involved, functioning };
   }
 
-  private parseMap(mapIdx: number): [
-    Partial<{ mission: string; aspiration: string; purpose: string }> | null,
-    string | null,
-  ] {
-    let mission: string | undefined;
-    let aspiration: string | undefined;
-    let purpose: string | undefined;
-    const narrativeParts: string[] = [];
+  private parseMap(mapIdx: number): string | null {
+    const segments: string[] = [];
+    let current: string[] = [];
 
     let i = mapIdx + 1;
     while (i < this.n) {
       const p = this.paras[i];
 
+      if (/^(Veteran was seen|VETERANS GOALS|PLAN|ADDITIONAL)/.test(p)) break;
       if (/^Veteran described:/i.test(p)) { i++; continue; }
 
-      if (/^Mission is to/i.test(p)) {
-        const parts = [p];
-        let j = i + 1;
-        while (j < this.n && this.paras[j] && !/^(Aspirations|Purpose:|Veteran was seen)/i.test(this.paras[j])) {
-          parts.push(this.paras[j]);
-          j++;
-        }
-        mission = parts.join(" ");
-        i = j;
-        continue;
+      if (p) {
+        current.push(p);
+      } else if (current.length) {
+        segments.push(current.join(" "));
+        current = [];
       }
-
-      if (/^Aspirations when younger/i.test(p)) {
-        const parts = [p];
-        let j = i + 1;
-        while (j < this.n && this.paras[j] && !/^(Purpose:|Veteran was seen)/i.test(this.paras[j])) {
-          parts.push(this.paras[j]);
-          j++;
-        }
-        aspiration = parts.join(" ");
-        i = j;
-        continue;
-      }
-
-      if (/^Purpose:/i.test(p)) {
-        const m = p.match(/^Purpose:\s*(.+)/i);
-        purpose = m ? m[1].trim() : "";
-        i++;
-        break;
-      }
-
-      if (/^(Veteran was seen|VETERANS GOALS|PLAN|ADDITIONAL)/.test(p)) break;
-
-      if (p) narrativeParts.push(p);
       i++;
     }
 
-    if (mission || aspiration || purpose) {
-      return [{ mission, aspiration, purpose }, null];
-    }
-
-    const narrative = narrativeParts.join(" ").trim() || null;
-    return [null, narrative];
+    if (current.length) segments.push(current.join(" "));
+    return segments.join("\n\n").trim() || null;
   }
 
   private parseLongTermGoals(sectionIdx: number, sectionEnd: number): Partial<Goal>[] {
@@ -344,7 +307,6 @@ export class NoteParser {
       strengths: [],
       wbs: null,
       map: null,
-      what_matters_most: null,
       long_term_goals: [],
       short_term_goals: [],
       is_final_session: false,
@@ -428,9 +390,8 @@ export class NoteParser {
         }
 
       } else if (p.includes("Mission, Aspiration, Purpose (MAP)")) {
-        const [mapObj, narrative] = this.parseMap(i);
-        if (mapObj) result.map = mapObj;
-        if (narrative) result.what_matters_most = narrative;
+        const mapText = this.parseMap(i);
+        if (mapText) result.map = mapText;
 
       } else if (p.includes("This was a final coaching session")) {
         result.is_final_session = true;

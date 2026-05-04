@@ -326,44 +326,11 @@ export class PHPReport {
         this.setY(barH + mm(4));
     }
     _renderMap(php) {
-        const hasMap = php.map && (php.map.mission || php.map.aspiration || php.map.purpose);
-        const hasNarrative = !!php.what_matters_most;
-        if (!hasMap && !hasNarrative)
+        if (!php.map)
             return;
         this._sectionHeader("Mission, Aspiration, Purpose (MAP)", VA_NAVY);
-        if (hasMap) {
-            const { mission, aspiration, purpose } = php.map;
-            if (purpose) {
-                const y = this.getY();
-                const quoteText = `"${purpose}"`;
-                const quoteW = CONTENT_W - INDENT - mm(7);
-                this._font("italic", 11);
-                const nLines = Math.max(1, Math.ceil(this.doc.heightOfString(quoteText, { width: quoteW }) / mm(6)));
-                const barH = nLines * mm(6) + mm(3);
-                this._fillStroke(VA_BLUE);
-                this.doc.rect(L_MARGIN + INDENT, y, mm(2.5), barH).fill();
-                this._fill(VA_NAVY)._font("italic", 11);
-                this.doc.fillColor(VA_NAVY).text(quoteText, L_MARGIN + INDENT + mm(5), y + mm(1.5), {
-                    width: quoteW,
-                    lineGap: 0,
-                });
-                this.setY(y + barH + mm(3));
-            }
-            if (mission) {
-                this._labelValue("Mission", mission);
-                this.ln(mm(1));
-            }
-            if (aspiration) {
-                this._labelValue("Aspiration", aspiration);
-                this.ln(mm(1));
-            }
-        }
-        if (hasNarrative) {
-            if (hasMap)
-                this.ln(mm(1));
-            this._body(php.what_matters_most, "regular", 10, INDENT, DARK_TEXT);
-            this.ln(mm(2));
-        }
+        this._body(php.map, "regular", 10, INDENT, DARK_TEXT);
+        this.ln(mm(2));
     }
     _renderWbs(php) {
         if (!php.wbs)
