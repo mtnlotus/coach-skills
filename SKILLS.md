@@ -201,7 +201,7 @@ directly, without requiring the intermediate `php-data.json`.
 ## Project Structure
 
 ```
-coach-skills/
+coach-notes/
 ├── AGENTS.md                   # AI model instructions
 ├── SKILLS.md                   # This file
 ├── package.json
