@@ -134,11 +134,15 @@ export function mergeNotes(parsed: RawNote[]): PhpData {
     for (let idx = 0; idx < note.short_term_goals.length; idx++) {
       const step = note.short_term_goals[idx];
       const existing = stGoals.get(idx) ?? {};
+      const newText = (step as Record<string, unknown>)["text"];
+      // If the goal text changed at this position, it's a new goal — reset accumulated data
+      const base: Record<string, unknown> =
+        newText != null && newText !== existing["text"] ? {} : existing;
       for (const field of GOAL_FIELDS) {
         const v = (step as Record<string, unknown>)[field];
-        if (v != null) (existing as Record<string, unknown>)[field] = v;
+        if (v != null) base[field] = v;
       }
-      stGoals.set(idx, existing);
+      stGoals.set(idx, base);
     }
   }
 
