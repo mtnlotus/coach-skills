@@ -385,7 +385,6 @@ export class NoteParser {
       } else if (p.includes("WBS Average Score:")) {
         result.wbs = this.parseWbs(i);
         if (result.wbs) {
-          if (result.session_number !== null) result.wbs.session_number = result.session_number;
           if (result.session_date !== null) result.wbs.session_date = result.session_date;
         }
 

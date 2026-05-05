@@ -1,7 +1,6 @@
-# Coach Skills
+# Coach Notes
 
-AI-assisted skills for Health & Wellness Coaches to generate a **Personal
-Health Plan (PHP)** — including a patient-facing PDF and a FHIR R4 Bundle —
+Generate a **Personal Health Plan (PHP)** — including a patient-facing PDF and a FHIR R4 Bundle —
 from clinical progress notes recorded in the EHR.
 
 ---

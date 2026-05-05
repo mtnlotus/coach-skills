@@ -12,7 +12,6 @@ export const PatientSchema = z.object({
 });
 
 export const WbsAssessmentSchema = z.object({
-  session_number: z.number().int().optional(),
   session_date: z.string().optional(), // YYYY-MM-DD
   satisfied: z.number().int().optional(),   // Q1: Fully satisfied (0-10)
   involved: z.number().int().optional(),    // Q2: Regularly involved (0-10)
@@ -37,7 +36,8 @@ export const GoalSchema = z.object({
 
 export const PhpDataSchema = z.object({
   patient: PatientSchema.optional(),
-  session_date: z.string().optional(),      // YYYY-MM-DD date of this note
+  session_number: z.number().int().optional(), // session number from note heading
+  session_date: z.string().optional(),         // YYYY-MM-DD date of this note
   map: MapSchema.optional(),                // Mission, Aspiration, Purpose full text
   values: z.array(z.string()).default([]),
   vision: z.string().optional(),
