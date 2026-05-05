@@ -130,12 +130,15 @@ export function mergeNotes(parsed) {
         for (let idx = 0; idx < note.short_term_goals.length; idx++) {
             const step = note.short_term_goals[idx];
             const existing = stGoals.get(idx) ?? {};
+            const newText = step["text"];
+            // If the goal text changed at this position, it's a new goal — reset accumulated data
+            const base = newText != null && newText !== existing["text"] ? {} : existing;
             for (const field of GOAL_FIELDS) {
                 const v = step[field];
                 if (v != null)
-                    existing[field] = v;
+                    base[field] = v;
             }
-            stGoals.set(idx, existing);
+            stGoals.set(idx, base);
         }
     }
     const goals = [];
