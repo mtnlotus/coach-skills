@@ -362,8 +362,13 @@ export class PHPReport {
             this.ln(mm(4));
         }
     }
-    _renderGoalDetail(goal) {
+    _renderGoalDetail(goal, goalNumber) {
         this.ln(mm(1));
+        if (goalNumber !== undefined) {
+            this._fill(VA_NAVY)._font("bold", 9.5);
+            this.doc.fillColor(VA_NAVY).text(`Goal ${goalNumber}`, L_MARGIN + INDENT, this.getY(), { lineBreak: false });
+            this.ln(SMALL_LINE_H + mm(0.5));
+        }
         // Measure goal box height and decide whether to page-break before drawing.
         this._font("italic", 10);
         const textW = CONTENT_W - INDENT * 2 - mm(4);
@@ -383,6 +388,11 @@ export class PHPReport {
             lineGap: 0,
         });
         this.setY(y + boxH + mm(1));
+        if (goal.start_date) {
+            this._fill(MID_GRAY)._font("regular", 8.5);
+            this.doc.fillColor(MID_GRAY).text(`Starting Date: ${goal.start_date}`, L_MARGIN + INDENT + mm(2), this.getY(), { lineBreak: false });
+            this.ln(SMALL_LINE_H + mm(0.5));
+        }
         this._twoScoreBars("Importance", goal.importance, "Confidence", goal.confidence);
         if (goal.importance_note) {
             this._body(goal.importance_note, "regular", 8.5, INDENT + mm(2), MID_GRAY, mm(0.5));
@@ -407,12 +417,12 @@ export class PHPReport {
         if (longTermGoals.length > 0) {
             this.ln(mm(2));
             this._fill(VA_BLUE)._font("bold", 10);
-            this.doc.fillColor(VA_BLUE).text("Long-Term Goals", L_MARGIN + INDENT, this.getY(), {
+            this.doc.fillColor(VA_BLUE).text("Long-Term Whole Health Goals", L_MARGIN + INDENT, this.getY(), {
                 lineBreak: false,
             });
             this.ln(SMALL_LINE_H + mm(1));
-            for (const goal of longTermGoals) {
-                this._renderGoalDetail(goal);
+            for (let i = 0; i < longTermGoals.length; i++) {
+                this._renderGoalDetail(longTermGoals[i], longTermGoals.length > 1 ? i + 1 : undefined);
             }
         }
         if (shortTermGoals.length > 0) {
@@ -429,12 +439,12 @@ export class PHPReport {
                 this.ln(mm(3));
             }
             this._fill(VA_BLUE)._font("bold", 10);
-            this.doc.fillColor(VA_BLUE).text("Short-Term Goals", L_MARGIN + INDENT, this.getY(), {
+            this.doc.fillColor(VA_BLUE).text("Short-Term Goals (Action Steps)", L_MARGIN + INDENT, this.getY(), {
                 lineBreak: false,
             });
             this.ln(SMALL_LINE_H + mm(1));
-            for (const goal of shortTermGoals) {
-                this._renderGoalDetail(goal);
+            for (let i = 0; i < shortTermGoals.length; i++) {
+                this._renderGoalDetail(shortTermGoals[i], shortTermGoals.length > 1 ? i + 1 : undefined);
             }
         }
     }

@@ -17,21 +17,18 @@ export declare const PatientSchema: z.ZodObject<{
     birth_date?: string | undefined;
 }>;
 export declare const WbsAssessmentSchema: z.ZodObject<{
-    session_number: z.ZodOptional<z.ZodNumber>;
     session_date: z.ZodOptional<z.ZodString>;
     satisfied: z.ZodOptional<z.ZodNumber>;
     involved: z.ZodOptional<z.ZodNumber>;
     functioning: z.ZodOptional<z.ZodNumber>;
     average: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
-    session_number?: number | undefined;
     session_date?: string | undefined;
     satisfied?: number | undefined;
     involved?: number | undefined;
     functioning?: number | undefined;
     average?: number | undefined;
 }, {
-    session_number?: number | undefined;
     session_date?: string | undefined;
     satisfied?: number | undefined;
     involved?: number | undefined;
@@ -84,27 +81,25 @@ export declare const PhpDataSchema: z.ZodObject<{
         given: string[];
         birth_date?: string | undefined;
     }>>;
+    session_number: z.ZodOptional<z.ZodNumber>;
     session_date: z.ZodOptional<z.ZodString>;
     map: z.ZodOptional<z.ZodString>;
     values: z.ZodDefault<z.ZodArray<z.ZodString, "many">>;
     vision: z.ZodOptional<z.ZodString>;
     strengths: z.ZodDefault<z.ZodArray<z.ZodString, "many">>;
     wbs: z.ZodOptional<z.ZodObject<{
-        session_number: z.ZodOptional<z.ZodNumber>;
         session_date: z.ZodOptional<z.ZodString>;
         satisfied: z.ZodOptional<z.ZodNumber>;
         involved: z.ZodOptional<z.ZodNumber>;
         functioning: z.ZodOptional<z.ZodNumber>;
         average: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
-        session_number?: number | undefined;
         session_date?: string | undefined;
         satisfied?: number | undefined;
         involved?: number | undefined;
         functioning?: number | undefined;
         average?: number | undefined;
     }, {
-        session_number?: number | undefined;
         session_date?: string | undefined;
         satisfied?: number | undefined;
         involved?: number | undefined;
@@ -166,9 +161,9 @@ export declare const PhpDataSchema: z.ZodObject<{
         given: string[];
         birth_date?: string | undefined;
     } | undefined;
+    session_number?: number | undefined;
     vision?: string | undefined;
     wbs?: {
-        session_number?: number | undefined;
         session_date?: string | undefined;
         satisfied?: number | undefined;
         involved?: number | undefined;
@@ -185,10 +180,10 @@ export declare const PhpDataSchema: z.ZodObject<{
         given: string[];
         birth_date?: string | undefined;
     } | undefined;
+    session_number?: number | undefined;
     vision?: string | undefined;
     strengths?: string[] | undefined;
     wbs?: {
-        session_number?: number | undefined;
         session_date?: string | undefined;
         satisfied?: number | undefined;
         involved?: number | undefined;

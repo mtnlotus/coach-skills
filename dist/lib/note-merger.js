@@ -44,6 +44,7 @@ export function rawNoteToPhpData(note) {
     }
     return {
         patient,
+        session_number: note.session_number ?? undefined,
         session_date: note.session_date ?? undefined,
         map: note.map ?? undefined,
         values: note.values,
@@ -82,6 +83,7 @@ export function sortNotes(notes) {
 export function mergeNotes(parsed) {
     const sorted = sortNotes(parsed);
     let patient;
+    let sessionNumber;
     let sessionDate;
     let values = [];
     let vision;
@@ -98,6 +100,8 @@ export function mergeNotes(parsed) {
         if (note.patient_name && !patient) {
             patient = parsePatientName(note.patient_name);
         }
+        if (note.session_number != null)
+            sessionNumber = note.session_number;
         if (note.session_date)
             sessionDate = note.session_date;
         if (note.values.length > 0)
@@ -174,6 +178,7 @@ export function mergeNotes(parsed) {
     }
     return {
         patient,
+        session_number: sessionNumber,
         session_date: sessionDate,
         map: mapText,
         values,
